@@ -1,7 +1,5 @@
-[gd_scene load_steps=2 format=3 uid="uid://cuficxq6fjxk"]
+[gd_scene load_steps=2 format=3 uid="uid://clbcjnkl5rxdc"]
 
-[ext_resource type="Script" uid="uid://bs0oumokhkikv" path="res://Scripts/segment.gd" id="1_4jwj4"]
+[ext_resource type="PackedScene" uid="uid://dvwd0fq5m3tuv" path="res://Scenes/Segment.tscn" id="1_858cd"]
 
-[node name="Segment0" type="Node2D"]
-script = ExtResource("1_4jwj4")
-metadata/_custom_type_script = "uid://bs0oumokhkikv"
+[node name="Segment" instance=ExtResource("1_858cd")]
