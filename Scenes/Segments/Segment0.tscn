@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuficxq6fjxk"]
+
+[ext_resource type="Script" uid="uid://bs0oumokhkikv" path="res://Scripts/segment.gd" id="1_4jwj4"]
+
+[node name="Segment0" type="Node2D"]
+script = ExtResource("1_4jwj4")
+metadata/_custom_type_script = "uid://bs0oumokhkikv"
