@@ -1,4 +1,6 @@
 extends Node2D
 
-func _physics_process(delta: float) -> void:
-	$CamController.position.x += 100 * delta;
+@onready var speed = Gamespeed.speed;
+
+func _process(delta: float) -> void:
+	$CamController.position.x += speed * delta

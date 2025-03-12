@@ -1,4 +1,4 @@
 extends Node2D
 
-@export var width : int = -1;
+@onready var width = $MainTilemap.get_used_rect().size.x
 var difficulty : String = "undefined";

@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
 @onready var animation = $AnimatedSprite2D
+@onready var camController = get_parent()
 
-const SPEED = 100.0
+const SPEED = 100
 const JUMP_VELOCITY = -300.0
 
 
@@ -20,14 +21,17 @@ func _physics_process(delta):
 	var direction = Input.get_axis("Left", "Right")
 	if direction:
 		animation.play("Running")
-		velocity.x = direction * SPEED
+		if direction > 0 && position.x < 750:
+			velocity.x = SPEED
+		if direction < 0 && position.x > 50:
+			velocity.x = -SPEED - Gamespeed.speed
 	else:
 		animation.play("Idle")
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = 0
 	
 	if direction<0:
 		animation.flip_h=true
 	else:
-		animation.flip_h=false
+		animation.flip_h = false
 		
 	move_and_slide()

@@ -14,6 +14,10 @@ config/name="Resonant Runners"
 run/main_scene="uid://bt1k50fibwooe"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
+[autoload]
+
+Gamespeed="*res://Scripts/gamespeed.gd"
+
 [input]
 
 Jump={
