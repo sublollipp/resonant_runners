@@ -19,3 +19,4 @@ position = Vector2(40, -48)
 [node name="SegmentSpawner" type="Node2D" parent="."]
 
 script = ExtResource("3_i6njh")
+
