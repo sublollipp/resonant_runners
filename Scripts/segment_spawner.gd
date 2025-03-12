@@ -1,9 +1,11 @@
 extends Node2D
 var totalWidth : int
 var segmentsList = []
-@onready var camera_2d = $"../CamController/Camera2D"
+@onready var cam_controller = $"../CamController" #denne opdateres ikke
 var file_count = 0
 var rng = RandomNumberGenerator.new()
+
+#SLET SEGMENTER
 
 func load_segments():  
 	var dir = DirAccess.open("res://Scenes/Segments/")
@@ -26,6 +28,11 @@ func add_segment():
 	newInstance.position.x += totalWidth
 	totalWidth+=newInstance.width
 		
+func remove_segment():
+	for currentSegment in get_children():
+		if cam_controller.position.x > currentSegment.position.x + currentSegment.width + 100:
+			print("free")
+			currentSegment.queue_free()
 		
 	
 
@@ -35,9 +42,10 @@ func _ready():
 	add_child(firstInstance)
 	totalWidth += firstInstance.width
 	
+	
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if camera_2d.position.x > totalWidth - 2000:
+	if cam_controller.position.x > totalWidth - 1000:
 		add_segment()
+	remove_segment()

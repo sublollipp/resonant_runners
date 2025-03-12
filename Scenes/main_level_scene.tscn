@@ -1,13 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bt1k50fibwooe"]
 
-[ext_resource type="Script" uid="uid://0388g82ye83f" path="res://Scripts/gamescript.gd" id="1_45vkp"]
-
 [ext_resource type="Script" uid="uid://drfmsmg3robd3" path="res://Scripts/gamescript.gd" id="1_45vkp"]
-[ext_resource type="PackedScene" uid="uid://blc0rtkixs7ul" path="res://Scenes/Segments/segment0.tscn" id="2_dk548"]
 [ext_resource type="PackedScene" uid="uid://brt6tra12ee8e" path="res://Scenes/player.tscn" id="2_r4ohu"]
-[ext_resource type="PackedScene" uid="uid://bhm3mn34tmtcb" path="res://Scenes/Segments/segment1.tscn" id="3_45vkp"]
-[ext_resource type="PackedScene" uid="uid://c4xujv77t47oh" path="res://Scenes/Segments/segment2.tscn" id="4_i6njh"]
-[ext_resource type="PackedScene" uid="uid://bhy0sd32e0ov5" path="res://Scenes/Segments/segment3.tscn" id="5_r2c11"]
 [ext_resource type="Script" uid="uid://cwuklv4bl5blt" path="res://Scripts/segment_spawner.gd" id="3_i6njh"]
 
 [node name="MainLevelScene" type="Node2D"]
@@ -23,5 +17,4 @@ zoom = Vector2(3, 3)
 position = Vector2(40, -48)
 
 [node name="SegmentSpawner" type="Node2D" parent="."]
-
 script = ExtResource("3_i6njh")
