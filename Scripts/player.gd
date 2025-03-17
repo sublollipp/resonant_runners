@@ -12,7 +12,6 @@ class_name Player extends CharacterBody2D
 const SPEED : float = 100
 const JUMP_VELOCITY : float = -300.0
 
-var is_on_crouching_player : bool = false
 var is_on_player : bool = false
 var is_crouching : bool = false
 
@@ -42,37 +41,27 @@ func _physics_process(delta) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle jump.
 	is_on_player = false
-	is_on_crouching_player = false
 	
+	# Superjump kode
 	if ray_cast_2.is_colliding() && ray_cast_2.get_collider().is_in_group("players"):
 		var collider = ray_cast_2.get_collider()
 		is_on_player = true
 		
 		if collider.is_crouching:
-			is_on_crouching_player = true
-	
-	if ray_cast.is_colliding() && ray_cast.get_collider().is_in_group("players"):
+			velocity.y = JUMP_VELOCITY*1.5
+	elif ray_cast.is_colliding() && ray_cast.get_collider().is_in_group("players"): # Sat ind i elif for optimization
 		var collider = ray_cast.get_collider()
-
-		
+			
 		if collider.is_in_group("players"):
 			is_on_player = true
 			
 			if collider.is_crouching:
-				is_on_crouching_player = true
-		else: 
-			is_on_player = false
-			is_on_crouching_player = false
-	
+				velocity.y = JUMP_VELOCITY*1.5
+
 			
 	if Input.is_action_just_pressed(jumpKey) and !is_crouching:
-		
-		if is_on_crouching_player:
-			velocity.y = JUMP_VELOCITY*1.5
-			
-		elif is_on_floor() and !is_on_player:
+		if is_on_floor() and !is_on_player:
 			velocity.y = JUMP_VELOCITY
 			
 	var direction : float = Input.get_axis(leftKey, rightKey)
