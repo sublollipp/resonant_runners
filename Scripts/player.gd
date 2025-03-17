@@ -34,6 +34,20 @@ func set_as_player_two() -> void:
 func velocityPositionReset() -> void:
 	velocity.x = 0
 
+func _input(event) -> void:
+	if event.is_action_pressed(jumpKey) && is_on_floor() and !is_on_player:
+		velocity.y = JUMP_VELOCITY
+		
+	if event.is_action_pressed(crouchKey):
+		is_crouching = true
+		velocity.x = -Gamespeed.speed
+		animation.play("Crouching")
+		collision_shape_2d.shape.size.y = start_collision_shape_height-5
+		
+	if event.is_action_released(crouchKey):  #ineffektiv kode skal være on release istedet
+		is_crouching = false
+		collision_shape_2d.shape.size.y = start_collision_shape_height
+
 
 func _physics_process(delta) -> void:
 	# Add the gravity.
@@ -43,7 +57,7 @@ func _physics_process(delta) -> void:
 
 	is_on_player = false
 	
-	# Superjump kode
+	# Superjump kodewd
 	if ray_cast_2.is_colliding() && ray_cast_2.get_collider().is_in_group("players"):
 		var collider = ray_cast_2.get_collider()
 		is_on_player = true
@@ -58,11 +72,6 @@ func _physics_process(delta) -> void:
 			
 			if collider.is_crouching:
 				velocity.y = JUMP_VELOCITY*1.5
-
-			
-	if Input.is_action_just_pressed(jumpKey) and !is_crouching:
-		if is_on_floor() and !is_on_player:
-			velocity.y = JUMP_VELOCITY
 			
 	var direction : float = Input.get_axis(leftKey, rightKey)
 	
@@ -92,7 +101,7 @@ func _physics_process(delta) -> void:
 		
 	if Input.is_action_pressed(crouchKey):
 		is_crouching = true
-		velocity.x =  -Gamespeed.speed
+		velocity.x = -Gamespeed.speed
 		animation.play("Crouching")
 		collision_shape_2d.shape.size.y = start_collision_shape_height-5
 		
