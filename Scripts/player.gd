@@ -76,7 +76,6 @@ func _physics_process(delta) -> void:
 	var direction : float = Input.get_axis(leftKey, rightKey)
 	
 	if direction:
-		print(position.x)
 		animation.play("Running")
 		
 		if direction > 0:
@@ -108,5 +107,4 @@ func _physics_process(delta) -> void:
 	if Input.is_action_just_released(crouchKey):  #ineffektiv kode skal være on release istedet
 		is_crouching = false
 		collision_shape_2d.shape.size.y = start_collision_shape_height
-
 	move_and_slide()
