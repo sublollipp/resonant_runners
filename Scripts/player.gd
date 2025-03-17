@@ -61,28 +61,19 @@ func _physics_process(delta) -> void:
 			velocity.y = JUMP_VELOCITY
 			
 			
-	if Input.is_action_pressed(crouchKey):
-		is_crouching = true
-		velocity.x -=  Gamespeed.speed
-		animation.play("Crouching")
-		collision_shape_2d.shape.size.y = start_collision_shape_height-5
-	else: #ineffektiv kode skal være on release istedet
-		is_crouching = false
-		collision_shape_2d.shape.size.y = start_collision_shape_height
 	
 	
 	var direction : float = Input.get_axis(leftKey, rightKey)
 	
 	if direction:
-		if !is_crouching:
-			print(position.x)
-			animation.play("Running")
-			if direction > 0:
-				velocity.x = SPEED
-			elif direction < 0:
-				velocity.x = -SPEED - Gamespeed.speed
-			else:
-				velocityPositionReset()
+		print(position.x)
+		animation.play("Running")
+		if direction > 0:
+			velocity.x = SPEED
+		elif direction < 0:
+			velocity.x = -SPEED - Gamespeed.speed
+		else:
+			velocityPositionReset()
 	else:
 		animation.play("Idle")
 		velocityPositionReset()
@@ -92,6 +83,16 @@ func _physics_process(delta) -> void:
 		animation.flip_h=true
 	else:
 		animation.flip_h = false
+		
+	if Input.is_action_pressed(crouchKey):
+		is_crouching = true
+		velocity.x =  -Gamespeed.speed
+		animation.play("Crouching")
+		collision_shape_2d.shape.size.y = start_collision_shape_height-5
+	else: #ineffektiv kode skal være on release istedet
+		is_crouching = false
+		collision_shape_2d.shape.size.y = start_collision_shape_height
+	
 		
 	
 		
