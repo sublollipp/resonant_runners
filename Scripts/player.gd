@@ -24,18 +24,16 @@ var jumpKey : String = "Jump"
 var crouchKey : String = "Crouch"
 
 
-	
-	
 func set_as_player_two() -> void:
 	player2 = true
 	leftKey = "2Left"
 	rightKey = "2Right"
 	jumpKey = "2Jump"
 	crouchKey = "2Crouch"
-	
+
+
 func velocityPositionReset() -> void:
 	velocity.x = 0
-
 
 
 func _physics_process(delta) -> void:
@@ -57,32 +55,41 @@ func _physics_process(delta) -> void:
 	
 	if ray_cast.is_colliding() && ray_cast.get_collider().is_in_group("players"):
 		var collider = ray_cast.get_collider()
-		is_on_player = true
+
 		
-		if collider.is_crouching:
-			is_on_crouching_player = true
+		if collider.is_in_group("players"):
+			is_on_player = true
+			
+			if collider.is_crouching:
+				is_on_crouching_player = true
+		else: 
+			is_on_player = false
+			is_on_crouching_player = false
 	
-	if is_on_crouching_player: #checker ikke om den player er crouching, tilader at hoppe på andre i alle tilfælde
-		velocity.y = JUMP_VELOCITY * 1.5
 			
 	if Input.is_action_just_pressed(jumpKey) and !is_crouching:
-		if is_on_floor() and !is_on_player:
+		
+		if is_on_crouching_player:
+			velocity.y = JUMP_VELOCITY*1.5
+			
+		elif is_on_floor() and !is_on_player:
 			velocity.y = JUMP_VELOCITY
 			
-			
-	
-	
 	var direction : float = Input.get_axis(leftKey, rightKey)
 	
 	if direction:
 		print(position.x)
 		animation.play("Running")
+		
 		if direction > 0:
 			velocity.x = SPEED
+			
 		elif direction < 0:
 			velocity.x = -SPEED - Gamespeed.speed
+			
 		else:
 			velocityPositionReset()
+			
 	else:
 		animation.play("Idle")
 		velocityPositionReset()
@@ -90,6 +97,7 @@ func _physics_process(delta) -> void:
 	
 	if direction<0:
 		animation.flip_h=true
+		
 	else:
 		animation.flip_h = false
 		
@@ -98,12 +106,9 @@ func _physics_process(delta) -> void:
 		velocity.x =  -Gamespeed.speed
 		animation.play("Crouching")
 		collision_shape_2d.shape.size.y = start_collision_shape_height-5
+		
 	if Input.is_action_just_released(crouchKey):  #ineffektiv kode skal være on release istedet
 		is_crouching = false
 		collision_shape_2d.shape.size.y = start_collision_shape_height
-	
-		
-	
-		
-		
+
 	move_and_slide()
