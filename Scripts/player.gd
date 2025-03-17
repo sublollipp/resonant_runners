@@ -4,6 +4,7 @@ class_name Player extends CharacterBody2D
 @onready var camController : Node2D = get_parent()
 
 @onready var ray_cast = $RayCast2D
+@onready var ray_cast_2 = $RayCast2D2
 @onready var collision_shape_2d = $CollisionShape2D
 
 @onready var start_collision_shape_height = collision_shape_2d.shape.size.y
@@ -44,20 +45,28 @@ func _physics_process(delta) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if ray_cast.is_colliding(): #checker ikke om den player er crouching, tilader at hoppe på andre i alle tilfælde
+	is_on_player = false
+	is_on_crouching_player = false
+	
+	if ray_cast_2.is_colliding() && ray_cast_2.get_collider().is_in_group("players"):
+		var collider = ray_cast_2.get_collider()
+		is_on_player = true
+		
+		if collider.is_crouching:
+			is_on_crouching_player = true
+	
+	if ray_cast.is_colliding() && ray_cast.get_collider().is_in_group("players"):
 		var collider = ray_cast.get_collider()
-		if collider.is_in_group("players"):
-			is_on_player=true
-			if collider.is_crouching:
-				is_on_crouching_player = true
-		else: 
-			is_on_player = false
-			is_on_crouching_player = false
+		is_on_player = true
+		
+		if collider.is_crouching:
+			is_on_crouching_player = true
+	
+	if is_on_crouching_player: #checker ikke om den player er crouching, tilader at hoppe på andre i alle tilfælde
+		velocity.y = JUMP_VELOCITY * 1.5
 			
 	if Input.is_action_just_pressed(jumpKey) and !is_crouching:
-		if is_on_crouching_player:
-			velocity.y = JUMP_VELOCITY*1.5
-		elif is_on_floor() and !is_on_player:
+		if is_on_floor() and !is_on_player:
 			velocity.y = JUMP_VELOCITY
 			
 			
