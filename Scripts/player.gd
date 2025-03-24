@@ -99,5 +99,5 @@ func _physics_process(delta) -> void:
 	if Input.is_action_just_released(crouchKey):  #ineffektiv kode skal være on release istedet
 		is_crouching = false
 		collision_shape_2d.shape.size.y = start_collision_shape_height
-
+	
 	move_and_slide()

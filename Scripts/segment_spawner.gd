@@ -17,8 +17,6 @@ func load_segments():
 			if file.ends_with(".tscn"):
 				file_count += 1
 			segmentsList.append(load("res://Scenes/Segments/"+file))
-	
-
 
 func add_segment():
 	rng.randomize()

@@ -1,3 +1,57 @@
-[gd_scene format=3 uid="uid://bynofoxtwx160"]
+[gd_scene load_steps=4 format=3 uid="uid://bynofoxtwx160"]
+
+[ext_resource type="Script" uid="uid://btyrt4cb6aytk" path="res://Scripts/UI/enter_username.gd" id="1_edyhh"]
+[ext_resource type="FontFile" uid="uid://3e2nchtdogv" path="res://Assets/PixelOperator8.ttf" id="2_t4aim"]
+[ext_resource type="FontFile" uid="uid://b0ba52ukqgt87" path="res://Assets/PixelOperator8-Bold.ttf" id="3_ubn8w"]
 
 [node name="EnterUsername" type="Node2D"]
+script = ExtResource("1_edyhh")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="LineEdit" type="LineEdit" parent="Control"]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 366.0
+offset_right = 755.0
+offset_bottom = 450.0
+theme_override_fonts/font = ExtResource("2_t4aim")
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Enter username"
+
+[node name="Header" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 150.0
+offset_right = 766.0
+offset_bottom = 278.0
+theme_override_fonts/font = ExtResource("3_ubn8w")
+theme_override_font_sizes/font_size = 40
+text = "Username"
+horizontal_alignment = 1
+
+[node name="SubHeader" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 273.0
+offset_top = 275.0
+offset_right = 873.0
+offset_bottom = 317.0
+theme_override_fonts/font = ExtResource("2_t4aim")
+theme_override_font_sizes/font_size = 24
+text = "Make a cool and uniqe username!"
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 772.0
+offset_top = 365.0
+offset_right = 918.0
+offset_bottom = 452.0
+theme_override_fonts/font = ExtResource("2_t4aim")
+theme_override_font_sizes/font_size = 24
+text = "Continue"
+
+[connection signal="button_down" from="Control/Button" to="." method="_on_button_button_down"]
