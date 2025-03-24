@@ -9,11 +9,15 @@ class_name Player extends CharacterBody2D
 
 @onready var start_collision_shape_height = collision_shape_2d.shape.size.y
 
+var color = "Cyan"
+
 const SPEED : float = 100
 const JUMP_VELOCITY : float = -300.0
 
 var is_on_player : bool = false
 var is_crouching : bool = false
+
+signal portalTouched
 
 # Dette styrer spiller-to relaterede ting. De to inputs er navne på actions, der senere i koden kobles til bevægelse. Skal kunne ændres til piletaster for debug spiller 2.
 var player2 : bool = false
@@ -22,15 +26,15 @@ var rightKey : String = "Right"
 var jumpKey : String = "Jump"
 var crouchKey : String = "Crouch"
 
-var inPortal : bool = false
-
 func set_as_player_two() -> void:
 	player2 = true
+	set_collision_mask_value(6, false)
+	set_collision_mask_value(7, true)
+	color = "Orange"
 	leftKey = "2Left"
 	rightKey = "2Right"
 	jumpKey = "2Jump"
 	crouchKey = "2Crouch"
-
 
 func velocityPositionReset() -> void:
 	velocity.x = 0

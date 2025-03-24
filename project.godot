@@ -26,6 +26,7 @@ window/vsync/vsync_mode=0
 [global_group]
 
 players=""
+PortalCollider="StaticBodien i en ColorGate/Portal"
 
 [input]
 
@@ -92,6 +93,9 @@ Pause={
 2d_physics/layer_3="Interactives"
 2d_physics/layer_4="Hurties"
 2d_physics/layer_5="Limits"
+2d_physics/layer_6="Cyan"
+2d_physics/layer_7="Orange"
+2d_physics/layer_8="Portal"
 
 [rendering]
 
