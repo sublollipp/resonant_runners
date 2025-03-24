@@ -29,7 +29,6 @@ func add_segment():
 func remove_segment():
 	for currentSegment in get_children():
 		if cam_controller.position.x > currentSegment.position.x + currentSegment.width + 300:
-			print("free")
 			currentSegment.queue_free()
 		
 	

@@ -22,6 +22,7 @@ var rightKey : String = "Right"
 var jumpKey : String = "Jump"
 var crouchKey : String = "Crouch"
 
+var inPortal : bool = false
 
 func set_as_player_two() -> void:
 	player2 = true

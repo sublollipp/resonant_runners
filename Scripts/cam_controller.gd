@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	for player : Player in get_tree().get_nodes_in_group("players"):
 		playerCount += 1
 		totalPos += player.position.x - centerx
-		print("Position: ", player.position.x)
+		#print("Position: ", player.position.x)
 	if playerCount:
 		positionOffset = round((totalPos / playerCount) * rangeScale)
 	$Camera2D.offset.x = lerp($Camera2D.offset.x, positionOffset, 0.2 * delta)

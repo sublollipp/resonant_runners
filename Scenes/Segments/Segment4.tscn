@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=4 uid="uid://guwof1cw50js"]
+
+[ext_resource type="PackedScene" uid="uid://dvwd0fq5m3tuv" path="res://Scenes/Segment.tscn" id="1_l4u14"]
+[ext_resource type="PackedScene" uid="uid://cnr48rwddailu" path="res://Scenes/color_gate.tscn" id="2_1231b"]
+
+[node name="Segment" instance=ExtResource("1_l4u14")]
+
+[node name="MainTilemap" parent="." index="0"]
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAABAAAAAAACAAAAAAACAAAAAAACAAAAAAADAAAAAAACAAAAAAAEAAAAAAACAAAAAAAFAAAAAAACAAAAAAAGAAAAAAACAAAAAAAHAAAAAAACAAAAAAAIAAAAAAACAAAAAAAJAAAAAAACAAAAAAAKAAAAAAACAAAAAAALAAAAAAACAAAAAAAMAAAAAAACAAAAAAANAAAAAAACAAAAAAAOAAAAAAACAAAAAAAPAAAAAAACAAAAAAAQAAAAAAACAAAAAAARAAAAAAACAAAAAAASAAAAAAACAAAAAAATAAAAAAACAAAAAAAUAAAAAAACAAAAAAAVAAAAAAACAAAAAAAWAAAAAAACAAAAAAA=")
+
+[node name="ColorGate" parent="." index="1" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_1231b")]
+position = Vector2(74, -32)
+points = PackedVector2Array(19, -22, 26, 15)
+default_color = Color(1, 0.647059, 0, 1)
+color = "Orange"
+pairedPortal = NodePath("../ColorGate2")
+
+[node name="ColorGate2" parent="." index="2" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_1231b")]
+position = Vector2(231, -126)
+default_color = Color(1, 0.647059, 0, 1)
+color = "Orange"
+pairedPortal = NodePath("../ColorGate")
+
+[editable path="ColorGate"]
+[editable path="ColorGate2"]
