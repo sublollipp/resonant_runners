@@ -48,6 +48,12 @@ func _input(event) -> void:
 	if event.is_action_released(crouchKey):  #ineffektiv kode skal være on release istedet
 		is_crouching = false
 		collision_shape_2d.shape.size.y = start_collision_shape_height
+	
+	if event.is_action_pressed("Pause"):
+		if is_physics_processing():
+			set_physics_process(false)
+		else:
+			set_physics_process(true)
 
 
 func _physics_process(delta) -> void:

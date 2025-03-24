@@ -9,17 +9,13 @@
 tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAABAAAAAAACAAAAAAACAAAAAAACAAAAAAADAAAAAAACAAAAAAAEAAAAAAACAAAAAAAFAAAAAAACAAAAAAAGAAAAAAACAAAAAAAHAAAAAAACAAAAAAAIAAAAAAACAAAAAAAJAAAAAAACAAAAAAAKAAAAAAACAAAAAAALAAAAAAACAAAAAAAMAAAAAAACAAAAAAANAAAAAAACAAAAAAAOAAAAAAACAAAAAAAPAAAAAAACAAAAAAAQAAAAAAACAAAAAAARAAAAAAACAAAAAAASAAAAAAACAAAAAAATAAAAAAACAAAAAAAUAAAAAAACAAAAAAAVAAAAAAACAAAAAAAWAAAAAAACAAAAAAA=")
 
 [node name="ColorGate" parent="." index="1" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_1231b")]
-position = Vector2(74, -32)
-points = PackedVector2Array(19, -22, 26, 15)
-default_color = Color(1, 0.647059, 0, 1)
-color = "Orange"
+position = Vector2(100, -57)
+points = PackedVector2Array(55, -41, 64, -1)
+default_color = Color(0, 1, 1, 1)
 pairedPortal = NodePath("../ColorGate2")
 
 [node name="ColorGate2" parent="." index="2" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_1231b")]
-position = Vector2(231, -126)
-default_color = Color(1, 0.647059, 0, 1)
-color = "Orange"
+position = Vector2(136, -36)
+points = PackedVector2Array(110, -44, 64, -1)
+default_color = Color(0, 1, 1, 1)
 pairedPortal = NodePath("../ColorGate")
-
-[editable path="ColorGate"]
-[editable path="ColorGate2"]
