@@ -20,14 +20,15 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		inPortal = true
 		previousPortal = portal
 		player.global_position = (portal.pairedPortal.global_position + portal.pairedPortal.points[0] + (portal.pairedPortal.points[1] - portal.pairedPortal.points[0]) / 2)
-		print(portal.pairedPortal.global_position + portal.pairedPortal.points[0] + (portal.pairedPortal.points[1] - portal.pairedPortal.points[0]) / 2)
 
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	print("EXITEDddddddddddd")
-	if previousPortal && inPortal:
+	if previousPortal:
 		if body.is_in_group("PortalCollider"):
 			var portal : ColorGate = body.get_parent()
 			if portal.pairedPortal == previousPortal:
 				inPortal = false
+			else:
+				print("Denne her portal har jeg altså lige teleporteret til, makker")
