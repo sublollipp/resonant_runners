@@ -119,3 +119,4 @@ func _physics_process(delta) -> void:
 		is_crouching = false
 		collision_shape_2d.shape.size.y = start_collision_shape_height
 	move_and_slide()
+	$PortalHandler.checkIfInPortal()

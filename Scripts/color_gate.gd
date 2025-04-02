@@ -2,6 +2,8 @@
 class_name ColorGate extends Line2D
 
 var lineColor : Color = Color.WHITE
+var angle : float = 0 # Portalens vinkel med vandret
+var flipOutput : bool = false
 
 func _ready() -> void:
 	var colShape = CollisionShape2D.new()
@@ -34,7 +36,6 @@ func _ready() -> void:
 @export var pairedPortal : ColorGate: ## Portalen, denne portal skal parres med
 	set(newPaired):
 		if newPaired is not ColorGate:
-			print("Reset")
 			if pairedPortal.pairedPortal == self:
 				var tempPort = pairedPortal
 				pairedPortal = newPaired
@@ -42,7 +43,6 @@ func _ready() -> void:
 			else:
 				pairedPortal = newPaired
 		elif newPaired.pairedPortal != self:
-			print("eliffen kørte")
 			pairedPortal = newPaired
 			newPaired.color = color
 			newPaired.pairedPortal = self
