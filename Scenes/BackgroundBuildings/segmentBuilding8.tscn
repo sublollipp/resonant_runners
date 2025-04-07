@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=4 uid="uid://k4yo3m2vcdhk"]
 
 [ext_resource type="Script" uid="uid://bs0oumokhkikv" path="res://Scripts/segment.gd" id="1_s0x57"]
-[ext_resource type="Texture2D" uid="uid://dh0oob75dbdxf" path="res://Assets/RRtilemap1.png" id="2_eye7c"]
+[ext_resource type="Texture2D" uid="uid://dh0oob75dbdxf" path="res://Assets/Background-tileset/RRtilemap1.png" id="2_eye7c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qqp23"]
 texture = ExtResource("2_eye7c")

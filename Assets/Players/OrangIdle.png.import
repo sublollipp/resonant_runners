@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccirrsoqgqc44"
-path="res://.godot/imported/DemoBackground.png-3f050af4a66ede171d7dd1fba27be1af.ctex"
+uid="uid://bdx2hja12haag"
+path="res://.godot/imported/OrangIdle.png-aa16d33278ae2cfc81b9b54f5d738e97.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/DemoBackground.png"
-dest_files=["res://.godot/imported/DemoBackground.png-3f050af4a66ede171d7dd1fba27be1af.ctex"]
+source_file="res://Assets/Players/OrangIdle.png"
+dest_files=["res://.godot/imported/OrangIdle.png-aa16d33278ae2cfc81b9b54f5d738e97.ctex"]
 
 [params]
 

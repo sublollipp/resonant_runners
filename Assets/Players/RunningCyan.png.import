@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dh0oob75dbdxf"
-path="res://.godot/imported/RRtilemap1.png-60544c72b6656fd2cd1174d52fb12a9b.ctex"
+uid="uid://c3gdka3i3kls0"
+path="res://.godot/imported/RunningCyan.png-81b4115025f3a3661155eeed4caa8882.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/RRtilemap1.png"
-dest_files=["res://.godot/imported/RRtilemap1.png-60544c72b6656fd2cd1174d52fb12a9b.ctex"]
+source_file="res://Assets/Players/RunningCyan.png"
+dest_files=["res://.godot/imported/RunningCyan.png-81b4115025f3a3661155eeed4caa8882.ctex"]
 
 [params]
 

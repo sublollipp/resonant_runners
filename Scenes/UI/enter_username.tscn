@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bynofoxtwx160"]
 
 [ext_resource type="Script" uid="uid://btyrt4cb6aytk" path="res://Scripts/UI/enter_username.gd" id="1_edyhh"]
-[ext_resource type="FontFile" uid="uid://3e2nchtdogv" path="res://Assets/PixelOperator8.ttf" id="2_t4aim"]
-[ext_resource type="FontFile" uid="uid://b0ba52ukqgt87" path="res://Assets/PixelOperator8-Bold.ttf" id="3_ubn8w"]
+[ext_resource type="FontFile" uid="uid://3e2nchtdogv" path="res://Assets/Fonts/PixelOperator8.ttf" id="2_t4aim"]
+[ext_resource type="FontFile" uid="uid://b0ba52ukqgt87" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="3_ubn8w"]
 
 [node name="EnterUsername" type="Node2D"]
 script = ExtResource("1_edyhh")

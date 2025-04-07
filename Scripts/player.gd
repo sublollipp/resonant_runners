@@ -88,7 +88,8 @@ func _physics_process(delta) -> void:
 	var direction : float = Input.get_axis(leftKey, rightKey)
 	
 	if direction:
-		animation.play("Running")
+		animation.play("Running"+color)
+		animation.sprite_frames.set_animation_speed("Running"+color, 10)
 		
 		if direction > 0:
 			#SPEED (er desiret speed i løb, velocetyen er current speed, derfor hvis man trækker dem fra hindanden finder man forksellen og kan dermed tilføjde den istedet for at sætte
@@ -110,7 +111,9 @@ func _physics_process(delta) -> void:
 				velocityPositionReset()
 			
 	else:
-		animation.play("Idle")
+		animation.play("Runing"+color)
+		animation.sprite_frames.set_animation_speed("Running"+color, 6)
+
 		if is_on_floor():
 			velocityPositionReset()
 		
@@ -121,10 +124,10 @@ func _physics_process(delta) -> void:
 	else:
 		animation.flip_h = false
 		
-	if Input.is_action_pressed(crouchKey):
+	if Input.is_action_pressed(crouchKey): #HVORFOR ER DER CROUCH LOGIK TO STEDER?!!!
 		is_crouching = true
 		velocity.x = -Gamespeed.speed
-		animation.play("Crouching")
+		animation.play("Crouching"+color)
 		collision_shape_2d.shape.size.y = start_collision_shape_height-5
 		
 	if Input.is_action_just_released(crouchKey):  #ineffektiv kode skal være on release istedet
