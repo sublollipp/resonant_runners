@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bt1k50fibwooe"]
+[gd_scene load_steps=7 format=3 uid="uid://bt1k50fibwooe"]
 
 [ext_resource type="Script" uid="uid://drfmsmg3robd3" path="res://Scripts/gamescript.gd" id="1_45vkp"]
 [ext_resource type="Script" uid="uid://cypdhfdtsryu4" path="res://Scripts/cam_controller.gd" id="2_kk53g"]
 [ext_resource type="Script" uid="uid://cwuklv4bl5blt" path="res://Scripts/segment_spawner.gd" id="3_i6njh"]
+[ext_resource type="Script" uid="uid://b627uw6yqaepo" path="res://Scripts/background_handler.gd" id="4_acrce"]
+[ext_resource type="Texture2D" uid="uid://c7p540yisknb5" path="res://Assets/Background.png" id="5_dk548"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4ohu"]
 size = Vector2(56, 396)
@@ -39,3 +41,15 @@ shape = SubResource("RectangleShape2D_r4ohu")
 
 [node name="SegmentSpawner" type="Node2D" parent="."]
 script = ExtResource("3_i6njh")
+
+[node name="BackgroundHandler" type="Node2D" parent="."]
+script = ExtResource("4_acrce")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1440, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(100, -101)
+texture = ExtResource("5_dk548")
