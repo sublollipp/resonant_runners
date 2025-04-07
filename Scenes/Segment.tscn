@@ -211,6 +211,6 @@ sources/0 = SubResource("TileSetAtlasSource_kiben")
 [node name="Segment" type="Node2D"]
 script = ExtResource("1_v7yqs")
 
-[node name="MainTilemap" type="TileMapLayer" parent="."]
+[node name="MainTileMap" type="TileMapLayer" parent="."]
 use_parent_material = true
 tile_set = SubResource("TileSet_ixr7s")
