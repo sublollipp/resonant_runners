@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=4 uid="uid://d1uicat6hngvi"]
 
-[ext_resource type="PackedScene" uid="uid://dvwd0fq5m3tuv" path="res://Scenes/Segment.tscn" id="1_l4u14"]
+[ext_resource type="PackedScene" uid="uid://dvwd0fq5m3tuv" path="res://Scenes/Segment.tscn" id="1_iioad"]
 
-[node name="Segment" instance=ExtResource("1_l4u14")]
+[node name="Segment" instance=ExtResource("1_iioad")]
 
 [node name="MainTilemap" parent="." index="0"]
 tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAABAAAAAAACAAAAAAACAAAAAAACAAAAAAADAAAAAAACAAAAAAAEAAAAAAACAAAAAAAFAAAAAAACAAAAAAAGAAAAAAACAAAAAAAHAAAAAAACAAAAAAAIAAAAAAACAAAAAAAJAAAAAAACAAAAAAAKAAAAAAACAAAAAAALAAAAAAACAAAAAAAMAAAAAAACAAAAAAANAAAAAAACAAAAAAAOAAAAAAACAAAAAAAPAAAAAAACAAAAAAAQAAAAAAACAAAAAAARAAAAAAACAAAAAAASAAAAAAACAAAAAAATAAAAAAACAAAAAAAUAAAAAAACAAAAAAAVAAAAAAACAAAAAAAWAAAAAAACAAAAAAA=")

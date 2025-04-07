@@ -68,7 +68,7 @@ func _physics_process(delta) -> void:
 
 	is_on_player = false
 	
-	# Superjump kodewd
+	# Superjump kodewd (der er kode tilovers!!!)
 	if ray_cast_2.is_colliding() && ray_cast_2.get_collider().is_in_group("players"):
 		var collider = ray_cast_2.get_collider()
 		is_on_player = true
@@ -90,12 +90,18 @@ func _physics_process(delta) -> void:
 		animation.play("Running")
 		
 		if direction > 0:
-			velocity.x = SPEED
+			#SPEED (er desiret speed i løb, velocetyen er current speed, derfor hvis man trækker dem fra hindanden finder man forksellen og kan dermed tilføjde den istedet for at sætte
+			if velocity.x < SPEED:
+				velocity.x += SPEED - velocity.x
+			
 			
 		elif direction < 0:
-			velocity.x = -SPEED - Gamespeed.speed
+			if velocity.x > -SPEED:
+				velocity.x += -SPEED - Gamespeed.speed - velocity.x
+				
 			
 		else:
+			# nedacceleration? on floor? (eller er det det andet else loop under) (JA DET ER BÆGGE ELSE STATEMENTS DER SKAL PÅRVIRKES
 			velocityPositionReset()
 			
 	else:

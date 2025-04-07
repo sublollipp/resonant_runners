@@ -14,12 +14,45 @@ func checkIfInPortal() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("PortalCollider") && !inPortal:
+		print("player: ", player.velocity)
 		var portal = body.get_parent() as ColorGate
 		inPortal = true
 		previousPortal = portal
-		player.global_position = (portal.pairedPortal.global_position + (portal.pairedPortal.points[0] + (portal.pairedPortal.points[1] - portal.pairedPortal.points[0]) / 2).rotated(portal.pairedPortal.rotation))
-		print("Teleporterer spilleren til ",  (portal.pairedPortal.points[0] + (portal.pairedPortal.points[1] - portal.pairedPortal.points[0]) / 2).rotated(portal.pairedPortal.rotation))
+		# Convert the local points to global space
+		var globalPointA = portal.to_global(portal.points[0])
+		var globalPointB = portal.to_global(portal.points[1])
+		# Compute the direction and angle from the global points
+		var portalDirection = (globalPointB - globalPointA).normalized()
+		var entryAngle = atan2(portalDirection.y, portalDirection.x)
 		
+		
+		#normal vektor
+		var portalNormal = Vector2(-portalDirection.y, portalDirection.x)
+		print("entry: ", rad_to_deg(entryAngle))
+		
+		#checker om retningens vektoren projekteret på portal vektoren er negativ (hvis ja så er det forskellige retning, hvis nej så er det samme)
+		if player.velocity.dot(portalNormal) > 0:
+			print("entered backside")
+			entryAngle += PI 
+		
+		var globalExitPointA = portal.pairedPortal.to_global(portal.pairedPortal.points[0])
+		var globalExitPointB = portal.pairedPortal.to_global(portal.pairedPortal.points[1])
+		# Compute the direction and angle from the global points
+		var exitDirection = (globalExitPointB - globalExitPointA).normalized()
+		var exitAngle = atan2(exitDirection.y, exitDirection.x)
+		
+	
+		print("exit: ", rad_to_deg(exitAngle))
+		
+		var angleDiff = exitAngle - entryAngle
+		print("angle diff: ", rad_to_deg(angleDiff))
+		
+		# Teleporter spiller
+		player.global_position = portal.pairedPortal.global_position + (portal.pairedPortal.points[0] + (portal.pairedPortal.points[1] - portal.pairedPortal.points[0]) / 2).rotated(portal.pairedPortal.rotation)
+		
+		# rotere spiller baseret på forskellen
+		player.velocity = player.velocity.rotated(angleDiff)
+		print("player after: ", player.velocity)
 
 
 
