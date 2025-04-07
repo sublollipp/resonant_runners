@@ -12,6 +12,7 @@ class_name Player extends CharacterBody2D
 var color = "Cyan"
 
 const SPEED : float = 100
+const ACCELERATION : float = 50
 const JUMP_VELOCITY : float = -300.0
 
 var is_on_player : bool = false
@@ -92,21 +93,26 @@ func _physics_process(delta) -> void:
 		if direction > 0:
 			#SPEED (er desiret speed i løb, velocetyen er current speed, derfor hvis man trækker dem fra hindanden finder man forksellen og kan dermed tilføjde den istedet for at sætte
 			if velocity.x < SPEED:
-				velocity.x += SPEED - velocity.x
-			
-			
+				if SPEED - velocity.x < ACCELERATION:
+					velocity.x += ACCELERATION
+				else:
+					velocity.x += SPEED - velocity.x
 		elif direction < 0:
 			if velocity.x > -SPEED:
-				velocity.x += -SPEED - Gamespeed.speed - velocity.x
-				
-			
+				if abs(-SPEED - velocity.x) > ACCELERATION:
+				#velocity.x += -SPEED - Gamespeed.speed - velocity.x
+					velocity.x -= ACCELERATION
+				else:
+					velocity.x += -SPEED - Gamespeed.speed - velocity.x
 		else:
 			# nedacceleration? on floor? (eller er det det andet else loop under) (JA DET ER BÆGGE ELSE STATEMENTS DER SKAL PÅRVIRKES
-			velocityPositionReset()
+			if is_on_floor():
+				velocityPositionReset()
 			
 	else:
 		animation.play("Idle")
-		velocityPositionReset()
+		if is_on_floor():
+			velocityPositionReset()
 		
 	
 	if direction<0:
