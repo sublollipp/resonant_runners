@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var speed = Gamespeed.speed;
 
+const VERSION : String = "1.0.0" # For online-funktionalitet
+
 func _ready() -> void:
 	var player1 : Player = preload("res://Scenes/player.tscn").instantiate()
 	player1.position = Vector2(40, -48)

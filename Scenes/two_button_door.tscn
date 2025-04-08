@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmru27agmwv2n"]
+
+[ext_resource type="Script" uid="uid://dil1m3u1c2yil" path="res://Scripts/two_button_door.gd" id="1_sbw1d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_an0p5"]
+size = Vector2(9, 20)
+
+[node name="TwoButtonDoor" type="Node2D"]
+script = ExtResource("1_sbw1d")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-5.5, 0)
+shape = SubResource("RectangleShape2D_an0p5")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-1, -10, -1, 10, -10, 10, -10, -10)
