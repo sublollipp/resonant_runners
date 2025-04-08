@@ -1,9 +1,9 @@
 extends Node2D
 
+@onready var cam_controller = %CamController
+
 var totalWidth : int
 var segmentsList = []
-@onready var cam_controller = $"../../../CamController"
-
 var file_count = 0
 var rng = RandomNumberGenerator.new()
 

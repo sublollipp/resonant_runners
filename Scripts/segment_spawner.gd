@@ -24,6 +24,7 @@ func add_segment():
 	var newInstance = segmentsList.get(i).instantiate()
 	add_child(newInstance)
 	newInstance.position.x += totalWidth
+	newInstance.position.y += 50
 	totalWidth+=newInstance.width
 		
 func remove_segment():
@@ -37,10 +38,9 @@ func _ready():
 	var firstInstance = segmentsList.get(0).instantiate()
 	add_child(firstInstance)
 	totalWidth += firstInstance.width
+	firstInstance.position.y += 50
 	
 	
-
-
 func _process(delta):
 	if cam_controller.position.x > totalWidth - 1000:
 		add_segment()

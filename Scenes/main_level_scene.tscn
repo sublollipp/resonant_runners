@@ -14,6 +14,7 @@ size = Vector2(56, 396)
 script = ExtResource("1_45vkp")
 
 [node name="CamController" type="Node2D" parent="."]
+unique_name_in_owner = true
 script = ExtResource("2_kk53g")
 
 [node name="Camera2D" type="Camera2D" parent="CamController"]
