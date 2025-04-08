@@ -44,15 +44,6 @@ func _input(event) -> void:
 	if event.is_action_pressed(jumpKey) && is_on_floor() and !is_on_player:
 		velocity.y = JUMP_VELOCITY
 		
-	#if event.is_action_pressed(crouchKey):
-#		is_crouching = true
-#		velocity.x = -Gamespeed.speed
-#		animation.play("Crouching"+color)
-#		collision_shape_2d.shape.size.y = start_collision_shape_height-5
-#	if event.is_action_released(crouchKey):  #ineffektiv kode skal være on release istedet
-#		is_crouching = false
-#		collision_shape_2d.shape.size.y = start_collision_shape_height
-	
 	if event.is_action_pressed("Pause"):
 		if is_physics_processing():
 			set_physics_process(false)
@@ -69,7 +60,6 @@ func _physics_process(delta) -> void:
 	if is_crouching:
 		velocity.x = -Gamespeed.speed
 	
-	# Superjump kodewd (der er kode tilovers!!!)
 	if ray_cast_2.is_colliding() && ray_cast_2.get_collider().is_in_group("players"):
 		var collider = ray_cast_2.get_collider()
 		is_on_player = true
@@ -89,7 +79,7 @@ func _physics_process(delta) -> void:
 	if !is_crouching:
 		if direction:
 			animation.play("Running"+color)
-			animation.sprite_frames.set_animation_speed("Running"+color, 10)
+			animation.sprite_frames.set_animation_speed("Running"+color, 14)
 			
 			if direction > 0:
 				#SPEED (er desiret speed i løb, velocetyen er current speed, derfor hvis man trækker dem fra hindanden finder man forksellen og kan dermed tilføjde den istedet for at sætte
@@ -112,7 +102,7 @@ func _physics_process(delta) -> void:
 				
 		else:
 			animation.play("Running"+color)
-			animation.sprite_frames.set_animation_speed("Running"+color, 6)
+			animation.sprite_frames.set_animation_speed("Running"+color, 10)
 			if is_on_floor():
 				velocityPositionReset()
 			

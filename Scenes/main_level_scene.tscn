@@ -18,7 +18,7 @@ script = ExtResource("2_kk53g")
 
 [node name="Camera2D" type="Camera2D" parent="CamController"]
 position = Vector2(124, -64)
-zoom = Vector2(3, 3)
+zoom = Vector2(2.5, 2.5)
 
 [node name="LeftLimit" type="StaticBody2D" parent="CamController"]
 collision_layer = 16
