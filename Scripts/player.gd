@@ -13,7 +13,7 @@ var color = "Cyan"
 
 const SPEED : float = 100
 const ACCELERATION : float = 50
-const JUMP_VELOCITY : float = -300.0
+const JUMP_VELOCITY : float = -310.0
 
 var is_on_player : bool = false
 var is_crouching : bool = false
