@@ -17,6 +17,7 @@ const JUMP_VELOCITY : float = -300.0
 
 var is_on_player : bool = false
 var is_crouching : bool = false
+var is_jumping : bool = false
 
 signal portalTouched
 
@@ -40,22 +41,15 @@ func set_as_player_two() -> void:
 func velocityPositionReset() -> void:
 	velocity.x = 0
 
-func _input(event) -> void:
-	if event.is_action_pressed(jumpKey) && is_on_floor() and !is_on_player:
-		velocity.y = JUMP_VELOCITY
-		
-	if event.is_action_pressed("Pause"):
-		if is_physics_processing():
-			set_physics_process(false)
-		else:
-			set_physics_process(true)
-
 
 func _physics_process(delta) -> void:
 	is_on_player = false
 	
+	
 	if not is_on_floor(): #start hop skal in
 		velocity += get_gravity() * delta
+	else:
+		is_jumping = false
 	
 	if is_crouching:
 		velocity.x = -Gamespeed.speed
@@ -78,8 +72,9 @@ func _physics_process(delta) -> void:
 	var direction : float = Input.get_axis(leftKey, rightKey)
 	if !is_crouching:
 		if direction:
-			animation.play("Running"+color)
-			animation.sprite_frames.set_animation_speed("Running"+color, 14)
+			if !is_jumping:
+				animation.play("Running"+color)
+				animation.sprite_frames.set_animation_speed("Running"+color, 14)
 			
 			if direction > 0:
 				#SPEED (er desiret speed i løb, velocetyen er current speed, derfor hvis man trækker dem fra hindanden finder man forksellen og kan dermed tilføjde den istedet for at sætte
@@ -88,6 +83,7 @@ func _physics_process(delta) -> void:
 						velocity.x += ACCELERATION
 					else:
 						velocity.x += SPEED - velocity.x
+			
 			elif direction < 0:
 				if velocity.x > -SPEED:
 					if abs(-SPEED - velocity.x) > ACCELERATION:
@@ -95,15 +91,16 @@ func _physics_process(delta) -> void:
 						velocity.x -= ACCELERATION
 					else:
 						velocity.x += -SPEED - Gamespeed.speed - velocity.x
+			
 			else:
 				# nedacceleration? on floor? (eller er det det andet else loop under) (JA DET ER BÆGGE ELSE STATEMENTS DER SKAL PÅRVIRKES
 				if is_on_floor():
 					velocityPositionReset()
 				
 		else:
-			animation.play("Running"+color)
-			animation.sprite_frames.set_animation_speed("Running"+color, 10)
-			if is_on_floor():
+			if !is_jumping:
+				animation.play("Running"+color)
+				animation.sprite_frames.set_animation_speed("Running"+color, 10)
 				velocityPositionReset()
 			
 		if direction<0:
@@ -122,5 +119,11 @@ func _physics_process(delta) -> void:
 		collision_shape_2d.shape.size.y = start_collision_shape_height
 		animation.play("Running"+color)
 		animation.sprite_frames.set_animation_speed("Running"+color, 6)
+		
+	if Input.is_action_just_pressed(jumpKey) and is_on_floor() and !is_on_player:
+		velocity.y = JUMP_VELOCITY
+		is_jumping = true
+		
+	
 	move_and_slide()
 	$PortalHandler.checkIfInPortal()

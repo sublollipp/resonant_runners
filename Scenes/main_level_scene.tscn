@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cypdhfdtsryu4" path="res://Scripts/cam_controller.gd" id="2_kk53g"]
 [ext_resource type="Script" uid="uid://cwuklv4bl5blt" path="res://Scripts/segment_spawner.gd" id="3_i6njh"]
 [ext_resource type="Texture2D" uid="uid://d0cj1e3c42dab" path="res://Assets/Background-tileset/Backgroundforbedret.png" id="4_45vkp"]
-[ext_resource type="Script" uid="uid://7xkivof0pvjj" path="res://Scenes/building_layer_1_handler.gd" id="5_45vkp"]
+[ext_resource type="Script" uid="uid://7xkivof0pvjj" path="res://Scripts/building_layer_1_handler.gd" id="5_45vkp"]
 [ext_resource type="Script" uid="uid://dxvpk7edqmjcf" path="res://Scripts/layer_2_handler.gd" id="6_45vkp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4ohu"]
@@ -18,7 +18,7 @@ script = ExtResource("2_kk53g")
 
 [node name="Camera2D" type="Camera2D" parent="CamController"]
 position = Vector2(124, -64)
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(2, 2)
 
 [node name="LeftLimit" type="StaticBody2D" parent="CamController"]
 collision_layer = 16
