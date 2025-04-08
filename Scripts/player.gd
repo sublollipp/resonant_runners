@@ -44,15 +44,14 @@ func _input(event) -> void:
 	if event.is_action_pressed(jumpKey) && is_on_floor() and !is_on_player:
 		velocity.y = JUMP_VELOCITY
 		
-	if event.is_action_pressed(crouchKey):
-		is_crouching = true
-		velocity.x = -Gamespeed.speed
-		animation.play("Crouching")
-		collision_shape_2d.shape.size.y = start_collision_shape_height-5
-		
-	if event.is_action_released(crouchKey):  #ineffektiv kode skal være on release istedet
-		is_crouching = false
-		collision_shape_2d.shape.size.y = start_collision_shape_height
+	#if event.is_action_pressed(crouchKey):
+#		is_crouching = true
+#		velocity.x = -Gamespeed.speed
+#		animation.play("Crouching"+color)
+#		collision_shape_2d.shape.size.y = start_collision_shape_height-5
+#	if event.is_action_released(crouchKey):  #ineffektiv kode skal være on release istedet
+#		is_crouching = false
+#		collision_shape_2d.shape.size.y = start_collision_shape_height
 	
 	if event.is_action_pressed("Pause"):
 		if is_physics_processing():
@@ -62,12 +61,13 @@ func _input(event) -> void:
 
 
 func _physics_process(delta) -> void:
-	# Add the gravity.
-	
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
 	is_on_player = false
+	
+	if not is_on_floor(): #start hop skal in
+		velocity += get_gravity() * delta
+	
+	if is_crouching:
+		velocity.x = -Gamespeed.speed
 	
 	# Superjump kodewd (der er kode tilovers!!!)
 	if ray_cast_2.is_colliding() && ray_cast_2.get_collider().is_in_group("players"):
@@ -86,52 +86,51 @@ func _physics_process(delta) -> void:
 				velocity.y = JUMP_VELOCITY*1.5
 			
 	var direction : float = Input.get_axis(leftKey, rightKey)
-	
-	if direction:
-		animation.play("Running"+color)
-		animation.sprite_frames.set_animation_speed("Running"+color, 10)
-		
-		if direction > 0:
-			#SPEED (er desiret speed i løb, velocetyen er current speed, derfor hvis man trækker dem fra hindanden finder man forksellen og kan dermed tilføjde den istedet for at sætte
-			if velocity.x < SPEED:
-				if SPEED - velocity.x < ACCELERATION:
-					velocity.x += ACCELERATION
-				else:
-					velocity.x += SPEED - velocity.x
-		elif direction < 0:
-			if velocity.x > -SPEED:
-				if abs(-SPEED - velocity.x) > ACCELERATION:
-				#velocity.x += -SPEED - Gamespeed.speed - velocity.x
-					velocity.x -= ACCELERATION
-				else:
-					velocity.x += -SPEED - Gamespeed.speed - velocity.x
+	if !is_crouching:
+		if direction:
+			animation.play("Running"+color)
+			animation.sprite_frames.set_animation_speed("Running"+color, 10)
+			
+			if direction > 0:
+				#SPEED (er desiret speed i løb, velocetyen er current speed, derfor hvis man trækker dem fra hindanden finder man forksellen og kan dermed tilføjde den istedet for at sætte
+				if velocity.x < SPEED:
+					if SPEED - velocity.x < ACCELERATION:
+						velocity.x += ACCELERATION
+					else:
+						velocity.x += SPEED - velocity.x
+			elif direction < 0:
+				if velocity.x > -SPEED:
+					if abs(-SPEED - velocity.x) > ACCELERATION:
+					#velocity.x += -SPEED - Gamespeed.speed - velocity.x
+						velocity.x -= ACCELERATION
+					else:
+						velocity.x += -SPEED - Gamespeed.speed - velocity.x
+			else:
+				# nedacceleration? on floor? (eller er det det andet else loop under) (JA DET ER BÆGGE ELSE STATEMENTS DER SKAL PÅRVIRKES
+				if is_on_floor():
+					velocityPositionReset()
+				
 		else:
-			# nedacceleration? on floor? (eller er det det andet else loop under) (JA DET ER BÆGGE ELSE STATEMENTS DER SKAL PÅRVIRKES
+			animation.play("Running"+color)
+			animation.sprite_frames.set_animation_speed("Running"+color, 6)
 			if is_on_floor():
 				velocityPositionReset()
 			
-	else:
-		animation.play("Runing"+color)
-		animation.sprite_frames.set_animation_speed("Running"+color, 6)
-
-		if is_on_floor():
-			velocityPositionReset()
+		if direction<0:
+			animation.flip_h=true
+			
+		else:
+			animation.flip_h = false
 		
-	
-	if direction<0:
-		animation.flip_h=true
-		
-	else:
-		animation.flip_h = false
-		
-	if Input.is_action_pressed(crouchKey): #HVORFOR ER DER CROUCH LOGIK TO STEDER?!!!
+	if Input.is_action_just_pressed(crouchKey): #HVORFOR ER DER CROUCH LOGIK TO STEDER?!!!
 		is_crouching = true
-		velocity.x = -Gamespeed.speed
 		animation.play("Crouching"+color)
-		collision_shape_2d.shape.size.y = start_collision_shape_height-5
+		collision_shape_2d.shape.size.y = start_collision_shape_height-10
 		
 	if Input.is_action_just_released(crouchKey):  #ineffektiv kode skal være on release istedet
 		is_crouching = false
 		collision_shape_2d.shape.size.y = start_collision_shape_height
+		animation.play("Running"+color)
+		animation.sprite_frames.set_animation_speed("Running"+color, 6)
 	move_and_slide()
 	$PortalHandler.checkIfInPortal()
