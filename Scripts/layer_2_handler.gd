@@ -28,7 +28,7 @@ func add_segment():
 	
 	var distBetween = rng.randi_range(100,700)
 	newInstance.position.x = totalWidth + distBetween
-	newInstance.position.y += -150
+	newInstance.position.y += 800
 	totalWidth+=newInstance.width + distBetween
 	newInstance.modulate = Color(0.5, 0.5, 0.5, 1)
 	
@@ -41,9 +41,7 @@ func remove_segment(): #ineffektiv code burde lave et signal
 
 func _ready():
 	load_segments()
-	var firstInstance = segmentsList.get(0).instantiate()
-	add_child(firstInstance)
-	totalWidth += firstInstance.width
+	add_segment()
 	
 	
 
