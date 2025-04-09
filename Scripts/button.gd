@@ -6,7 +6,7 @@ var pressed : bool = false
 
 var playersOnButton : int = 0
 
-@export var connected_node : Node2D
+@export var connectedNodes : Array[Node2D] = []
 
 @export_enum("White", "Cyan", "Orange") var color = "White"
 
@@ -22,7 +22,6 @@ func _ready() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	$AnimationPlayer.play("knapned")
-	print("DER ER NOGEN DER PENETRERER MIG")
 	playersOnButton += 1
 	pressed = true
 	buttonPressed.emit()
