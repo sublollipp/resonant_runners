@@ -13,6 +13,9 @@ config_version=5
 config/name="Resonant Runners"
 run/main_scene="uid://dsmkhm4u330qb"
 config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="uid://bkf6gkthdunv2"
+config/macos_native_icon="uid://vb44n6a1a1pg"
+config/windows_native_icon="uid://vb44n6a1a1pg"
 
 [autoload]
 
