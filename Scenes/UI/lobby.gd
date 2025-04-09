@@ -55,6 +55,8 @@ func _on_start_pressed():
 #	Close the lobby so that no new players can join
 	GDSync.lobby_close()
 	
+	ResonantRunners.debugPC = int(GDSync.lobby_get_player_count())
+	
 #	Switch scenes using GDSync
 	GDSync.change_scene("res://Scenes/main_level_scene.tscn")
 
