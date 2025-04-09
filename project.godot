@@ -17,11 +17,9 @@ privateKey="130dbfd24e44b74e"
 [application]
 
 config/name="Resonant Runners"
-run/main_scene="uid://dsmkhm4u330qb"
+run/main_scene="uid://cdbh0pdnfm0i1"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://bkf6gkthdunv2"
-config/macos_native_icon="uid://vb44n6a1a1pg"
-config/windows_native_icon="uid://vb44n6a1a1pg"
 
 [autoload]
 
