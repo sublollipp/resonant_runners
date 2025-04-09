@@ -1,60 +1,101 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddbjqyhagonor"]
+[gd_scene load_steps=3 format=3 uid="uid://5quswar7oaeo"]
 
-[ext_resource type="Script" uid="uid://csjtmq06bfwyo" path="res://Scripts/UI/lobby.gd" id="1_l6154"]
-[ext_resource type="FontFile" uid="uid://3e2nchtdogv" path="res://Assets/Fonts/PixelOperator8.ttf" id="2_qx5k3"]
-[ext_resource type="FontFile" uid="uid://b0ba52ukqgt87" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="3_qx5k3"]
+[ext_resource type="Script" uid="uid://ch7rd7hc1u5h4" path="res://Scenes/UI/lobby.gd" id="1_8ca5k"]
+[ext_resource type="Theme" uid="uid://dec0hwgv0x1s3" path="res://addons/GD-Sync/UI/ConfigMenu/GD-Theme.tres" id="2_s2cyl"]
 
-[node name="Lobby" type="Node2D"]
-script = ExtResource("1_l6154")
-
-[node name="Control" type="Control" parent="."]
+[node name="Lobby" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ca5k")
 
-[node name="LobbyTabel" type="ItemList" parent="Control"]
-layout_mode = 0
-offset_left = 245.0
-offset_top = 217.0
-offset_right = 916.0
-offset_bottom = 509.0
-theme_override_fonts/font = ExtResource("2_qx5k3")
-theme_override_font_sizes/font_size = 24
-item_count = 2
-item_0/text = "Lobby1"
-item_1/text = "Lobby2"
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_s2cyl")
 
-[node name="HighScoresButton" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 866.0
-offset_top = 24.0
-offset_right = 1125.0
-offset_bottom = 105.0
-theme_override_fonts/font = ExtResource("2_qx5k3")
-theme_override_font_sizes/font_size = 24
-text = "High Scores"
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+alignment = 1
 
-[node name="CreateGameButton" type="Button" parent="Control"]
-offset_left = 245.0
-offset_top = 534.0
-offset_right = 918.0
-offset_bottom = 582.0
-theme_override_fonts/font = ExtResource("2_qx5k3")
-theme_override_font_sizes/font_size = 24
-text = "create game"
-alignment = 0
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
 
-[node name="LobbyLabel" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 246.0
-offset_top = 164.0
-offset_right = 474.0
-offset_bottom = 201.0
-theme_override_fonts/font = ExtResource("3_qx5k3")
-theme_override_font_sizes/font_size = 32
-text = "Lobbies"
+[node name="WidthSpacer" type="Control" parent="PanelContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
 
-[node name="Lobbies" type="Node2D" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
 
-[connection signal="item_clicked" from="Control/LobbyTabel" to="." method="_on_lobby_tabel_item_clicked"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Players"
+horizontal_alignment = 1
+
+[node name="PlayerCount" type="Label" parent="PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0/0"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"GDPanel"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/VBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="PlayerList" type="VBoxContainer" parent="PanelContainer/VBoxContainer/VBoxContainer/PanelContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Spacer1" type="Control" parent="PanelContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Waiting" type="Label" parent="PanelContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Waiting for host to start."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Start" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+theme = ExtResource("2_s2cyl")
+text = "START"
+
+[node name="Leave" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+theme = ExtResource("2_s2cyl")
+text = "LEAVE"
+
+[node name="ChatContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Leave" to="." method="_on_leave_pressed"]

@@ -8,6 +8,12 @@
 
 config_version=5
 
+[GD-Sync]
+
+version="0.8"
+publicKey="9237be094a61bb05"
+privateKey="130dbfd24e44b74e"
+
 [application]
 
 config/name="Resonant Runners"
@@ -21,11 +27,16 @@ config/windows_native_icon="uid://vb44n6a1a1pg"
 
 Gamespeed="*res://Scripts/gamespeed.gd"
 ResonantRunners="*res://Scripts/resonant_runners.gd"
+GDSync="*res://addons/GD-Sync/MultiplayerClient.gd"
 
 [display]
 
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/GD-Sync/plugin.cfg")
 
 [global_group]
 

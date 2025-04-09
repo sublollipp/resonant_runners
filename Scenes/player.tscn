@@ -503,7 +503,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
-size = Vector2(11.5, 32.8438)
+size = Vector2(11.5, 30.5781)
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["players"]]
 collision_mask = 55
@@ -515,7 +515,7 @@ animation = &"JumpingCyan"
 autoplay = "IdleCyan"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 7.15625)
+position = Vector2(1, 8.28907)
 shape = SubResource("RectangleShape2D_cvnsp")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
