@@ -55,19 +55,19 @@ func _physics_process(delta) -> void:
 		velocity.x = -Gamespeed.speed
 	
 	if ray_cast_2.is_colliding() && ray_cast_2.get_collider().is_in_group("players"):
+		
 		var collider = ray_cast_2.get_collider()
 		is_on_player = true
 		
 		if collider.is_crouching:
 			velocity.y = JUMP_VELOCITY*1.5
 	elif ray_cast.is_colliding() && ray_cast.get_collider().is_in_group("players"): # Sat ind i elif for optimization
+		
 		var collider = ray_cast.get_collider()
-			
-		if collider.is_in_group("players"):
-			is_on_player = true
-			
-			if collider.is_crouching:
-				velocity.y = JUMP_VELOCITY*1.5
+		is_on_player = true
+		
+		if collider.is_crouching:
+			velocity.y = JUMP_VELOCITY*1.5
 			
 	var direction : float = Input.get_axis(leftKey, rightKey)
 	if !is_crouching:
@@ -123,7 +123,7 @@ func _physics_process(delta) -> void:
 	if Input.is_action_just_pressed(jumpKey) and is_on_floor() and !is_on_player:
 		velocity.y = JUMP_VELOCITY
 		is_jumping = true
+		animation.play("Jumping"+color)
 		
-	
 	move_and_slide()
 	$PortalHandler.checkIfInPortal()

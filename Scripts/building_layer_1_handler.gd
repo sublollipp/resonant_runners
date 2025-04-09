@@ -30,6 +30,7 @@ func add_segment():
 	
 	var distBetween = rng.randi_range(100,700)
 	newInstance.position.x = totalWidth + distBetween
+	newInstance.position.y = 600
 	totalWidth+=newInstance.width + distBetween
 	newInstance.modulate = Color(0.8, 0.8, 0.8, 1)
 		
@@ -38,16 +39,10 @@ func remove_segment():
 		if cam_controller.position.x > currentSegment.position.x + currentSegment.width + 300:
 			currentSegment.queue_free()
 	
-
 func _ready():
 	load_segments()
-	var firstInstance = segmentsList.get(0).instantiate()
-	add_child(firstInstance)
-	totalWidth += firstInstance.width
+	add_segment()
 	
-	
-
-
 func _process(delta): # dette skal fikses baseret på totalwidth og sidste bygning 8scaleres ligesom noden?
 	if cam_controller.position.x*8 > totalWidth - 10000:
 		add_segment()
