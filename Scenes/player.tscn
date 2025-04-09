@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://brt6tra12ee8e"]
+[gd_scene load_steps=78 format=3 uid="uid://brt6tra12ee8e"]
 
 [ext_resource type="Script" uid="uid://c1wfc8abfhj5c" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://crwc8x617onef" path="res://Assets/Players/CrouchCyan.png" id="2_tx1dd"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b01fct7rclfw8" path="res://Assets/Players/JumpingOrange.png" id="7_7dp3o"]
 [ext_resource type="Texture2D" uid="uid://c3gdka3i3kls0" path="res://Assets/Players/RunningCyan.png" id="8_h4iuc"]
 [ext_resource type="Texture2D" uid="uid://b182wquk8rmgf" path="res://Assets/Players/RunningOrange.png" id="9_fd4e3"]
+[ext_resource type="Script" uid="uid://bor6e34qw6oe1" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="11_gymyn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olqyp"]
 atlas = ExtResource("2_tx1dd")
@@ -536,6 +537,25 @@ collision_mask = 128
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PortalArea"]
 position = Vector2(1, 7)
 shape = SubResource("RectangleShape2D_cvnsp")
+
+[node name="PropertySynchronizer" type="Node" parent="."]
+script = ExtResource("11_gymyn")
+broadcast = 2
+process = 1
+node_path = NodePath("..")
+properties = PackedStringArray("is_crouching", "position")
+interpolated = false
+interpolation_speed = 1.0
+metadata/_custom_type_script = "uid://bor6e34qw6oe1"
+
+[node name="PropertySynchronizer2" type="Node" parent="."]
+script = ExtResource("11_gymyn")
+broadcast = 2
+node_path = NodePath("../AnimatedSprite2D")
+properties = PackedStringArray("animation", "frame", "flip_h", "speed_scale")
+interpolated = false
+interpolation_speed = 1.0
+metadata/_custom_type_script = "uid://bor6e34qw6oe1"
 
 [connection signal="portalTouched" from="." to="PortalHandler" method="_on_character_body_2d_portal_touched"]
 [connection signal="body_entered" from="PortalArea" to="PortalHandler" method="_on_area_2d_body_entered"]

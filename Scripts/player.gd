@@ -33,16 +33,17 @@ func set_as_player_two() -> void:
 	set_collision_mask_value(6, false)
 	set_collision_mask_value(7, true)
 	color = "Orange"
-	leftKey = "2Left"
-	rightKey = "2Right"
-	jumpKey = "2Jump"
-	crouchKey = "2Crouch"
+	#leftKey = "2Left"
+	#rightKey = "2Right"
+	#jumpKey = "2Jump"
+	#crouchKey = "2Crouch"
 
 func velocityPositionReset() -> void:
 	velocity.x = 0
 
 
 func _physics_process(delta) -> void:
+	if !GDSync.is_gdsync_owner(self): return
 	is_on_player = false
 	
 	

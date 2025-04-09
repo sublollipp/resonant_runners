@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bt1k50fibwooe"]
+[gd_scene load_steps=9 format=3 uid="uid://bt1k50fibwooe"]
 
 [ext_resource type="Script" uid="uid://drfmsmg3robd3" path="res://Scripts/gamescript.gd" id="1_45vkp"]
 [ext_resource type="Script" uid="uid://cypdhfdtsryu4" path="res://Scripts/cam_controller.gd" id="2_kk53g"]
 [ext_resource type="Script" uid="uid://cwuklv4bl5blt" path="res://Scripts/segment_spawner.gd" id="3_i6njh"]
+[ext_resource type="Script" uid="uid://bor6e34qw6oe1" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="3_r2c11"]
 [ext_resource type="Texture2D" uid="uid://d0cj1e3c42dab" path="res://Assets/Background-tileset/Backgroundforbedret.png" id="4_45vkp"]
 [ext_resource type="Script" uid="uid://7xkivof0pvjj" path="res://Scripts/building_layer_1_handler.gd" id="5_45vkp"]
 [ext_resource type="Script" uid="uid://dxvpk7edqmjcf" path="res://Scripts/layer_2_handler.gd" id="6_45vkp"]
@@ -40,6 +41,14 @@ color = Color(1, 0, 0, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CamController/RightLimit"]
 position = Vector2(336, -144)
 shape = SubResource("RectangleShape2D_r4ohu")
+
+[node name="PropertySynchronizer" type="Node" parent="CamController"]
+script = ExtResource("3_r2c11")
+node_path = NodePath("..")
+properties = PackedStringArray("positionOffset", "position")
+interpolated = false
+interpolation_speed = 1.0
+metadata/_custom_type_script = "uid://bor6e34qw6oe1"
 
 [node name="SegmentSpawner" type="Node2D" parent="."]
 script = ExtResource("3_i6njh")
