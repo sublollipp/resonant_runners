@@ -162,6 +162,7 @@ libraries = {
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_5xx2a")
 sprite_frames = SubResource("SpriteFrames_by4tg")
+frame = 4
 speed_scale = 0.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

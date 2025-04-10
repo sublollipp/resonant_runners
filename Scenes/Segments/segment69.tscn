@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=4 uid="uid://dtluj7cwovyxu"]
+
+[ext_resource type="PackedScene" uid="uid://dvwd0fq5m3tuv" path="res://Scenes/Segment.tscn" id="1_dcjdb"]
+[ext_resource type="PackedScene" uid="uid://hm2d03yof7a7" path="res://Scenes/Button.tscn" id="2_ujug3"]
+[ext_resource type="PackedScene" uid="uid://vynh2nd3tsi2" path="res://Scenes/laserbridge.tscn" id="3_767x3"]
+
+[node name="Segment" instance=ExtResource("1_dcjdb")]
+
+[node name="MainTileMap" parent="." index="0"]
+tile_map_data = PackedByteArray("AAABAAAAAAABAAAAAAACAAAAAAABAAAAAAADAAAAAAABAAAAAAAEAAAAAAABAAAAAAAFAAAAAAABAAAAAAAGAAAAAAABAAAAAAAUAAAAAAABAAAAAAAVAAAAAAABAAAAAAAWAAAAAAABAAAAAAAXAAAAAAABAAAAAAAYAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAZAAAAAAACAAAAAAA=")
+
+[node name="Button" parent="." index="1" instance=ExtResource("2_ujug3")]
+position = Vector2(96, -8)
+
+[node name="Laserbridge" parent="." index="2" instance=ExtResource("3_767x3")]
+points = PackedVector2Array(112, 8, 320, 8)
+speed = 2.0
+
+[connection signal="buttonPressed" from="Button" to="Laserbridge" method="makeBridge"]
