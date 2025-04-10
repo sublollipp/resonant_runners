@@ -14,6 +14,6 @@ points = PackedVector2Array(-137, 18, 2, 18)
 pairedPortal = NodePath("../ColorGate2")
 
 [node name="ColorGate2" parent="." index="2" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_c83oi")]
-position = Vector2(586, -243)
-points = PackedVector2Array(2, -52, 2, 18)
+position = Vector2(613, -282)
+points = PackedVector2Array(82, 18, 2, 18)
 pairedPortal = NodePath("../ColorGate")
