@@ -22,6 +22,7 @@ func add_segment(seg : String) -> void:
 	var newSegment = load(seg).instantiate()
 	add_child(newSegment)
 	newSegment.position.x += totalWidth
+	newSegment.position.y = 50
 	totalWidth += newSegment.width
 	
 		
