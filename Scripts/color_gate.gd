@@ -1,5 +1,8 @@
 @tool
+
 class_name ColorGate extends Line2D
+
+@export var flipExitPortal : bool = false
 
 var lineColor : Color = Color.WHITE
 var angle : float = 0 # Portalens vinkel med vandret
