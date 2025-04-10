@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dvwd0fq5m3tuv" path="res://Scenes/Segment.tscn" id="1_ctodg"]
 [ext_resource type="PackedScene" uid="uid://cnr48rwddailu" path="res://Scenes/color_gate.tscn" id="2_v4j8q"]
 [ext_resource type="PackedScene" uid="uid://hm2d03yof7a7" path="res://Scenes/Button.tscn" id="3_dtd8v"]
-[ext_resource type="PackedScene" uid="uid://c2bck04uc4bl2" path="res://Scenes/door.tscn" id="4_1ebdr"]
+[ext_resource type="PackedScene" uid="uid://dal1ialdl2806" path="res://Scenes/door.tscn" id="4_1ebdr"]
 
 [node name="Segment" instance=ExtResource("1_ctodg")]
 
@@ -14,6 +14,7 @@ tile_map_data = PackedByteArray("AAAAAAIAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAA
 position = Vector2(60, -33)
 points = PackedVector2Array(36, 32, 0, 32)
 default_color = Color(0, 1, 1, 1)
+flipExitPortal = false
 color = "Cyan"
 pairedPortal = NodePath("../ColorGate2")
 
@@ -21,18 +22,21 @@ pairedPortal = NodePath("../ColorGate2")
 position = Vector2(285, -205)
 points = PackedVector2Array(36, 32, 0, 32)
 default_color = Color(0, 1, 1, 1)
+flipExitPortal = false
 color = "Cyan"
 pairedPortal = NodePath("../ColorGate")
 
 [node name="ColorGate3" parent="." index="3" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_v4j8q")]
 position = Vector2(110, -33)
 default_color = Color(1, 0.647059, 0, 1)
+flipExitPortal = false
 color = "Orange"
 pairedPortal = NodePath("../ColorGate4")
 
 [node name="ColorGate4" parent="." index="4" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_v4j8q")]
 position = Vector2(274, -32)
 default_color = Color(1, 0.647059, 0, 1)
+flipExitPortal = false
 color = "Orange"
 pairedPortal = NodePath("../ColorGate3")
 
@@ -40,6 +44,8 @@ pairedPortal = NodePath("../ColorGate3")
 position = Vector2(306, -11)
 
 [node name="Door" parent="." index="6" instance=ExtResource("4_1ebdr")]
-position = Vector2(311, -71)
+position = Vector2(304, -64)
+rotation = 1.56979
+scale = Vector2(0.239879, 3.19976)
 
 [connection signal="buttonPressed" from="Button" to="Door" method="openDoor"]
