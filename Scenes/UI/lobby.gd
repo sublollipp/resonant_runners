@@ -9,7 +9,7 @@ func _init():
 	GDSync.kicked.connect(_on_leave_pressed)
 
 func disconnected():
-	get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/UI/main_menu.tscn")
 
 func _ready():
 #	Show the start button only if this player is the host
