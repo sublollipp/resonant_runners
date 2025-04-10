@@ -1,24 +1,35 @@
-[gd_scene load_steps=3 format=4 uid="uid://c2d2dj5ec488h"]
+[gd_scene load_steps=5 format=4 uid="uid://c2d2dj5ec488h"]
 
-[ext_resource type="PackedScene" uid="uid://dvwd0fq5m3tuv" path="res://Scenes/Segment.tscn" id="1_2uvk8"]
-[ext_resource type="PackedScene" uid="uid://cnr48rwddailu" path="res://Scenes/color_gate.tscn" id="2_x0kbr"]
+[ext_resource type="PackedScene" uid="uid://dvwd0fq5m3tuv" path="res://Scenes/Segment.tscn" id="1_pkglw"]
+[ext_resource type="PackedScene" uid="uid://cnr48rwddailu" path="res://Scenes/color_gate.tscn" id="2_e1v4p"]
+[ext_resource type="PackedScene" uid="uid://hm2d03yof7a7" path="res://Scenes/Button.tscn" id="3_sx2xw"]
+[ext_resource type="PackedScene" uid="uid://vynh2nd3tsi2" path="res://Scenes/laserbridge.tscn" id="4_cp8i0"]
 
-[node name="Segment" instance=ExtResource("1_2uvk8")]
+[node name="Segment" instance=ExtResource("1_pkglw")]
 
 [node name="MainTileMap" parent="." index="0"]
 position = Vector2(1, 0)
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAABAAAAAAABAAAAAAABAAEAAAAIAAEAAAABAAIAAAAIAAIAAAACAAAAAAABAAAAAAACAAEAAAAJAAEAAAACAAIAAAAJAAIAAAADAAAAAAABAAAAAAADAAEAAAAHAAEAAAADAAIAAAAHAAIAAAAEAAAAAAABAAAAAAAEAAEAAAAIAAEAAAAEAAIAAAAIAAIAAAAFAAAAAAABAAAAAAAFAAEAAAAJAAEAAAAFAAIAAAAJAAIAAAAGAAAAAAABAAAAAAAGAAEAAAAHAAEAAAAGAAIAAAAHAAIAAAAHAAAAAAABAAAAAAAHAAEAAAAIAAEAAAAHAAIAAAAIAAIAAAAIAAAAAAABAAAAAAAIAAEAAAAJAAEAAAAIAAIAAAAJAAIAAAAaAAAAAAAAAAAAAAAaAAEAAAAAAAEAAAAaAAIAAAAAAAEAAAAbAAAAAAABAAAAAAAbAAEAAAAIAAEAAAAbAAIAAAAIAAIAAAAcAAAAAAABAAAAAAAcAAEAAAAJAAEAAAAcAAIAAAAJAAIAAAAdAAAAAAABAAAAAAAdAAEAAAAHAAEAAAAdAAIAAAAHAAIAAAAeAAAAAAABAAAAAAAeAAEAAAAIAAEAAAAeAAIAAAAIAAIAAAAfAAAAAAABAAAAAAAfAAEAAAAJAAEAAAAfAAIAAAAJAAIAAAAJAAAAAAABAAAAAAAJAAEAAAAHAAEAAAAJAAIAAAAHAAIAAAAKAAAAAAABAAAAAAAKAAEAAAAIAAEAAAAKAAIAAAAIAAIAAAALAAAAAAACAAAAAAALAAEAAAACAAEAAAALAAIAAAACAAEAAAALAPv/AAACAAAAAAALAPz/AAACAAIAAAAKAPz/AAABAAIAAAAKAPv/AAABAAAAAAAJAPv/AAABAAAAAAAIAPv/AAABAAAAAAAHAPv/AAAAAAAAAAAHAPz/AAAAAAIAAAAIAPz/AAABAAIAAAAJAPz/AAABAAIAAAAEAP3/AAAIAAEAAAADAP3/AAAIAAEAAAAgAAAAAAABAAAAAAAgAAEAAAAHAAEAAAAgAAIAAAAHAAIAAAAhAAAAAAABAAAAAAAhAAEAAAAIAAEAAAAhAAIAAAAIAAIAAAAiAAAAAAACAAAAAAAiAAEAAAACAAEAAAAiAAIAAAACAAEAAAA=")
 
-[node name="ColorGate" parent="." index="1" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_x0kbr")]
+[node name="ColorGate" parent="." index="1" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_e1v4p")]
 position = Vector2(182, -116)
 default_color = Color(0, 1, 1, 1)
 flipExitPortal = false
 color = "Cyan"
 pairedPortal = NodePath("../ColorGate2")
 
-[node name="ColorGate2" parent="." index="2" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_x0kbr")]
+[node name="ColorGate2" parent="." index="2" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_e1v4p")]
 position = Vector2(431, -35)
 default_color = Color(0, 1, 1, 1)
 flipExitPortal = false
 color = "Cyan"
 pairedPortal = NodePath("../ColorGate")
+
+[node name="Button" parent="." index="3" instance=ExtResource("3_sx2xw")]
+position = Vector2(474, -8)
+
+[node name="Laserbridge" parent="." index="4" instance=ExtResource("4_cp8i0")]
+position = Vector2(170, 9)
+points = PackedVector2Array(15, -1, 255, -1)
+
+[connection signal="buttonPressed" from="Button" to="Laserbridge" method="makeBridge"]
