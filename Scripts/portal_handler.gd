@@ -2,6 +2,7 @@ extends Node
 
 
 
+
 var inPortal : bool = false:
 	set(newVal):
 		if newVal != inPortal:
@@ -59,7 +60,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		
 		# rotere spiller baseret på forskellen
 		var rotatingVector = player.velocity
-		rotatingVector.x += Gamespeed.speed
+		
+		if !player.is_crouching:
+			rotatingVector.x += Gamespeed.speed
+			
 		rotatingVector = rotatingVector.rotated(angleDiff)
 		rotatingVector.x -= Gamespeed.speed
 		player.velocity = rotatingVector
