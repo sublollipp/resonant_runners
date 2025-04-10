@@ -23,6 +23,7 @@ position = Vector2(124, -64)
 zoom = Vector2(2, 2)
 
 [node name="LeftLimit" type="StaticBody2D" parent="CamController"]
+position = Vector2(-62, 0)
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CamController/LeftLimit"]
@@ -37,6 +38,7 @@ offset_bottom = 56.0
 color = Color(1, 0, 0, 1)
 
 [node name="RightLimit" type="StaticBody2D" parent="CamController"]
+position = Vector2(104, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CamController/RightLimit"]
 position = Vector2(336, -144)

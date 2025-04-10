@@ -18,4 +18,5 @@ func _process(delta: float) -> void:
 		#print("Position: ", player.position.x)
 	if playerCount:
 		positionOffset = round((totalPos / playerCount) * rangeScale)
+		if positionOffset > 0: positionOffset = 0
 	$Camera2D.offset.x = lerp($Camera2D.offset.x, positionOffset, 0.2 * delta)
