@@ -1,0 +1,100 @@
+[gd_scene load_steps=9 format=3 uid="uid://vynh2nd3tsi2"]
+
+[ext_resource type="Texture2D" uid="uid://c085d52l3ifgb" path="res://Assets/Lasers/RRlasersource.png" id="1_iieum"]
+[ext_resource type="Texture2D" uid="uid://de5jqcjmxcqoc" path="res://Assets/Lasers/RRlaserbeam.png" id="1_yfknh"]
+[ext_resource type="Script" uid="uid://b8e38xrmg8a1j" path="res://Scripts/laserbridge.gd" id="2_ncuqd"]
+[ext_resource type="Script" uid="uid://dsvfdw130q7tt" path="res://Scripts/bridge_ready_checker.gd" id="4_ncuqd"]
+
+[sub_resource type="Animation" id="Animation_ncuqd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:lerpMaster2000")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:keepUpdating")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_yfknh"]
+resource_name = "openBridge"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:lerpMaster2000")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:keepUpdating")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ncuqd"]
+_data = {
+&"RESET": SubResource("Animation_ncuqd"),
+&"openBridge": SubResource("Animation_yfknh")
+}
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ncuqd"]
+a = Vector2(112, 8)
+b = Vector2(320, 8)
+
+[node name="Laserbridge" type="Line2D"]
+process_mode = 3
+points = PackedVector2Array(0, 0, 64, 0)
+texture = ExtResource("1_yfknh")
+texture_mode = 1
+script = ExtResource("2_ncuqd")
+metadata/_edit_horizontal_guides_ = [-16.0]
+
+[node name="StartPoint" type="Sprite2D" parent="."]
+texture = ExtResource("1_iieum")
+
+[node name="EndPoint" type="Sprite2D" parent="."]
+position = Vector2(64, 0)
+texture = ExtResource("1_iieum")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ncuqd")
+}
+
+[node name="BridgeReadyChecker" type="Node" parent="."]
+script = ExtResource("4_ncuqd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("SegmentShape2D_ncuqd")
+debug_color = Color(0.87, 0, 0.841, 0.784314)

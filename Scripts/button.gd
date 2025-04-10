@@ -14,7 +14,7 @@ var playersOnButton : int = 0
 var addedFrames = 4:
 	set(nf):
 		addedFrames = nf
-		$AnimatedSprite2D.frame = frame + addedFrames
+		$AnimatedSprite2D.frame = frame + nf
 
 @export var connectedNodes : Array[Node2D] = []
 
