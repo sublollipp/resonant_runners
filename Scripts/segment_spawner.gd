@@ -19,7 +19,7 @@ func load_segments():
 			segmentsList.append("res://Scenes/Segments/"+file)
 
 func add_segment(seg : String) -> void:
-	var newSegment = load(seg).instantiate()
+d	var newSegment = load(seg).instantiate()
 	add_child(newSegment)
 	newSegment.position.x += totalWidth
 	newSegment.position.y = 50
