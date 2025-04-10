@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2bck04uc4bl2"]
+[gd_scene load_steps=3 format=3 uid="uid://dal1ialdl2806"]
 
 [ext_resource type="Script" uid="uid://c1gkru0pjcnh4" path="res://Scripts/door.gd" id="1_w6aom"]
 
@@ -8,12 +8,12 @@ size = Vector2(9, 20)
 [node name="Door" type="Node2D"]
 script = ExtResource("1_w6aom")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-5.5, 0)
-shape = SubResource("RectangleShape2D_w6aom")
-
 [node name="Polygon2D" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(-1, -10, -1, 10, -10, 10, -10, -10)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Polygon2D"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Polygon2D/StaticBody2D"]
+position = Vector2(-5.5, 0)
+shape = SubResource("RectangleShape2D_w6aom")

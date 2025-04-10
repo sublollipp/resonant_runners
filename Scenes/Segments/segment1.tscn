@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dvwd0fq5m3tuv" path="res://Scenes/Segment.tscn" id="1_do0hh"]
 [ext_resource type="PackedScene" uid="uid://hm2d03yof7a7" path="res://Scenes/Button.tscn" id="2_3w42i"]
-[ext_resource type="PackedScene" uid="uid://c2bck04uc4bl2" path="res://Scenes/door.tscn" id="3_p17da"]
+[ext_resource type="PackedScene" uid="uid://dal1ialdl2806" path="res://Scenes/door.tscn" id="3_p17da"]
 
 [node name="Segment" instance=ExtResource("1_do0hh")]
 
@@ -14,6 +14,7 @@ position = Vector2(160, -56)
 color = "Cyan"
 
 [node name="Door" parent="." index="2" instance=ExtResource("3_p17da")]
-position = Vector2(156, -17)
+position = Vector2(155, -16)
+scale = Vector2(1.118, -2.79264)
 
 [connection signal="buttonPressed" from="Button" to="Door" method="openDoor"]
