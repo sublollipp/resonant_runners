@@ -1,6 +1,10 @@
 extends Node2D
 var totalWidth : int
 var segmentsList = []
+var recentSegments = []
+
+@export var timeoutSegments : int = 5
+
 @onready var cam_controller = $"../CamController" #denne opdateres ikke
 var file_count = 0
 var rng = RandomNumberGenerator.new()
@@ -39,6 +43,12 @@ func segmentAdd() -> void:
 	var i = rng.randi_range(0,file_count-1)
 	add_segment(segmentsList.get(i))
 	GDSync.call_func(add_segment, [segmentsList.get(i)])
+	recentSegments.append(segmentsList.get(i))
+	segmentsList.remove_at(i)
+	if recentSegments.size() > timeoutSegments:
+		segmentsList.append(recentSegments.get(0))
+		recentSegments.remove_at(0)
+	file_count = segmentsList.size()
 
 func _ready():
 	load_segments()
