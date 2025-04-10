@@ -110,12 +110,12 @@ func _physics_process(delta) -> void:
 		else:
 			animation.flip_h = false
 		
-	if Input.is_action_just_pressed(crouchKey): #HVORFOR ER DER CROUCH LOGIK TO STEDER?!!!
+	if Input.is_action_just_pressed(crouchKey):
 		is_crouching = true
 		animation.play("Crouching"+color)
 		collision_shape_2d.shape.size.y = start_collision_shape_height-10
 		
-	if Input.is_action_just_released(crouchKey):  #ineffektiv kode skal være on release istedet
+	if Input.is_action_just_released(crouchKey):
 		is_crouching = false
 		collision_shape_2d.shape.size.y = start_collision_shape_height
 		animation.play("Running"+color)
