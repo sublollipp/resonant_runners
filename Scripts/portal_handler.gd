@@ -18,8 +18,10 @@ var previousPortal : ColorGate = null
 func _ready():
 	if player.color == "Cyan":
 		portalArea.set_collision_mask_value(7, true)
+		portalArea.set_collision_mask_value(8, false)
 	if player.color == "Orange":
 		portalArea.set_collision_mask_value(6, true)
+		portalArea.set_collision_mask_value(8, false)
 
 
 func checkIfInPortal() -> void:
