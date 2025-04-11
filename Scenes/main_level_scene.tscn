@@ -55,6 +55,7 @@ metadata/_custom_type_script = "uid://bor6e34qw6oe1"
 
 [node name="SegmentSpawner" type="Node2D" parent="."]
 script = ExtResource("3_i6njh")
+timeoutSegments = 0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

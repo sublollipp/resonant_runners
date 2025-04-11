@@ -93,8 +93,7 @@ func _physics_process(delta) -> void:
 						velocity.x += acc
 					else:
 						velocity.x += SPEED - velocity.x
-						if acc == AIR_ACCELERATION:
-							print("JEG ER I LUFTEN")
+						
 			
 			elif direction < 0:
 				if velocity.x > -SPEED:
@@ -103,8 +102,7 @@ func _physics_process(delta) -> void:
 						velocity.x -= acc
 					else:
 						velocity.x += -SPEED - Gamespeed.speed - velocity.x
-						if acc == AIR_ACCELERATION:
-							print("JEG ER I LUFTEN")
+						
 			
 			else:
 				# nedacceleration? on floor? (eller er det det andet else loop under) (JA DET ER BÆGGE ELSE STATEMENTS DER SKAL PÅRVIRKES
@@ -115,7 +113,7 @@ func _physics_process(delta) -> void:
 			if !is_jumping:
 				animation.play("Running"+color)
 				animation.sprite_frames.set_animation_speed("Running"+color, 10)
-				velocityPositionReset()
+				velocityPositionReset()#det er derfor
 			
 		if direction<0:
 			animation.flip_h=true

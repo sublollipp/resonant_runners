@@ -44,7 +44,7 @@ func segmentAdd() -> void:
 	if (file_count > 1):
 		i = rng.randi_range(1,file_count-1)
 	else:
-		i = 1
+		i = 0
 	add_segment(segmentsList.get(i))
 	GDSync.call_func(add_segment, [segmentsList.get(i)])
 	
