@@ -13,6 +13,7 @@ var color = "Cyan"
 
 const SPEED : float = 100
 const ACCELERATION : float = 50
+const AIR_ACCELERATION : float = 10
 const JUMP_VELOCITY : float = -310.0
 
 var is_on_player : bool = false
@@ -71,8 +72,13 @@ func _physics_process(delta) -> void:
 			velocity.y = JUMP_VELOCITY*1.5
 			
 	var direction : float = Input.get_axis(leftKey, rightKey)
+	
 	if !is_crouching:
 		if direction:
+			var acc = AIR_ACCELERATION
+			if is_on_floor():
+				acc = ACCELERATION
+			
 			if !is_jumping:
 				animation.play("Running"+color)
 				animation.sprite_frames.set_animation_speed("Running"+color, 14)
@@ -80,18 +86,22 @@ func _physics_process(delta) -> void:
 			if direction > 0:
 				#SPEED (er desiret speed i løb, velocetyen er current speed, derfor hvis man trækker dem fra hindanden finder man forksellen og kan dermed tilføjde den istedet for at sætte
 				if velocity.x < SPEED:
-					if SPEED - velocity.x < ACCELERATION:
-						velocity.x += ACCELERATION
+					if abs(SPEED - velocity.x) > acc:
+						velocity.x += acc
 					else:
 						velocity.x += SPEED - velocity.x
+						if acc == AIR_ACCELERATION:
+							print("JEG ER I LUFTEN")
 			
 			elif direction < 0:
 				if velocity.x > -SPEED:
-					if abs(-SPEED - velocity.x) > ACCELERATION:
+					if abs(-SPEED - velocity.x) > acc:
 					#velocity.x += -SPEED - Gamespeed.speed - velocity.x
-						velocity.x -= ACCELERATION
+						velocity.x -= acc
 					else:
 						velocity.x += -SPEED - Gamespeed.speed - velocity.x
+						if acc == AIR_ACCELERATION:
+							print("JEG ER I LUFTEN")
 			
 			else:
 				# nedacceleration? on floor? (eller er det det andet else loop under) (JA DET ER BÆGGE ELSE STATEMENTS DER SKAL PÅRVIRKES
