@@ -3,7 +3,8 @@ extends CanvasLayer
 var playersReady : int = 0
 
 func _init() -> void:
-	GDSync.client_left.connect(goToMenu)
+	GDSync.client_left.connect(clientLeft)
+	GDSync.disconnected.connect(goToMenu)
 
 func _ready() -> void:
 	GDSync.expose_func(addReadyPlayer)
@@ -18,6 +19,9 @@ func _on_try_again_pressed() -> void:
 	addReadyPlayer()
 	GDSync.call_func(addReadyPlayer)
 	$VBoxContainer/TryAgain.queue_free()
+
+func clientLeft(clientId : int):
+	goToMenu()
 
 func goToMenu():
 	GDSync.lobby_leave()
