@@ -2,12 +2,10 @@ extends CanvasLayer
 
 var playersReady : int = 0
 
-func _init() -> void:
-	GDSync.client_left.connect(clientLeft)
-	GDSync.disconnected.connect(goToMenu)
-
 func _ready() -> void:
 	GDSync.expose_func(addReadyPlayer)
+	GDSync.client_left.connect(clientLeft)
+	GDSync.disconnected.connect(goToMenu)
 
 func addReadyPlayer() -> void:
 	if GDSync.is_host():
