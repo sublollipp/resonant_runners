@@ -11,7 +11,8 @@ func _ready() -> void:
 	var player1 : Player = preload("res://Scenes/player.tscn").instantiate()
 	player1.position = Vector2(40, -48)
 	player1.name = "Player 1"
-	
+
+
 	$CamController.add_child(player1)
 	GDSync.set_gdsync_owner($CamController.get_node("Player 1"), GDSync.lobby_get_all_clients()[0])
 	#if ResonantRunners.debugPC > 1:
