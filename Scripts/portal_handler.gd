@@ -12,9 +12,15 @@ var previousPortal : ColorGate = null
 @onready var rightLimit = camController.get_child(2)
 @onready var rightLimitCollision = rightLimit.get_child(0)
 
+@onready var portalArea = $"../PortalArea"
+
 
 func _ready():
-	pass
+	if player.color == "Cyan":
+		portalArea.set_collision_mask_value(6)
+	if player.color == "Orange":
+		portalArea.set_collision_mask_value(7)
+
 
 func checkIfInPortal() -> void:
 	if not get_parent().get_node("PortalArea").has_overlapping_bodies():
