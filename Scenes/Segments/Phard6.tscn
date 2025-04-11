@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://cluy7aqb5mpsk"]
+[gd_scene load_steps=5 format=4 uid="uid://cluy7aqb5mpsk"]
 
 [ext_resource type="PackedScene" uid="uid://dvwd0fq5m3tuv" path="res://Scenes/Segment.tscn" id="1_5riqt"]
 [ext_resource type="PackedScene" uid="uid://hm2d03yof7a7" path="res://Scenes/Button.tscn" id="2_3088m"]
 [ext_resource type="PackedScene" uid="uid://dal1ialdl2806" path="res://Scenes/door.tscn" id="3_p6vba"]
+[ext_resource type="PackedScene" uid="uid://cnr48rwddailu" path="res://Scenes/color_gate.tscn" id="4_p6vba"]
 
 [node name="Segment" instance=ExtResource("1_5riqt")]
 
@@ -73,6 +74,20 @@ scale = Vector2(0.187415, -3.1808)
 position = Vector2(430, -30)
 rotation = 3.14732
 scale = Vector2(0.187415, -3.1808)
+
+[node name="ColorGate" parent="." index="16" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("4_p6vba")]
+position = Vector2(75, -107)
+points = PackedVector2Array(32, 32, -9, 32)
+default_color = Color(0, 1, 1, 1)
+color = "Cyan"
+pairedPortal = NodePath("../ColorGate2")
+
+[node name="ColorGate2" parent="." index="17" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("4_p6vba")]
+position = Vector2(75, -237)
+points = PackedVector2Array(32, 32, -9, 32)
+default_color = Color(0, 1, 1, 1)
+color = "Cyan"
+pairedPortal = NodePath("../ColorGate")
 
 [connection signal="buttonPressed" from="Button" to="Door" method="openDoor"]
 [connection signal="buttonPressed" from="Button" to="Door2" method="openDoor"]
