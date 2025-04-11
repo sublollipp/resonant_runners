@@ -1,0 +1,83 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgc3v7im766n3"]
+
+[ext_resource type="FontFile" uid="uid://b0ba52ukqgt87" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_3abll"]
+[ext_resource type="Script" path="res://Scripts/UI/settings.gd" id="1_p46qs"]
+[ext_resource type="FontFile" uid="uid://3e2nchtdogv" path="res://assets/fonts/PixelOperator8.ttf" id="2_8eg68"]
+
+[node name="Settings" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_p46qs")
+
+[node name="MusicLabel" type="Label" parent="."]
+offset_left = 109.0
+offset_top = 57.0
+offset_right = 265.0
+offset_bottom = 89.0
+theme_override_fonts/font = ExtResource("1_3abll")
+theme_override_font_sizes/font_size = 32
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="."]
+offset_left = 37.0
+offset_top = 68.0
+offset_right = 341.0
+offset_bottom = 173.0
+max_value = 1.0
+step = 0.01
+
+[node name="SFXLabel" type="Label" parent="."]
+offset_left = 150.0
+offset_top = 174.0
+offset_right = 306.0
+offset_bottom = 206.0
+theme_override_fonts/font = ExtResource("1_3abll")
+theme_override_font_sizes/font_size = 32
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="."]
+offset_left = 41.0
+offset_top = 230.0
+offset_right = 343.0
+offset_bottom = 246.0
+max_value = 1.0
+step = 0.01
+
+[node name="ReturnButton" type="Button" parent="."]
+offset_left = 233.0
+offset_top = 266.0
+offset_right = 427.0
+offset_bottom = 336.0
+theme_override_fonts/font = ExtResource("2_8eg68")
+theme_override_font_sizes/font_size = 24
+text = "Return"
+flat = true
+
+[node name="EasyLabel" type="Label" parent="."]
+offset_left = 435.0
+offset_top = 97.0
+offset_right = 582.0
+offset_bottom = 164.0
+theme_override_fonts/font = ExtResource("1_3abll")
+theme_override_font_sizes/font_size = 32
+text = "Easy 
+Mode"
+
+[node name="Sky" type="CanvasLayer" parent="."]
+layer = -100
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Sky"]
+show_behind_parent = true
+z_index = -100
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 990.0
+offset_bottom = 987.0
+color = Color(0.2257, 0.449875, 0.61, 1)
+
+[node name="SkyModulate" type="CanvasModulate" parent="Sky"]
+color = Color(0, 0, 0, 1)
+
+[connection signal="value_changed" from="MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="button_up" from="ReturnButton" to="." method="_on_return_button_button_up"]

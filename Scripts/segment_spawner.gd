@@ -40,20 +40,24 @@ func remove_segment():
 func segmentAdd() -> void:
 	if !GDSync.is_host(): return
 	rng.randomize()
-	var i = rng.randi_range(1,file_count-1)
+	var i : int
+	if (file_count > 1):
+		i = rng.randi_range(1,file_count-1)
+	else:
+		i = 1
 	add_segment(segmentsList.get(i))
 	GDSync.call_func(add_segment, [segmentsList.get(i)])
 	
-	
-	recentSegments.append(segmentsList.get(i))
-	segmentsList.remove_at(i)
-	if recentSegments.size() > timeoutSegments:
-		segmentsList.append(recentSegments.get(0))
-		recentSegments.remove_at(0)
-	file_count = segmentsList.size()
-	
-	var newList = segmentsList.duplicate()
-	segmentsList = newList
+	if timeoutSegments > 0:
+		recentSegments.append(segmentsList.get(i))
+		segmentsList.remove_at(i)
+		if recentSegments.size() > timeoutSegments:
+			segmentsList.append(recentSegments.get(0))
+			recentSegments.remove_at(0)
+		file_count = segmentsList.size()
+		
+		var newList = segmentsList.duplicate()
+		segmentsList = newList
 	
 	
 
