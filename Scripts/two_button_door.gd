@@ -10,7 +10,8 @@ var warning : String = ""
 	set(nb):
 		button2 = nb
 		checkButtonsForWarning()
-
+		
+		
 func checkButtonsForWarning() -> void:
 	if button1 == button2:
 		if button1 == null || button2 == null:
@@ -27,13 +28,19 @@ func checkForOpening() -> void:
 		openDoor()
 
 func _ready() -> void:
-	for b :rrButton in [button1, button2]:
+	GDSync.expose_func(dontUseThisFunction)
+	
+	for b : rrButton in [button1, button2]:
 		if not b.buttonPressed.is_connected(Callable(self, "checkForOpening")):
 			b.buttonPressed.connect(Callable(self, "checkForOpening"))
 		if not b.connected_node == self:
 			b.connected_node == self
 
+
+	
+func dontUseThisFunction():
+	queue_free()
+
 func openDoor() -> void:
-	$Polygon2D.hide()
-	if $StaticBody2D and is_instance_valid($StaticBody2D):
-		$StaticBody2D.queue_free()
+	GDSync.call_func(dontUseThisFunction)
+	dontUseThisFunction()
