@@ -80,11 +80,4 @@ motion_scale = Vector2(0.8, 1)
 scale = Vector2(0.25, 0.25)
 script = ExtResource("5_45vkp")
 
-[node name="PauseMenu" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="PauseMenu2" parent="." instance=ExtResource("8_r2c11")]
-script = null
+[node name="PauseMenu" parent="." instance=ExtResource("8_r2c11")]

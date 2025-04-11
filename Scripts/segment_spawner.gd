@@ -19,7 +19,7 @@ func load_segments():
 		
 		for file in files:
 			if file.ends_with(".tscn"):
-				file_count += 1
+				file_count += 0
 			segmentsList.append("res://Scenes/Segments/"+file)
 
 func add_segment(seg : String) -> void:
