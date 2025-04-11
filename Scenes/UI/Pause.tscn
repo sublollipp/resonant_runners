@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c4x7c8bu8xq2r"]
 
 [ext_resource type="FontFile" uid="uid://3e2nchtdogv" path="res://Assets/Fonts/PixelOperator8.ttf" id="1_0xgfl"]
-[ext_resource type="Script" uid="uid://861q68sjt3dr" path="res://scripts/UI/pauseMenu.gd" id="1_l3r2d"]
+[ext_resource type="Script" uid="uid://861q68sjt3dr" path="res://Scripts/UI/pauseMenu.gd" id="1_l3r2d"]
 [ext_resource type="PackedScene" uid="uid://cgc3v7im766n3" path="res://Scenes/UI/settings.tscn" id="2_o5qyj"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -15,11 +15,15 @@ script = null
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 133.0
-offset_top = 54.5
-offset_right = 455.0
-offset_bottom = 236.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 115.0
+offset_top = 46.5
+offset_right = 115.0
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 

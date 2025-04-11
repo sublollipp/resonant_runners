@@ -15,7 +15,7 @@ func _process(delta):
 	pass
 
 func _input(event):
-	if event.is_action_pressed("Menu_Pause"):
+	if event.is_action_pressed("Pause"):
 		if not paused:
 			pause()
 		elif visible:
@@ -42,9 +42,7 @@ func _on_exit_button_button_up():
 
 
 func pause():
-	
 	paused = !paused
-	
 	if paused:
 		show()
 	if !paused:

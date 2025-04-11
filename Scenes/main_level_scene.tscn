@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bt1k50fibwooe"]
+[gd_scene load_steps=15 format=3 uid="uid://bt1k50fibwooe"]
 
 [ext_resource type="Script" uid="uid://drfmsmg3robd3" path="res://Scripts/gamescript.gd" id="1_45vkp"]
 [ext_resource type="Script" uid="uid://cypdhfdtsryu4" path="res://Scripts/cam_controller.gd" id="2_kk53g"]
@@ -8,9 +8,50 @@
 [ext_resource type="Script" uid="uid://7xkivof0pvjj" path="res://Scripts/building_layer_1_handler.gd" id="5_45vkp"]
 [ext_resource type="Script" uid="uid://dxvpk7edqmjcf" path="res://Scripts/layer_2_handler.gd" id="6_45vkp"]
 [ext_resource type="PackedScene" uid="uid://c4x7c8bu8xq2r" path="res://Scenes/UI/Pause.tscn" id="8_r2c11"]
+[ext_resource type="Script" uid="uid://dptc4lwrxtgsk" path="res://addons/GD-Sync/Scripts/Types/SynchronizedAnimationPlayer.gd" id="9_wdesh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4ohu"]
 size = Vector2(56, 396)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r2c11"]
+distance = 123.0
+
+[sub_resource type="Animation" id="Animation_ujgk1"]
+resource_name = "fadeout"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackScreen/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_uc873"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackScreen/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aevgu"]
+_data = {
+&"RESET": SubResource("Animation_uc873"),
+&"fadeout": SubResource("Animation_ujgk1")
+}
 
 [node name="MainLevelScene" type="Node2D"]
 script = ExtResource("1_45vkp")
@@ -40,6 +81,7 @@ color = Color(1, 0, 0, 1)
 
 [node name="RightLimit" type="StaticBody2D" parent="CamController"]
 position = Vector2(104, 5)
+collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CamController/RightLimit"]
 position = Vector2(336, -144)
@@ -52,6 +94,14 @@ properties = PackedStringArray("positionOffset", "position")
 interpolated = false
 interpolation_speed = 1.0
 metadata/_custom_type_script = "uid://bor6e34qw6oe1"
+
+[node name="WorldBoundary" type="Area2D" parent="CamController"]
+position = Vector2(10, 1063)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CamController/WorldBoundary"]
+shape = SubResource("WorldBoundaryShape2D_r2c11")
+debug_color = Color(0.91, 0.743167, 0, 0.996078)
 
 [node name="SegmentSpawner" type="Node2D" parent="."]
 script = ExtResource("3_i6njh")
@@ -82,3 +132,24 @@ scale = Vector2(0.25, 0.25)
 script = ExtResource("5_45vkp")
 
 [node name="PauseMenu" parent="." instance=ExtResource("8_r2c11")]
+visible = false
+
+[node name="BlackScreen" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="ColorRect" type="ColorRect" parent="BlackScreen"]
+offset_left = -8.0
+offset_top = -3.0
+offset_right = 32.0
+offset_bottom = 37.0
+scale = Vector2(29.7341, 16.8873)
+color = Color(0, 0, 0, 0)
+
+[node name="SynchronizedAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_aevgu")
+}
+script = ExtResource("9_wdesh")
+metadata/_custom_type_script = "uid://dptc4lwrxtgsk"
+
+[connection signal="body_entered" from="CamController/WorldBoundary" to="." method="_on_world_boundary_body_entered"]
