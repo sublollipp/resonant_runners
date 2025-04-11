@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmd4xitdm5yln"]
+[gd_scene load_steps=2 format=3 uid="uid://dmd4xitdm5yln"]
 
 [ext_resource type="Script" uid="uid://c4eceknilbe0r" path="res://Scripts/UI/game_over.gd" id="1_jxkuk"]
-[ext_resource type="Script" uid="uid://bor6e34qw6oe1" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="2_wpaxx"]
 
 [node name="Game Over" type="CanvasLayer"]
 script = ExtResource("1_jxkuk")
@@ -24,14 +23,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "LEAVE"
-
-[node name="PropertySynchronizer" type="Node" parent="."]
-script = ExtResource("2_wpaxx")
-broadcast = 1
-properties = PackedStringArray()
-interpolated = false
-interpolation_speed = 1.0
-metadata/_custom_type_script = "uid://bor6e34qw6oe1"
 
 [connection signal="pressed" from="VBoxContainer/TryAgain" to="." method="_on_try_again_pressed"]
 [connection signal="pressed" from="VBoxContainer/Leave" to="." method="_on_leave_pressed"]

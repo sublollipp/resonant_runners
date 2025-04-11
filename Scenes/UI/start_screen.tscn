@@ -1,11 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://jjfbxvi608ht"]
+[gd_scene load_steps=3 format=3 uid="uid://jjfbxvi608ht"]
 
-[ext_resource type="Script" uid="uid://b4p6dn6nh0i72" path="res://Scripts/UI/start_screen.gd" id="1_3l4er"]
 [ext_resource type="Texture2D" uid="uid://ccirrsoqgqc44" path="res://Assets/Background-tileset/DemoBackground.png" id="1_iwgee"]
 [ext_resource type="FontFile" uid="uid://b0ba52ukqgt87" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="3_px0ht"]
 
 [node name="StartScreen" type="Node2D"]
-script = ExtResource("1_3l4er")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(575.75, 323.875)
