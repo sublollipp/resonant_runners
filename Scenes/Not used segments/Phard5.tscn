@@ -1,0 +1,100 @@
+[gd_scene load_steps=5 format=4 uid="uid://tu84v1ti3oe1"]
+
+[ext_resource type="PackedScene" uid="uid://dvwd0fq5m3tuv" path="res://Scenes/Segment.tscn" id="1_6esqv"]
+[ext_resource type="PackedScene" uid="uid://hm2d03yof7a7" path="res://Scenes/Button.tscn" id="2_ogn5x"]
+[ext_resource type="PackedScene" uid="uid://dal1ialdl2806" path="res://Scenes/door.tscn" id="3_ddv0f"]
+[ext_resource type="PackedScene" uid="uid://cnr48rwddailu" path="res://Scenes/color_gate.tscn" id="4_g3wai"]
+
+[node name="Segment" instance=ExtResource("1_6esqv")]
+
+[node name="MainTileMap" parent="." index="0"]
+tile_map_data = PackedByteArray("AAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAACAAAAAAABAAAAAAABAAEAAAAHAAEAAAACAAEAAAAIAAEAAAACAAIAAAAIAAIAAAADAAEAAAAJAAEAAAADAAIAAAAJAAIAAAABAAIAAAAHAAIAAAADAAAAAAABAAAAAAAEAAAAAAABAAAAAAAEAAEAAAAHAAEAAAAEAAIAAAAHAAIAAAAFAAAAAAABAAAAAAAFAAEAAAAIAAEAAAAFAAIAAAAIAAIAAAAGAAAAAAABAAAAAAAGAAEAAAAJAAEAAAAGAAIAAAAJAAIAAAAHAAAAAAABAAAAAAAHAAEAAAAHAAEAAAAHAAIAAAAHAAIAAAAIAAAAAAAIAAEAAAAIAAEAAAAIAAEAAAAIAAIAAAAIAAIAAAAJAAAAAAABAAAAAAAJAAEAAAAJAAEAAAAJAAIAAAAJAAIAAAAKAAAAAAABAAAAAAAKAAEAAAAHAAEAAAAKAAIAAAAHAAIAAAALAAAAAAABAAAAAAALAAEAAAAIAAEAAAALAAIAAAAIAAIAAAAMAAAAAAABAAAAAAAMAAEAAAAJAAEAAAAMAAIAAAAJAAIAAAANAAAAAAABAAAAAAANAAEAAAAHAAEAAAANAAIAAAAHAAIAAAAOAAAAAAABAAAAAAAOAAEAAAAIAAEAAAAOAAIAAAAIAAIAAAAPAAAAAAABAAAAAAAPAAEAAAAJAAEAAAAPAAIAAAAJAAIAAAAQAAAAAAAIAAEAAAAQAAEAAAAHAAEAAAAQAAIAAAAHAAIAAAAIAP//AAAIAAIAAAAIAP7/AAAIAAEAAAAIAP3/AAAIAAAAAAAHAPz/AAAAAAIAAAAJAPz/AAACAAIAAAAHAPv/AAAAAAEAAAAHAPr/AAAAAAEAAAAHAPn/AAAAAAAAAAAIAPn/AAABAAAAAAAJAPn/AAACAAAAAAAJAPr/AAACAAEAAAAJAPv/AAACAAEAAAAIAPr/AAAIAAAAAAAIAPv/AAAIAAEAAAAIAPz/AAAIAAIAAAAPAPn/AAAAAAAAAAAPAPr/AAAAAAEAAAAPAPv/AAAAAAEAAAAPAPz/AAAAAAIAAAAQAPn/AAABAAAAAAAQAPr/AAAIAAAAAAAQAPv/AAAIAAEAAAAQAPz/AAAIAAIAAAAQAP3/AAAIAAAAAAAQAP7/AAAIAAEAAAAQAP//AAAIAAIAAAARAPn/AAACAAAAAAARAPr/AAACAAEAAAARAPv/AAACAAEAAAARAPz/AAACAAIAAAAXAPn/AAAAAAAAAAAXAPr/AAAAAAEAAAAXAPv/AAAAAAEAAAAXAPz/AAAAAAIAAAAYAPn/AAABAAAAAAAYAPr/AAAIAAAAAAAYAPv/AAAIAAEAAAAYAPz/AAAIAAIAAAAYAP3/AAAIAAAAAAAYAP7/AAAIAAEAAAAYAP//AAAIAAIAAAAZAPn/AAACAAAAAAAZAPr/AAACAAEAAAAZAPv/AAACAAEAAAAZAPz/AAACAAIAAAAeAPn/AAAAAAAAAAAeAPr/AAAAAAEAAAAeAPv/AAAAAAEAAAAeAPz/AAAAAAIAAAAfAPn/AAABAAAAAAAfAPr/AAAIAAAAAAAfAPv/AAAIAAEAAAAfAPz/AAAIAAIAAAAfAP3/AAAIAAAAAAAfAP7/AAAIAAEAAAAfAP//AAAIAAIAAAAgAPn/AAACAAAAAAAgAPr/AAACAAEAAAAgAPv/AAACAAEAAAAgAPz/AAACAAIAAAAfAAAAAAAIAAEAAAARAAAAAAABAAAAAAARAAEAAAAIAAEAAAARAAIAAAAIAAIAAAASAAAAAAABAAAAAAASAAEAAAAJAAEAAAASAAIAAAAJAAIAAAATAAAAAAABAAAAAAATAAEAAAAHAAEAAAATAAIAAAAHAAIAAAAUAAAAAAABAAAAAAAUAAEAAAAIAAEAAAAUAAIAAAAIAAIAAAAVAAAAAAABAAAAAAAVAAEAAAAJAAEAAAAVAAIAAAAJAAIAAAAWAAAAAAABAAAAAAAWAAEAAAAHAAEAAAAWAAIAAAAHAAIAAAAXAAAAAAABAAAAAAAXAAEAAAAIAAEAAAAXAAIAAAAIAAIAAAAYAAAAAAAIAAEAAAAYAAEAAAAJAAEAAAAYAAIAAAAJAAIAAAAeAAAAAAABAAAAAAAdAAAAAAABAAAAAAAcAAAAAAABAAAAAAAbAAAAAAABAAAAAAAaAAAAAAABAAAAAAAZAAAAAAABAAAAAAAfAAEAAAAJAAEAAAAeAAEAAAAIAAEAAAAdAAEAAAAHAAEAAAAcAAEAAAAJAAEAAAAbAAEAAAAIAAEAAAAaAAEAAAAHAAEAAAAZAAEAAAAJAAEAAAAfAAIAAAAJAAIAAAAeAAIAAAAIAAIAAAAdAAIAAAAHAAIAAAAcAAIAAAAJAAIAAAAbAAIAAAAIAAIAAAAaAAIAAAAHAAIAAAAZAAIAAAAJAAIAAAAkAAAAAAAAAAAAABAjAAAAAAABAAAAABAiAAAAAAABAAAAABAhAAAAAAABAAAAABAgAAAAAAABAAAAABAkAAEAAAAAAAEAABAjAAEAAAAHAAEAABAiAAEAAAAIAAEAABAhAAEAAAAJAAEAABAgAAEAAAAHAAEAABAkAAIAAAAAAAEAABAjAAIAAAAHAAIAABAiAAIAAAAIAAIAABAhAAIAAAAJAAIAABAgAAIAAAAHAAIAABA=")
+
+[node name="Button" parent="." index="1" instance=ExtResource("2_ogn5x")]
+position = Vector2(144, -120)
+
+[node name="Door" parent="." index="2" instance=ExtResource("3_ddv0f")]
+position = Vector2(115, -24)
+scale = Vector2(0.24, 2.4)
+
+[node name="Button2" parent="." index="3" instance=ExtResource("2_ogn5x")]
+position = Vector2(272, -120)
+
+[node name="Door2" parent="." index="4" instance=ExtResource("3_ddv0f")]
+position = Vector2(243, -24)
+scale = Vector2(0.24, 2.4)
+
+[node name="Button3" parent="." index="5" instance=ExtResource("2_ogn5x")]
+position = Vector2(400, -120)
+
+[node name="Door3" parent="." index="6" instance=ExtResource("3_ddv0f")]
+position = Vector2(371, -24)
+scale = Vector2(0.24, 2.4)
+
+[node name="Button4" parent="." index="7" instance=ExtResource("2_ogn5x")]
+position = Vector2(512, -120)
+
+[node name="Door4" parent="." index="8" instance=ExtResource("3_ddv0f")]
+position = Vector2(483, -24)
+scale = Vector2(0.24, 2.4)
+
+[node name="ColorGate" parent="." index="9" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("4_g3wai")]
+position = Vector2(126, -40)
+points = PackedVector2Array(0, -8, 0, 40)
+default_color = Color(0, 1, 1, 1)
+color = "Cyan"
+pairedPortal = NodePath("../ColorGate2")
+
+[node name="ColorGate2" parent="." index="10" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("4_g3wai")]
+position = Vector2(158, -40)
+points = PackedVector2Array(0, -8, 0, 40)
+default_color = Color(0, 1, 1, 1)
+color = "Cyan"
+pairedPortal = NodePath("../ColorGate")
+
+[node name="ColorGate3" parent="." index="11" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("4_g3wai")]
+position = Vector2(254, -40)
+points = PackedVector2Array(0, -8, 0, 40)
+default_color = Color(1, 0.647059, 0, 1)
+color = "Orange"
+pairedPortal = NodePath("../ColorGate4")
+
+[node name="ColorGate4" parent="." index="12" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("4_g3wai")]
+position = Vector2(286, -40)
+points = PackedVector2Array(0, -8, 0, 40)
+default_color = Color(1, 0.647059, 0, 1)
+color = "Orange"
+pairedPortal = NodePath("../ColorGate3")
+
+[node name="ColorGate5" parent="." index="13" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("4_g3wai")]
+position = Vector2(382, -40)
+points = PackedVector2Array(0, -8, 0, 40)
+default_color = Color(0, 1, 1, 1)
+color = "Cyan"
+pairedPortal = NodePath("../ColorGate6")
+
+[node name="ColorGate6" parent="." index="14" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("4_g3wai")]
+position = Vector2(414, -40)
+points = PackedVector2Array(0, -8, 0, 40)
+default_color = Color(0, 1, 1, 1)
+color = "Cyan"
+pairedPortal = NodePath("../ColorGate5")
+
+[node name="ColorGate7" parent="." index="15" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("4_g3wai")]
+position = Vector2(494, -40)
+points = PackedVector2Array(0, -8, 0, 40)
+default_color = Color(1, 0.647059, 0, 1)
+color = "Orange"
+pairedPortal = NodePath("../ColorGate8")
+
+[node name="ColorGate8" parent="." index="16" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("4_g3wai")]
+position = Vector2(526, -40)
+points = PackedVector2Array(0, -8, 0, 40)
+default_color = Color(1, 0.647059, 0, 1)
+color = "Orange"
+pairedPortal = NodePath("../ColorGate7")
+
+[connection signal="buttonPressed" from="Button" to="Door" method="openDoor"]
+[connection signal="buttonPressed" from="Button2" to="Door2" method="openDoor"]
+[connection signal="buttonPressed" from="Button3" to="Door3" method="openDoor"]
+[connection signal="buttonPressed" from="Button4" to="Door4" method="openDoor"]
