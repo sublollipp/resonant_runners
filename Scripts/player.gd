@@ -12,8 +12,8 @@ class_name Player extends CharacterBody2D
 var color = "Cyan"
 
 const SPEED : float = 100
-const ACCELERATION : float = 50
-const AIR_ACCELERATION : float = 10
+var ACCELERATION : float = 50
+var AIR_ACCELERATION : float = 10
 const JUMP_VELOCITY : float = -310.0
 
 var is_on_player : bool = false
@@ -44,6 +44,9 @@ func velocityPositionReset() -> void:
 
 
 func _physics_process(delta) -> void:
+	if Gamespeed.speed > ACCELERATION:
+		ACCELERATION = Gamespeed.speed
+		AIR_ACCELERATION = ACCELERATION / 5
 	if !GDSync.is_gdsync_owner(self): return
 	is_on_player = false
 	

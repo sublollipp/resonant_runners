@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://bamrich8u0s40"]
 
-[ext_resource type="PackedScene" uid="uid://dvwd0fq5m3tuv" path="res://Scenes/Segment.tscn" id="1_clrka"]
+[ext_resource type="PackedScene" uid="uid://dvwd0fq5m3tuv" path="res://Scenes/Segment.tscn" id="1_jduuy"]
 
-[node name="Segment" instance=ExtResource("1_clrka")]
+[node name="Segment" instance=ExtResource("1_jduuy")]
