@@ -22,6 +22,7 @@ func _on_try_again_pressed() -> void:
 func goToMenu():
 	GDSync.lobby_leave()
 	get_tree().change_scene_to_file("res://Scenes/UI/lobby_browsing_menu.tscn")
+	print("Nogen gik?")
 
 
 func _on_leave_pressed() -> void:
