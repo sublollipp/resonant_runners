@@ -113,7 +113,8 @@ func _physics_process(delta) -> void:
 			if !is_jumping:
 				animation.play("Running"+color)
 				animation.sprite_frames.set_animation_speed("Running"+color, 10)
-				velocityPositionReset()#det er derfor
+			if is_on_floor():
+				velocityPositionReset()
 			
 		if direction<0:
 			animation.flip_h=true

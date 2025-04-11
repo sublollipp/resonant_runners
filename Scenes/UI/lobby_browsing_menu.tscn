@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://8qy4jenu2w1m" path="res://GD-SyncTemplates/LobbyBrowser/lobby_browser.tscn" id="1_dgkn0"]
 [ext_resource type="Script" uid="uid://ckuyy7wmw8qon" path="res://Scenes/UI/lobby_browsing_menu.gd" id="1_q6obi"]
-[ext_resource type="Theme" uid="uid://5whm1igkt23h" path="res://addons/GD-Sync/UI/ConfigMenu/GD-Theme.tres" id="3_2opek"]
+[ext_resource type="Theme" uid="uid://dec0hwgv0x1s3" path="res://addons/GD-Sync/UI/ConfigMenu/GD-Theme.tres" id="3_2opek"]
 [ext_resource type="Script" uid="uid://c2wkr622tfvu7" path="res://Scenes/UI/lobby_creator.gd" id="4_vxmqb"]
 [ext_resource type="Script" uid="uid://ctvv7nh22gtfu" path="res://Scenes/UI/lobby_joiner.gd" id="5_org80"]
 

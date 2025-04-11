@@ -8,6 +8,4 @@ func dontUseThisFunction():
 func openDoor() -> void:
 	GDSync.call_func(dontUseThisFunction)
 	dontUseThisFunction()
-	#$Polygon2D.hide()
-	#if $StaticBody2D and is_instance_valid($StaticBody2D):
-	#	$StaticBody2D.queue_free()
+	

@@ -1,4 +1,5 @@
 extends Control
+@onready var alertLabel = %Start.get_child(0)
 
 func _init():
 #	Connect all signals for player joining and leaving. Also handle disconnects!
@@ -52,13 +53,15 @@ func client_left(client_id : int):
 	%PlayerCount.text = str(GDSync.lobby_get_player_count())+"/"+str(GDSync.lobby_get_player_limit())
 
 func _on_start_pressed():
-#	Close the lobby so that no new players can join
-	GDSync.lobby_close()
-	
-	ResonantRunners.debugPC = int(GDSync.lobby_get_player_count())
-	
-#	Switch scenes using GDSync
-	GDSync.change_scene("res://Scenes/main_level_scene.tscn")
+	#det ud kommenteret er den rigtige kode men gør så man ikke kan starte levelet alene
+	#if GDSync.lobby_get_player_count() == GDSync.lobby_get_player_limit():
+	if true:
+		GDSync.lobby_close()
+		ResonantRunners.debugPC = int(GDSync.lobby_get_player_count())
+		GDSync.change_scene("res://Scenes/main_level_scene.tscn")
+	else:
+		alertLabel.show()
+
 
 func _on_leave_pressed():
 #	Leave the current lobby and switch back to the lobby browser

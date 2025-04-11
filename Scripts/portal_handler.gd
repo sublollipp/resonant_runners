@@ -26,8 +26,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		var portal = body.get_parent() as ColorGate
 		
 		#her burde det være den protal x der er størst mod den mindste x værdi af collision shapen
-		
-		if portal.pairedPortal.global_position.x < rightLimitCollision.global_position.x-(rightLimitCollision.shape.size.x/2):
+		#dette kan trækkes fra men gøres ikke for at have en buffer
+		#-(rightLimitCollision.shape.size.x/2)
+		if portal.pairedPortal.global_position.x < rightLimitCollision.global_position.x:
 			inPortal = true
 			previousPortal = portal
 			
