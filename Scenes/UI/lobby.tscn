@@ -84,6 +84,16 @@ layout_mode = 2
 theme = ExtResource("2_s2cyl")
 text = "START"
 
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/Start"]
+visible = false
+layout_mode = 0
+offset_left = -9.0
+offset_top = 82.0
+offset_right = 209.0
+offset_bottom = 105.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "Not enough players in lobby"
+
 [node name="Leave" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
