@@ -1,11 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnr48rwddailu"]
+[gd_scene load_steps=2 format=3 uid="uid://cnr48rwddailu"]
 
 [ext_resource type="Script" uid="uid://cfogapm46c0lr" path="res://Scripts/color_gate.gd" id="1_whkuv"]
-
-[sub_resource type="Gradient" id="Gradient_whkuv"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_sbm1r"]
-gradient = SubResource("Gradient_whkuv")
 
 [node name="ColorGate" type="Line2D"]
 points = PackedVector2Array(0, 0, 0, 32)
@@ -13,10 +8,5 @@ width = 2.0
 script = ExtResource("1_whkuv")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["PortalCollider"]]
-collision_layer = 128
+collision_layer = 0
 collision_mask = 0
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-16, 16)
-scale = Vector2(0.5, 0.5)
-texture = SubResource("GradientTexture2D_sbm1r")
