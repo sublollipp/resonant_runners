@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bt1k50fibwooe"]
+[gd_scene load_steps=10 format=3 uid="uid://bt1k50fibwooe"]
 
 [ext_resource type="Script" uid="uid://drfmsmg3robd3" path="res://Scripts/gamescript.gd" id="1_45vkp"]
 [ext_resource type="Script" uid="uid://cypdhfdtsryu4" path="res://Scripts/cam_controller.gd" id="2_kk53g"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d0cj1e3c42dab" path="res://Assets/Background-tileset/Backgroundforbedret.png" id="4_45vkp"]
 [ext_resource type="Script" uid="uid://7xkivof0pvjj" path="res://Scripts/building_layer_1_handler.gd" id="5_45vkp"]
 [ext_resource type="Script" uid="uid://dxvpk7edqmjcf" path="res://Scripts/layer_2_handler.gd" id="6_45vkp"]
+[ext_resource type="PackedScene" uid="uid://c4x7c8bu8xq2r" path="res://Scenes/UI/Pause.tscn" id="8_r2c11"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4ohu"]
 size = Vector2(56, 396)
@@ -78,3 +79,5 @@ motion_scale = Vector2(0.8, 1)
 [node name="layer1Handler" type="Node2D" parent="ParallaxBackground/BuildingLayer1"]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("5_45vkp")
+
+[node name="PauseMenu" parent="." instance=ExtResource("8_r2c11")]

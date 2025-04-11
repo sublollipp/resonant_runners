@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4x7c8bu8xq2r"]
+
+[ext_resource type="FontFile" uid="uid://3e2nchtdogv" path="res://Assets/Fonts/PixelOperator8.ttf" id="1_0xgfl"]
+[ext_resource type="Script" uid="uid://861q68sjt3dr" path="res://scripts/UI/pauseMenu.gd" id="1_l3r2d"]
+[ext_resource type="PackedScene" uid="uid://cgc3v7im766n3" path="res://Scenes/UI/settings.tscn" id="2_o5qyj"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+script = ExtResource("1_l3r2d")
+
+[node name="Settings" parent="." instance=ExtResource("2_o5qyj")]
+layer = 10
+script = null
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 133.0
+offset_top = 54.5
+offset_right = 455.0
+offset_bottom = 236.5
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 0
+offset_left = 86.5
+offset_top = 57.0
+offset_right = 232.5
+offset_bottom = 137.0
+pivot_offset = Vector2(75, 39)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0xgfl")
+text = "Resume"
+
+[node name="SettingsButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0xgfl")
+text = "Settings"
+
+[node name="MainButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0xgfl")
+text = "Main Menu"
+
+[node name="ExitButton" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0xgfl")
+text = "Exit"
+
+[connection signal="button_up" from="Control/MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_button_up"]
+[connection signal="button_up" from="Control/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_button_up"]
+[connection signal="button_up" from="Control/MarginContainer/VBoxContainer/MainButton" to="." method="_on_main_button_button_up"]
+[connection signal="button_up" from="Control/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_button_up"]
