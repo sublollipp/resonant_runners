@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dvwd0fq5m3tuv" path="res://Scenes/Segment.tscn" id="1_r8jq3"]
 [ext_resource type="PackedScene" uid="uid://cnr48rwddailu" path="res://Scenes/color_gate.tscn" id="2_5gyfj"]
 [ext_resource type="PackedScene" uid="uid://hm2d03yof7a7" path="res://Scenes/Button.tscn" id="3_2vfrq"]
-[ext_resource type="PackedScene" path="res://Scenes/laserbridge.tscn" id="4_gtyqh"]
+[ext_resource type="PackedScene" uid="uid://vynh2nd3tsi2" path="res://Scenes/laserbridge.tscn" id="4_gtyqh"]
 
 [node name="Segment" instance=ExtResource("1_r8jq3")]
 
