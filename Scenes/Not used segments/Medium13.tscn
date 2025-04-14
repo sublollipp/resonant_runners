@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=4 uid="uid://cg8pcyd3yqrvn"]
+
+[ext_resource type="PackedScene" uid="uid://dvwd0fq5m3tuv" path="res://Scenes/Segment.tscn" id="1_gaana"]
+[ext_resource type="PackedScene" uid="uid://cnr48rwddailu" path="res://Scenes/color_gate.tscn" id="2_veeni"]
+[ext_resource type="PackedScene" uid="uid://vynh2nd3tsi2" path="res://Scenes/laserbridge.tscn" id="3_1xoxu"]
+[ext_resource type="PackedScene" uid="uid://hm2d03yof7a7" path="res://Scenes/Button.tscn" id="4_gdr06"]
+[ext_resource type="PackedScene" uid="uid://dal1ialdl2806" path="res://Scenes/door.tscn" id="5_c2yeb"]
+
+[node name="Segment" instance=ExtResource("1_gaana")]
+
+[node name="MainTileMap" parent="." index="0"]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAABAAAAAAABAAAAAAACAAAAAAABAAAAAAADAAAAAAABAAAAAAAEAAAAAAABAAAAAAAFAAAAAAABAAAAAAAGAAAAAAABAAAAAAAHAAAAAAABAAAAAAAIAAAAAAACAAAAAAAIAAEAAAACAAEAAAAIAAIAAAACAAEAAAAFAAEAAAAHAAEAAAAFAAIAAAAHAAIAAAAGAAEAAAAIAAEAAAAGAAIAAAAIAAIAAAAHAAEAAAAJAAEAAAAHAAIAAAAJAAIAAAACAAEAAAAIAAEAAAACAAIAAAAIAAIAAAADAAEAAAAJAAEAAAADAAIAAAAJAAIAAAAEAAEAAAAJAAEAAAAEAAIAAAAJAAIAAAABAAEAAAAHAAEAAAABAAIAAAAHAAIAAAALAP3/AAADAAEAAAAMAP3/AAAEAAEAAAAKAP3/AAADAAEAABAJAP3/AAAEAAEAABAPAPv/AAADAAEAABAOAPv/AAAEAAEAABARAPv/AAAEAAEAAAAQAPv/AAADAAEAAAAZAAEAAAAAAAEAAAAZAAIAAAAAAAEAAAAZAAAAAAAAAAAAAAAaAAAAAAABAAAAAAAbAAAAAAABAAAAAAAcAAAAAAABAAAAAAAdAAAAAAABAAAAAAAeAAAAAAABAAAAAAAfAAAAAAABAAAAAAAgAAAAAAACAAAAAAAgAAIAAAACAAEAAAAgAAEAAAACAAEAAAAaAAEAAAAHAAEAAAAaAAIAAAAHAAIAAAAbAAEAAAAIAAEAAAAbAAIAAAAIAAIAAAAcAAEAAAAJAAEAAAAcAAIAAAAJAAIAAAAdAAEAAAAHAAEAAAAdAAIAAAAHAAIAAAAeAAEAAAAIAAEAAAAeAAIAAAAIAAIAAAAfAAEAAAAJAAEAAAAfAAIAAAAJAAIAAAAhAP3/AAAEAAEAABAiAP3/AAADAAEAABAjAP3/AAADAAEAAAAkAP3/AAAEAAEAAAAmAPv/AAAEAAEAABAnAPv/AAADAAEAABAoAPv/AAADAAEAAAApAPv/AAAEAAEAAAAuAPn/AAAAAAAAAAAuAPr/AAAAAAIAAAAvAPn/AAABAAAAAAAvAPr/AAABAAIAAAAwAPn/AAABAAAAAAAwAPr/AAABAAIAAAAxAPn/AAABAAAAAAAxAPr/AAABAAIAAAAyAPr/AAACAAIAAAAyAPn/AAACAAAAAAAzAAAAAAAAAAAAAAAzAAEAAAAAAAEAAAAzAAIAAAAAAAEAAAA0AAAAAAABAAAAAAA1AAAAAAABAAAAAAA2AAAAAAABAAAAAAA3AAAAAAABAAAAAAA4AAAAAAABAAAAAAA5AAAAAAABAAAAAAA6AAAAAAACAAAAAAA6AAEAAAACAAEAAAA6AAIAAAACAAEAAAA0AAEAAAAHAAEAAAA0AAIAAAAHAAIAAAA1AAEAAAAIAAEAAAA1AAIAAAAIAAIAAAA2AAEAAAAJAAEAAAA2AAIAAAAJAAIAAAA3AAEAAAAHAAEAAAA3AAIAAAAHAAIAAAA4AAEAAAAIAAEAAAA4AAIAAAAIAAIAAAA5AAEAAAAJAAEAAAA5AAIAAAAJAAIAAAAWAPn/AAAAAAAAAAAWAPr/AAAAAAIAAAAXAPn/AAABAAAAAAAXAPr/AAABAAIAAAAYAPn/AAABAAAAAAAYAPr/AAABAAIAAAAZAPn/AAABAAAAAAAZAPr/AAABAAIAAAAaAPb/AAAAAAAAAAAaAPf/AAAGAAEAADAbAPb/AAABAAAAAAAbAPf/AAAFAAEAADAcAPb/AAABAAAAAAAcAPf/AAAFAAEAACAdAPb/AAACAAAAAAAdAPf/AAAGAAEAACA=")
+
+[node name="ColorGate" parent="." index="1" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_veeni")]
+position = Vector2(143, -80)
+points = PackedVector2Array(63, 33, 3, 33)
+pairedPortal = NodePath("../ColorGate3")
+
+[node name="ColorGate2" parent="." index="2" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_veeni")]
+position = Vector2(223, -112)
+points = PackedVector2Array(63, 33, 3, 33)
+pairedPortal = NodePath("../ColorGate3")
+
+[node name="ColorGate3" parent="." index="3" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_veeni")]
+position = Vector2(94, -136)
+rotation = -3.14167
+points = PackedVector2Array(63, 33, 3, 33)
+pairedPortal = NodePath("../ColorGate2")
+
+[node name="ColorGate4" parent="." index="4" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_veeni")]
+position = Vector2(527.003, -80.0001)
+points = PackedVector2Array(63, 33, 3, 33)
+default_color = Color(1, 0.647059, 0, 1)
+color = "Orange"
+pairedPortal = NodePath("../ColorGate6")
+
+[node name="ColorGate5" parent="." index="5" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_veeni")]
+position = Vector2(607.003, -112)
+points = PackedVector2Array(63, 33, 3, 33)
+default_color = Color(1, 0.647059, 0, 1)
+color = "Orange"
+pairedPortal = NodePath("../ColorGate6")
+
+[node name="ColorGate6" parent="." index="6" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_veeni")]
+position = Vector2(481, -96)
+rotation = -3.14167
+points = PackedVector2Array(63, 33, 3, 33)
+default_color = Color(1, 0.647059, 0, 1)
+color = "Orange"
+pairedPortal = NodePath("../ColorGate5")
+
+[node name="Laserbridge" parent="." index="7" instance=ExtResource("3_1xoxu")]
+position = Vector2(136, 8)
+points = PackedVector2Array(0, 0, 272, 0)
+
+[node name="Button" parent="." index="8" instance=ExtResource("4_gdr06")]
+position = Vector2(448, -168)
+
+[node name="Laserbridge2" parent="." index="9" instance=ExtResource("3_1xoxu")]
+position = Vector2(520, 8)
+points = PackedVector2Array(0, 0, 304, 0)
+
+[node name="Button2" parent="." index="10" instance=ExtResource("4_gdr06")]
+position = Vector2(768, -119)
+
+[node name="Button3" parent="." index="11" instance=ExtResource("4_gdr06")]
+position = Vector2(864, -8)
+
+[node name="Door" parent="." index="12" instance=ExtResource("5_c2yeb")]
+position = Vector2(816, -147)
+scale = Vector2(0.372375, 3.48564)
+
+[connection signal="buttonPressed" from="Button" to="Laserbridge" method="makeBridge"]
+[connection signal="buttonPressed" from="Button2" to="Laserbridge2" method="makeBridge"]
+[connection signal="buttonPressed" from="Button3" to="Door" method="openDoor"]
