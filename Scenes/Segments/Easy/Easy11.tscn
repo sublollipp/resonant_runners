@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=4 uid="uid://d18afh5w1n0qv"]
 
-[ext_resource type="PackedScene" uid="uid://dvwd0fq5m3tuv" path="res://Scenes/Segment.tscn" id="1_i6oqr"]
+[ext_resource type="PackedScene" uid="uid://cjevx4rla3his" path="res://Scenes/Segment.tscn" id="1_i6oqr"]
 [ext_resource type="PackedScene" uid="uid://cnr48rwddailu" path="res://Scenes/color_gate.tscn" id="2_c83oi"]
 
 [node name="Segment" instance=ExtResource("1_i6oqr")]
@@ -16,4 +16,5 @@ pairedPortal = NodePath("../ColorGate2")
 [node name="ColorGate2" parent="." index="2" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_c83oi")]
 position = Vector2(613, -282)
 points = PackedVector2Array(82, 18, 2, 18)
+flipExitPortal = true
 pairedPortal = NodePath("../ColorGate")

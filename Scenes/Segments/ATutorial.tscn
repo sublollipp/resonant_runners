@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://tbx0ay70njc8"]
+[gd_scene load_steps=7 format=4 uid="uid://tbx0ay70njc8"]
 
-[ext_resource type="PackedScene" uid="uid://dvwd0fq5m3tuv" path="res://Scenes/Segment.tscn" id="1_b0gxq"]
+[ext_resource type="PackedScene" uid="uid://cjevx4rla3his" path="res://Scenes/Segment.tscn" id="1_b0gxq"]
 [ext_resource type="PackedScene" uid="uid://cnr48rwddailu" path="res://Scenes/color_gate.tscn" id="2_t60aa"]
 [ext_resource type="PackedScene" uid="uid://hm2d03yof7a7" path="res://Scenes/Button.tscn" id="3_pvcve"]
 [ext_resource type="PackedScene" uid="uid://dal1ialdl2806" path="res://Scenes/door.tscn" id="4_d7blp"]
 [ext_resource type="PackedScene" uid="uid://vynh2nd3tsi2" path="res://Scenes/laserbridge.tscn" id="5_t60aa"]
+[ext_resource type="FontFile" uid="uid://b0ba52ukqgt87" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="6_4dwp5"]
 
 [node name="Segment" instance=ExtResource("1_b0gxq")]
 
@@ -82,7 +83,115 @@ position = Vector2(2318, -8)
 
 [node name="Laserbridge" parent="." index="14" instance=ExtResource("5_t60aa")]
 position = Vector2(2280, 8)
-points = PackedVector2Array(320, 0, 64, 0)
+points = PackedVector2Array(320, -6, 65, -7)
+
+[node name="Label" type="Label" parent="." index="15"]
+offset_left = 672.0
+offset_top = -40.0
+offset_right = 934.0
+offset_bottom = -17.0
+scale = Vector2(0.744141, 0.744141)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_4dwp5")
+theme_override_font_sizes/font_size = 16
+text = "These are portals"
+
+[node name="Label2" type="Label" parent="." index="16"]
+offset_left = 926.0
+offset_top = -132.0
+offset_right = 1322.0
+offset_bottom = -11.0
+scale = Vector2(0.653751, 0.653751)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_4dwp5")
+theme_override_font_sizes/font_size = 16
+text = "Both players can go through white portals.
+
+Only you can walk through a portal if it is your color.
+"
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="." index="17"]
+offset_left = 1159.0
+offset_top = -203.0
+offset_right = 1913.0
+offset_bottom = -149.0
+scale = Vector2(0.82704, 0.82704)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_4dwp5")
+theme_override_font_sizes/font_size = 16
+text = "Press “down” to crouch
+"
+
+[node name="Label4" type="Label" parent="." index="18"]
+offset_left = 1337.0
+offset_top = -62.0
+offset_right = 1812.0
+offset_bottom = -2.0
+scale = Vector2(0.82704, 0.82704)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_4dwp5")
+theme_override_font_sizes/font_size = 16
+text = "If your teammate jumps on you while crouched they superjump
+"
+autowrap_mode = 2
+
+[node name="Label5" type="Label" parent="." index="19"]
+offset_left = 1642.0
+offset_top = -190.0
+offset_right = 1942.0
+offset_bottom = -130.0
+scale = Vector2(0.82704, 0.82704)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_4dwp5")
+theme_override_font_sizes/font_size = 16
+text = "Press the button to remove the door."
+autowrap_mode = 2
+
+[node name="Label6" type="Label" parent="." index="20"]
+offset_left = 1819.0
+offset_top = -88.0
+offset_right = 2119.0
+offset_bottom = -28.0
+scale = Vector2(0.82704, 0.82704)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_4dwp5")
+theme_override_font_sizes/font_size = 16
+text = "Try switching roles."
+autowrap_mode = 2
+
+[node name="Label7" type="Label" parent="." index="21"]
+offset_left = 2221.0
+offset_top = -168.0
+offset_right = 2521.0
+offset_bottom = -108.0
+scale = Vector2(0.82704, 0.82704)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_4dwp5")
+theme_override_font_sizes/font_size = 16
+text = "Press the button to make a bridge."
+autowrap_mode = 2
+
+[node name="Label8" type="Label" parent="." index="22"]
+offset_left = 2749.0
+offset_top = -144.0
+offset_right = 3049.0
+offset_bottom = -71.0
+scale = Vector2(0.82704, 0.82704)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_4dwp5")
+theme_override_font_sizes/font_size = 16
+text = "Use superjump to get over the obstacle.
+"
+autowrap_mode = 2
 
 [connection signal="buttonPressed" from="Button" to="Door" method="openDoor"]
 [connection signal="buttonPressed" from="Button2" to="Door2" method="openDoor"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bt1k50fibwooe"]
+[gd_scene load_steps=16 format=3 uid="uid://bt1k50fibwooe"]
 
 [ext_resource type="Script" uid="uid://drfmsmg3robd3" path="res://Scripts/gamescript.gd" id="1_45vkp"]
 [ext_resource type="Script" uid="uid://cypdhfdtsryu4" path="res://Scripts/cam_controller.gd" id="2_kk53g"]
@@ -67,6 +67,12 @@ _data = {
 &"fadeout": SubResource("Animation_ujgk1")
 }
 
+[sub_resource type="Environment" id="Environment_wdesh"]
+background_mode = 3
+glow_enabled = true
+glow_bloom = 1.0
+glow_hdr_threshold = 1.5
+
 [node name="MainLevelScene" type="Node2D"]
 script = ExtResource("1_45vkp")
 
@@ -78,7 +84,7 @@ script = ExtResource("2_kk53g")
 position = Vector2(124, -64)
 zoom = Vector2(2, 2)
 
-[node name="LeftLimit" type="StaticBody2D" parent="CamController"]
+[node name="LeftLimit" type="Area2D" parent="CamController"]
 position = Vector2(-62, 0)
 collision_layer = 16
 
@@ -88,9 +94,9 @@ shape = SubResource("RectangleShape2D_r4ohu")
 
 [node name="ColorRect" type="ColorRect" parent="CamController/LeftLimit"]
 offset_left = -160.0
-offset_top = -192.0
+offset_top = -382.0
 offset_right = -104.0
-offset_bottom = 56.0
+offset_bottom = 252.0
 color = Color(1, 0, 0, 1)
 
 [node name="RightLimit" type="StaticBody2D" parent="CamController"]
@@ -119,7 +125,6 @@ debug_color = Color(0.91, 0.743167, 0, 0.996078)
 
 [node name="SegmentSpawner" type="Node2D" parent="."]
 script = ExtResource("3_i6njh")
-timeoutSegments = 0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -166,4 +171,8 @@ libraries = {
 script = ExtResource("9_wdesh")
 metadata/_custom_type_script = "uid://dptc4lwrxtgsk"
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wdesh")
+
+[connection signal="body_entered" from="CamController/LeftLimit" to="." method="_on_left_limit_body_entered"]
 [connection signal="body_entered" from="CamController/WorldBoundary" to="." method="_on_world_boundary_body_entered"]
