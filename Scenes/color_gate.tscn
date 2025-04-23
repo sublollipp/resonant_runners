@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnr48rwddailu"]
+[gd_scene load_steps=3 format=3 uid="uid://cnr48rwddailu"]
 
 [ext_resource type="Script" uid="uid://cfogapm46c0lr" path="res://Scripts/color_gate.gd" id="1_whkuv"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_whkuv"]
+
 [node name="ColorGate" type="Line2D"]
+modulate = Color(2, 2, 2, 1)
+material = SubResource("CanvasItemMaterial_whkuv")
 points = PackedVector2Array(0, 0, 0, 32)
 width = 2.0
 script = ExtResource("1_whkuv")
