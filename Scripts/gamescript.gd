@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var speed = Gamespeed.speed
 
 const VERSION : String = "1.0.0" # For online-funktionalitet
 
@@ -26,7 +25,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if !GDSync.is_host(): return
-	$CamController.position.x += speed * delta
+	$CamController.position.x += Gamespeed.speed * delta
 
 func switchToGameOver() -> void:
 	GDSync.change_scene("res://Scenes/UI/game_over.tscn")
@@ -37,5 +36,5 @@ func _on_world_boundary_body_entered(body: Node2D) -> void:
 	print("JDPÅCBCBCVICHGKJFC")
 
 func death():
-	speed = 0
+	Gamespeed.speed = 0
 	$SynchronizedAnimationPlayer.play("fadeout")
