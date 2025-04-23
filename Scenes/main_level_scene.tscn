@@ -78,7 +78,7 @@ script = ExtResource("2_kk53g")
 position = Vector2(124, -64)
 zoom = Vector2(2, 2)
 
-[node name="LeftLimit" type="StaticBody2D" parent="CamController"]
+[node name="LeftLimit" type="Area2D" parent="CamController"]
 position = Vector2(-62, 0)
 collision_layer = 16
 
@@ -165,4 +165,5 @@ libraries = {
 script = ExtResource("9_wdesh")
 metadata/_custom_type_script = "uid://dptc4lwrxtgsk"
 
+[connection signal="body_entered" from="CamController/LeftLimit" to="." method="_on_left_limit_body_entered"]
 [connection signal="body_entered" from="CamController/WorldBoundary" to="." method="_on_world_boundary_body_entered"]

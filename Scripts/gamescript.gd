@@ -39,3 +39,7 @@ func _on_world_boundary_body_entered(body: Node2D) -> void:
 func death():
 	speed = 0
 	$SynchronizedAnimationPlayer.play("fadeout")
+
+
+func _on_left_limit_body_entered(body: Node2D) -> void:
+	death()
