@@ -82,7 +82,7 @@ position = Vector2(2318, -8)
 
 [node name="Laserbridge" parent="." index="14" instance=ExtResource("5_t60aa")]
 position = Vector2(2280, 8)
-points = PackedVector2Array(320, 0, 64, 0)
+points = PackedVector2Array(320, -6, 65, -7)
 
 [connection signal="buttonPressed" from="Button" to="Door" method="openDoor"]
 [connection signal="buttonPressed" from="Button2" to="Door2" method="openDoor"]

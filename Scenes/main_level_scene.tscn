@@ -119,7 +119,6 @@ debug_color = Color(0.91, 0.743167, 0, 0.996078)
 
 [node name="SegmentSpawner" type="Node2D" parent="."]
 script = ExtResource("3_i6njh")
-timeoutSegments = 0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
