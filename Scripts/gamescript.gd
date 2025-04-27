@@ -26,7 +26,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if !GDSync.is_host(): return
-	$CamController.position.x += speed * delta
+	$CamController.pos.x += speed * delta
 
 func switchToGameOver() -> void:
 	GDSync.change_scene("res://Scenes/UI/game_over.tscn")
