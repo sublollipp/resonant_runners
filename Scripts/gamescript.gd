@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var speed = Gamespeed.speed
 
 const VERSION : String = "1.0.0" # For online-funktionalitet
 
@@ -37,7 +36,7 @@ func _on_world_boundary_body_entered(body: Node2D) -> void:
 	print("JDPÅCBCBCVICHGKJFC")
 
 func death():
-	speed = 0
+	Gamespeed.speed = 0
 	$SynchronizedAnimationPlayer.play("fadeout")
 
 func _on_left_limit_body_entered(body: Node2D) -> void:
