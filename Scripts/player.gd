@@ -9,7 +9,7 @@ class_name Player extends CharacterBody2D
 
 @onready var start_collision_shape_height = collision_shape_2d.shape.size.y
 
-@onready var jumpExplotion = $CPUParticles2D
+
 
 
 
@@ -32,13 +32,17 @@ var leftKey : String = "Left"
 var rightKey : String = "Right"
 var jumpKey : String = "Jump"
 var crouchKey : String = "Crouch"
+var explosionColor : Color = Color(0, 255, 255, 255)
+
+func _ready() -> void:
+	$CPUParticles2D.color = explosionColor
 
 func set_as_player_two() -> void:
 	player2 = true
 	set_collision_mask_value(6, false)
 	set_collision_mask_value(7, true)
 	color = "Orange"
-	jumpExplotion.color = Color(225,116,69,225)
+	explosionColor = Color(225,116,69,225)
 	#leftKey = "2Left"
 	#rightKey = "2Right"
 	#jumpKey = "2Jump"
@@ -70,7 +74,7 @@ func _physics_process(delta) -> void:
 		
 		if collider.is_crouching:
 			velocity.y = JUMP_VELOCITY*1.5
-			jumpExplotion.emitting = true
+			$CPUParticles2D.emitting = true
 	elif ray_cast.is_colliding() && ray_cast.get_collider().is_in_group("players"): # Sat ind i elif for optimization
 		
 		var collider = ray_cast.get_collider()

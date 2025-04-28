@@ -10,7 +10,7 @@ config_version=5
 
 [GD-Sync]
 
-version="0.8"
+version="0.9"
 publicKey="9237be094a61bb05"
 privateKey="130dbfd24e44b74e"
 
