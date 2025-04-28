@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bt1k50fibwooe"]
+[gd_scene load_steps=17 format=3 uid="uid://bt1k50fibwooe"]
 
 [ext_resource type="Script" uid="uid://drfmsmg3robd3" path="res://Scripts/gamescript.gd" id="1_45vkp"]
 [ext_resource type="Script" uid="uid://cypdhfdtsryu4" path="res://Scripts/cam_controller.gd" id="2_kk53g"]
@@ -70,8 +70,13 @@ _data = {
 [sub_resource type="Environment" id="Environment_wdesh"]
 background_mode = 3
 glow_enabled = true
-glow_bloom = 1.0
-glow_hdr_threshold = 1.5
+glow_intensity = 3.33
+glow_strength = 1.04
+glow_blend_mode = 1
+glow_hdr_threshold = 1.6
+glow_hdr_luminance_cap = 0.8
+
+[sub_resource type="Compositor" id="Compositor_wdesh"]
 
 [node name="MainLevelScene" type="Node2D"]
 script = ExtResource("1_45vkp")
@@ -133,6 +138,7 @@ motion_scale = Vector2(0.2, 1)
 motion_mirroring = Vector2(3508, 0)
 
 [node name="Skies" type="Sprite2D" parent="ParallaxBackground/Background"]
+texture_filter = 1
 position = Vector2(769, -108)
 texture = ExtResource("4_45vkp")
 
@@ -173,6 +179,7 @@ metadata/_custom_type_script = "uid://dptc4lwrxtgsk"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_wdesh")
+compositor = SubResource("Compositor_wdesh")
 
 [connection signal="body_entered" from="CamController/LeftLimit" to="." method="_on_left_limit_body_entered"]
 [connection signal="body_entered" from="CamController/WorldBoundary" to="." method="_on_world_boundary_body_entered"]
