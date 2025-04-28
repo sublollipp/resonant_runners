@@ -22,12 +22,15 @@ func _ready() -> void:
 		
 		$CamController.add_child(player2)
 		GDSync.set_gdsync_owner($CamController.get_node("Player 2"), GDSync.lobby_get_all_clients()[1])
+	#if GDSync.is_host():
+		#GDSync.account_login("resonantrunnersdemomail@resonantrunners4life.jizzledrizzle", "Fiskemader123")
 
 func _process(delta: float) -> void:
 	if !GDSync.is_host(): return
-	$CamController.pos.x += speed * delta
+	$CamController.pos.x += Gamespeed.speed * delta
 
 func switchToGameOver() -> void:
+	
 	GDSync.change_scene("res://Scenes/UI/game_over.tscn")
 
 func _on_world_boundary_body_entered(body: Node2D) -> void:

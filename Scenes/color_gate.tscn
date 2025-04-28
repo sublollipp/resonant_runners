@@ -4,7 +4,7 @@
 
 [node name="ColorGate" type="Line2D"]
 modulate = Color(2, 2, 2, 1)
-points = PackedVector2Array(0, 0, 0, 32)
+points = PackedVector2Array(0, 0, 0.1, 32)
 width = 3.0
 texture_mode = 1
 script = ExtResource("1_whkuv")

@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b01fct7rclfw8" path="res://Assets/Players/JumpingOrange.png" id="7_7dp3o"]
 [ext_resource type="Texture2D" uid="uid://c3gdka3i3kls0" path="res://Assets/Players/RunningCyan.png" id="8_h4iuc"]
 [ext_resource type="Texture2D" uid="uid://b182wquk8rmgf" path="res://Assets/Players/RunningOrange.png" id="9_fd4e3"]
-[ext_resource type="Script" uid="uid://bor6e34qw6oe1" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="11_gymyn"]
+[ext_resource type="Script" uid="uid://bb5fkdkg3x2yn" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="11_gymyn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olqyp"]
 atlas = ExtResource("2_tx1dd")
@@ -551,7 +551,7 @@ node_path = NodePath("..")
 properties = PackedStringArray("is_crouching", "velocity", "position")
 interpolated = false
 interpolation_speed = 1.0
-metadata/_custom_type_script = "uid://bor6e34qw6oe1"
+metadata/_custom_type_script = "uid://bb5fkdkg3x2yn"
 
 [node name="PropertySynchronizer2" type="Node" parent="."]
 script = ExtResource("11_gymyn")
@@ -560,7 +560,7 @@ node_path = NodePath("../AnimatedSprite2D")
 properties = PackedStringArray("animation", "frame", "flip_h", "speed_scale")
 interpolated = false
 interpolation_speed = 1.0
-metadata/_custom_type_script = "uid://bor6e34qw6oe1"
+metadata/_custom_type_script = "uid://bb5fkdkg3x2yn"
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(0, 22)

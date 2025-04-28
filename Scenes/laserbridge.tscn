@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c085d52l3ifgb" path="res://Assets/Lasers/RRlasersource.png" id="1_iieum"]
 [ext_resource type="Texture2D" uid="uid://de5jqcjmxcqoc" path="res://Assets/Lasers/RRlaserbeam.png" id="1_yfknh"]
 [ext_resource type="Script" uid="uid://b8e38xrmg8a1j" path="res://Scripts/laserbridge.gd" id="2_ncuqd"]
-[ext_resource type="Script" uid="uid://dptc4lwrxtgsk" path="res://addons/GD-Sync/Scripts/Types/SynchronizedAnimationPlayer.gd" id="4_5l6vo"]
+[ext_resource type="Script" uid="uid://bdy6oaexftph6" path="res://addons/GD-Sync/Scripts/Types/SynchronizedAnimationPlayer.gd" id="4_5l6vo"]
 [ext_resource type="Script" uid="uid://dsvfdw130q7tt" path="res://Scripts/bridge_ready_checker.gd" id="4_ncuqd"]
 
 [sub_resource type="Animation" id="Animation_ncuqd"]
@@ -90,7 +90,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_ncuqd")
 }
 script = ExtResource("4_5l6vo")
-metadata/_custom_type_script = "uid://dptc4lwrxtgsk"
+metadata/_custom_type_script = "uid://bdy6oaexftph6"
 
 [node name="BridgeReadyChecker" type="Node" parent="."]
 script = ExtResource("4_ncuqd")
