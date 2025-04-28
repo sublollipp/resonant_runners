@@ -11,7 +11,7 @@ var positionOffset : float = 0
 func _ready() -> void:
 	print("Center X: ", centerx)
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var playerCount : int = 0
 	var totalPos : int = 0
 	for player : Player in get_tree().get_nodes_in_group("players"):

@@ -108,6 +108,7 @@ Pause={
 2d_physics/layer_6="Cyan"
 2d_physics/layer_7="Orange"
 2d_physics/layer_8="Portal"
+2d_physics/layer_9="PlayerStatic"
 
 [rendering]
 

@@ -33,7 +33,6 @@ func load_segments(segmentsList, diff):
 		for file in files:
 			segmentsList.append("res://Scenes/Segments/"+diff+file)
 	return segmentsList.size()
-	
 
 func add_segment(seg : String, diff) -> void:
 	var newSegment = load(seg).instantiate()
@@ -59,7 +58,6 @@ func remove_segment():
 	for currentSegment in get_children():
 		if cam_controller.position.x > currentSegment.position.x + currentSegment.width + 300:
 			currentSegment.queue_free()
-
 
 func segmentAdd(segmentsList, recentSegments, file_count, diff) -> void:
 	if !GDSync.is_host(): return
