@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b01fct7rclfw8" path="res://Assets/Players/JumpingOrange.png" id="7_7dp3o"]
 [ext_resource type="Texture2D" uid="uid://c3gdka3i3kls0" path="res://Assets/Players/RunningCyan.png" id="8_h4iuc"]
 [ext_resource type="Texture2D" uid="uid://b182wquk8rmgf" path="res://Assets/Players/RunningOrange.png" id="9_fd4e3"]
-[ext_resource type="Script" uid="uid://bb5fkdkg3x2yn" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="11_gymyn"]
+[ext_resource type="Script" uid="uid://bor6e34qw6oe1" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="11_gymyn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olqyp"]
 atlas = ExtResource("2_tx1dd")
@@ -504,7 +504,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
-size = Vector2(11.5, 30.5781)
+size = Vector2(13.75, 30.5781)
 
 [sub_resource type="Curve" id="Curve_gymyn"]
 _data = [Vector2(0.0162791, 0.955825), 0.0, 0.0, 0, 0, Vector2(0.997674, 0.135437), 0.0, 0.0, 0, 0]
@@ -517,15 +517,15 @@ script = ExtResource("1_cvnsp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_v0iea")
-animation = &"JumpingCyan"
+animation = &"RunningCyan"
 autoplay = "IdleCyan"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 8.28907)
+position = Vector2(2.125, 8.28907)
 shape = SubResource("RectangleShape2D_cvnsp")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(7, 12)
+position = Vector2(9, 12)
 target_position = Vector2(0, 13)
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
@@ -536,6 +536,7 @@ target_position = Vector2(0, 13)
 script = ExtResource("3_6t5aa")
 
 [node name="PortalArea" type="Area2D" parent="."]
+position = Vector2(1, 0)
 collision_layer = 0
 collision_mask = 128
 
