@@ -1,2 +1,1 @@
-# resonant_runners
-multiplayer co-op endless runner
+theme: jekyll-theme-hacker
