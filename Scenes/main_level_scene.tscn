@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://drfmsmg3robd3" path="res://Scripts/gamescript.gd" id="1_45vkp"]
 [ext_resource type="Script" uid="uid://cypdhfdtsryu4" path="res://Scripts/cam_controller.gd" id="2_kk53g"]
 [ext_resource type="Script" uid="uid://cwuklv4bl5blt" path="res://Scripts/segment_spawner.gd" id="3_i6njh"]
-[ext_resource type="Script" uid="uid://bor6e34qw6oe1" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="3_r2c11"]
+[ext_resource type="Script" uid="uid://bb5fkdkg3x2yn" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="3_r2c11"]
 [ext_resource type="Texture2D" uid="uid://d0cj1e3c42dab" path="res://Assets/Background-tileset/Backgroundforbedret.png" id="4_45vkp"]
 [ext_resource type="Script" uid="uid://7xkivof0pvjj" path="res://Scripts/building_layer_1_handler.gd" id="5_45vkp"]
 [ext_resource type="Script" uid="uid://dxvpk7edqmjcf" path="res://Scripts/layer_2_handler.gd" id="6_45vkp"]
 [ext_resource type="PackedScene" uid="uid://c4x7c8bu8xq2r" path="res://Scenes/UI/Pause.tscn" id="8_r2c11"]
-[ext_resource type="Script" uid="uid://dptc4lwrxtgsk" path="res://addons/GD-Sync/Scripts/Types/SynchronizedAnimationPlayer.gd" id="9_wdesh"]
+[ext_resource type="Script" uid="uid://bdy6oaexftph6" path="res://addons/GD-Sync/Scripts/Types/SynchronizedAnimationPlayer.gd" id="9_wdesh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4ohu"]
 size = Vector2(56, 396)
@@ -115,7 +115,7 @@ shape = SubResource("RectangleShape2D_r4ohu")
 [node name="PropertySynchronizer" type="Node" parent="CamController"]
 script = ExtResource("3_r2c11")
 node_path = NodePath("..")
-properties = PackedStringArray("positionOffset", "position")
+properties = PackedStringArray("positionOffset", "pos")
 interpolated = false
 interpolation_speed = 1.0
 
