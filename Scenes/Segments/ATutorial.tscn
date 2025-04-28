@@ -82,8 +82,8 @@ scale = Vector2(1, 2.35991)
 position = Vector2(2318, -8)
 
 [node name="Laserbridge" parent="." index="14" instance=ExtResource("5_t60aa")]
-position = Vector2(2280, 8)
-points = PackedVector2Array(320, -6, 65, -7)
+position = Vector2(2279, 15)
+points = PackedVector2Array(321, -7, 65, -7)
 
 [node name="Label" type="Label" parent="." index="15"]
 offset_left = 672.0
