@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://hm2d03yof7a7"]
 
 [ext_resource type="Script" uid="uid://dsj62rktktftw" path="res://Scripts/button.gd" id="1_a506e"]
-[ext_resource type="Shader" uid="uid://cuiuy1yavmxva" path="res://Scripts/Button.gdshader" id="2_8bxxr"]
+[ext_resource type="Shader" path="res://Scripts/Button.gdshader" id="2_8bxxr"]
 [ext_resource type="Texture2D" uid="uid://dlq68cd1qsvae" path="res://Assets/Buttons/RRknap2.png" id="3_8bxxr"]
 
 [sub_resource type="Animation" id="Animation_a506e"]

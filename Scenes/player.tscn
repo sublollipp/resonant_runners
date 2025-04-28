@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://brt6tra12ee8e"]
+[gd_scene load_steps=79 format=3 uid="uid://brt6tra12ee8e"]
 
 [ext_resource type="Script" uid="uid://c1wfc8abfhj5c" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://crwc8x617onef" path="res://Assets/Players/CrouchCyan.png" id="2_tx1dd"]
@@ -506,6 +506,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
 size = Vector2(11.5, 30.5781)
 
+[sub_resource type="Curve" id="Curve_gymyn"]
+_data = [Vector2(0.0162791, 0.955825), 0.0, 0.0, 0, 0, Vector2(0.997674, 0.135437), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["players"]]
 collision_mask = 55
 floor_snap_length = 6.0
@@ -557,6 +561,24 @@ properties = PackedStringArray("animation", "frame", "flip_h", "speed_scale")
 interpolated = false
 interpolation_speed = 1.0
 metadata/_custom_type_script = "uid://bor6e34qw6oe1"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, 22)
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 60
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 47.62
+initial_velocity_max = 164.89
+scale_amount_min = 2.0
+scale_amount_max = 6.0
+scale_amount_curve = SubResource("Curve_gymyn")
+color = Color(0, 1, 1, 1)
 
 [connection signal="portalTouched" from="." to="PortalHandler" method="_on_character_body_2d_portal_touched"]
 [connection signal="body_entered" from="PortalArea" to="PortalHandler" method="_on_area_2d_body_entered"]
