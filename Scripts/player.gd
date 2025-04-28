@@ -36,8 +36,8 @@ var explosionColor : Color = Color(0, 255, 255, 255)
 
 func _ready() -> void:
 	$CPUParticles2D.color = explosionColor
-	$CPUParticles2D.emission_colors[0] = color
-	$CPUParticles2D.emission_colors[1] = color
+	$CPUParticles2D.emission_colors[0] = explosionColor
+	$CPUParticles2D.emission_colors[1] = explosionColor
 	GDSync.expose_func(superjump)
 
 func superjump() -> void:
