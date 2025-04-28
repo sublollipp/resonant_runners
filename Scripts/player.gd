@@ -36,6 +36,11 @@ var explosionColor : Color = Color(0, 255, 255, 255)
 
 func _ready() -> void:
 	$CPUParticles2D.color = explosionColor
+	GDSync.expose_func(superjump)
+
+func superjump() -> void:
+	$CPUParticles2D.emitting = true
+	velocity.y = JUMP_VELOCITY * 1.5
 
 func set_as_player_two() -> void:
 	player2 = true
@@ -73,15 +78,15 @@ func _physics_process(delta) -> void:
 		is_on_player = true
 		
 		if collider.is_crouching:
-			velocity.y = JUMP_VELOCITY*1.5
-			$CPUParticles2D.emitting = true
+			GDSync.call_func(superjump)
+			
 	elif ray_cast.is_colliding() && ray_cast.get_collider().is_in_group("players"): # Sat ind i elif for optimization
 		
 		var collider = ray_cast.get_collider()
 		is_on_player = true
 		
 		if collider.is_crouching:
-			velocity.y = JUMP_VELOCITY*1.5
+			GDSync.call_func(superjump)
 			
 	var direction : float = Input.get_axis(leftKey, rightKey)
 	

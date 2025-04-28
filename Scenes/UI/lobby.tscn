@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://5quswar7oaeo"]
 
 [ext_resource type="Script" uid="uid://ch7rd7hc1u5h4" path="res://Scenes/UI/lobby.gd" id="1_8ca5k"]
-[ext_resource type="Theme" uid="uid://dec0hwgv0x1s3" path="res://addons/GD-Sync/UI/ConfigMenu/GD-Theme.tres" id="2_s2cyl"]
+[ext_resource type="Theme" uid="uid://5whm1igkt23h" path="res://addons/GD-Sync/UI/ConfigMenu/GD-Theme.tres" id="2_s2cyl"]
 
 [node name="Lobby" type="Control"]
 layout_mode = 3
