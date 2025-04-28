@@ -70,7 +70,7 @@ func segmentAdd(segmentsList, recentSegments, file_count, diff) -> void:
 		i = rng.randi_range(1,file_count-1)
 	else:
 		i = 0
-	add_segment(segmentsList.get(i,),diff)
+	add_segment(segmentsList.get(i), diff)
 	GDSync.call_func(add_segment, [segmentsList.get(i), diff])
 	
 	if timeoutSegments > 0:

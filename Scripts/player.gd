@@ -78,6 +78,7 @@ func _physics_process(delta) -> void:
 		is_on_player = true
 		
 		if collider.is_crouching:
+			superjump()
 			GDSync.call_func(superjump)
 			
 	elif ray_cast.is_colliding() && ray_cast.get_collider().is_in_group("players"): # Sat ind i elif for optimization
@@ -86,6 +87,7 @@ func _physics_process(delta) -> void:
 		is_on_player = true
 		
 		if collider.is_crouching:
+			superjump()
 			GDSync.call_func(superjump)
 			
 	var direction : float = Input.get_axis(leftKey, rightKey)
