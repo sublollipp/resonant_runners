@@ -12,7 +12,7 @@ var previousPortal : ColorGate = null
 @onready var rightLimit = camController.get_child(2)
 @onready var rightLimitCollision = rightLimit.get_child(0)
 
-@onready var portalArea = $"../PortalArea"
+@onready var portalArea : Area2D = $"../PortalArea"
 
 
 func _ready():
@@ -79,17 +79,19 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.is_in_group("PortalCollider"):
-		var portalCollider : StaticBody2D = body
-		for i in range(6,8):
-			if player.get_collision_mask_value(i):
-				portalCollider.set_collision_layer_value(i, true)
+	print("Ud af portalen")
 	if previousPortal:
 		if body.is_in_group("PortalCollider"):
 			var portal : ColorGate = body.get_parent()
 			if portal.pairedPortal == previousPortal:
 				var portalCollider : StaticBody2D = portal.get_node("StaticBody2D")
 				# Gør portalen one-time-use for den spiller der bruger den
+				for i in range(6,8): # Kører for 6 og 7
+					if portalArea.get_collision_mask_value(i):
+						portalCollider.set_collision_layer_value(i, true)
+				portalCollider.set_collision_layer_value(8, false)
+				
 				#portalCollider.set_collision_layer_value(6, player.get_collision_mask_value(6))
 				#portalCollider.set_collision_layer_value(7, player.get_collision_mask_value(7))
 				inPortal = false
+				
