@@ -48,6 +48,8 @@ func set_as_player_two() -> void:
 	player2 = true
 	set_collision_mask_value(6, false)
 	set_collision_mask_value(7, true)
+	$StaticBody2D.set_collision_layer_value(7, false)
+	$StaticBody2D.set_collision_layer_value(6, true)
 	color = "Orange"
 	explosionColor = Color(225,116,69,225)
 	#leftKey = "2Left"
