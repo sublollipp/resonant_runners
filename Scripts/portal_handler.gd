@@ -89,7 +89,10 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 				for i in range(6,8): # Kører for 6 og 7
 					if portalArea.get_collision_mask_value(i):
 						portalCollider.set_collision_layer_value(i, true)
+						portalCollider.pairedPortal.set_collision_layer_value(i, true)
 				portalCollider.set_collision_layer_value(8, false)
+				portalCollider.pairedPortal.set_collision_layer_value(8, false)
+				
 				
 				#portalCollider.set_collision_layer_value(6, player.get_collision_mask_value(6))
 				#portalCollider.set_collision_layer_value(7, player.get_collision_mask_value(7))
