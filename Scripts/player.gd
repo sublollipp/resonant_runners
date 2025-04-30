@@ -36,6 +36,8 @@ var explosionColor : Color = Color(0, 255, 255, 255)
 
 func _ready() -> void:
 	$CPUParticles2D.color = explosionColor
+	$CPUParticles2D.emission_colors[0] = explosionColor
+	$CPUParticles2D.emission_colors[1] = explosionColor
 	GDSync.expose_func(superjump)
 
 func superjump() -> void:
@@ -46,6 +48,8 @@ func set_as_player_two() -> void:
 	player2 = true
 	set_collision_mask_value(6, false)
 	set_collision_mask_value(7, true)
+	$StaticBody2D.set_collision_layer_value(7, false)
+	$StaticBody2D.set_collision_layer_value(6, true)
 	color = "Orange"
 	explosionColor = Color(225,116,69,225)
 	#leftKey = "2Left"

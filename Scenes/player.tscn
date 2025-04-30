@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b01fct7rclfw8" path="res://Assets/Players/JumpingOrange.png" id="7_7dp3o"]
 [ext_resource type="Texture2D" uid="uid://c3gdka3i3kls0" path="res://Assets/Players/RunningCyan.png" id="8_h4iuc"]
 [ext_resource type="Texture2D" uid="uid://b182wquk8rmgf" path="res://Assets/Players/RunningOrange.png" id="9_fd4e3"]
-[ext_resource type="Script" uid="uid://bor6e34qw6oe1" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="11_gymyn"]
+[ext_resource type="Script" uid="uid://bb5fkdkg3x2yn" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="11_gymyn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olqyp"]
 atlas = ExtResource("2_tx1dd")
@@ -511,7 +511,7 @@ _data = [Vector2(0.0162791, 0.955825), 0.0, 0.0, 0, 0, Vector2(0.997674, 0.13543
 point_count = 2
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["players"]]
-collision_mask = 55
+collision_mask = 54
 floor_snap_length = 6.0
 script = ExtResource("1_cvnsp")
 
@@ -565,19 +565,29 @@ interpolation_speed = 1.0
 position = Vector2(0, 22)
 scale = Vector2(0.5, 0.5)
 emitting = false
-amount = 60
-lifetime = 0.3
+amount = 30
+lifetime = 0.6
 one_shot = true
 explosiveness = 1.0
+emission_shape = 4
+emission_points = PackedVector2Array(-5, 23, 8, 23)
+emission_colors = PackedColorArray(0, 1, 1, 1, 0, 1, 1, 1)
 direction = Vector2(0, 0)
 spread = 180.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 47.62
-initial_velocity_max = 164.89
+initial_velocity_min = 189.03
+initial_velocity_max = 360.75
 scale_amount_min = 2.0
 scale_amount_max = 6.0
 scale_amount_curve = SubResource("Curve_gymyn")
 color = Color(0, 1, 1, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 320
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2.125, 8.28907)
+shape = SubResource("RectangleShape2D_cvnsp")
 
 [connection signal="portalTouched" from="." to="PortalHandler" method="_on_character_body_2d_portal_touched"]
 [connection signal="body_entered" from="PortalArea" to="PortalHandler" method="_on_area_2d_body_entered"]

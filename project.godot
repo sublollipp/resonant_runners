@@ -26,6 +26,7 @@ config/icon="uid://bkf6gkthdunv2"
 Gamespeed="*res://Scripts/gamespeed.gd"
 ResonantRunners="*res://Scripts/resonant_runners.gd"
 GDSync="*res://addons/GD-Sync/MultiplayerClient.gd"
+Leaderboard="*res://Scripts/leaderboard.gd"
 
 [display]
 
@@ -108,6 +109,7 @@ Pause={
 2d_physics/layer_6="Cyan"
 2d_physics/layer_7="Orange"
 2d_physics/layer_8="Portal"
+2d_physics/layer_9="PlayerStatic"
 
 [rendering]
 
