@@ -83,4 +83,8 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		if body.is_in_group("PortalCollider"):
 			var portal : ColorGate = body.get_parent()
 			if portal.pairedPortal == previousPortal:
+				var portalCollider : StaticBody2D = portal.get_node("StaticBody2D")
+				# Gør portalen one-time-use for den spiller der bruger den
+				portalCollider.set_collision_layer_value(6, player.get_collision_mask_value(6))
+				portalCollider.set_collision_layer_value(7, player.get_collision_mask_value(7))
 				inPortal = false

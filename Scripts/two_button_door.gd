@@ -36,8 +36,6 @@ func _ready() -> void:
 		if not b.connected_node == self:
 			b.connected_node == self
 
-
-	
 func dontUseThisFunction():
 	queue_free()
 
