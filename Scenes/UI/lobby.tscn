@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://5quswar7oaeo"]
+[gd_scene load_steps=7 format=3 uid="uid://5quswar7oaeo"]
 
 [ext_resource type="Script" uid="uid://ch7rd7hc1u5h4" path="res://Scenes/UI/lobby.gd" id="1_8ca5k"]
 [ext_resource type="Theme" uid="uid://5whm1igkt23h" path="res://addons/GD-Sync/UI/ConfigMenu/GD-Theme.tres" id="2_s2cyl"]
+[ext_resource type="Texture2D" uid="uid://chs7bqnkftfqf" path="res://Assets/RRUiBackground.png" id="3_wukwe"]
+[ext_resource type="Texture2D" uid="uid://cwi1e2ogb5yeo" path="res://Assets/RRUiStor.png" id="4_hp2pl"]
+[ext_resource type="FontFile" uid="uid://3e2nchtdogv" path="res://Assets/Fonts/PixelOperator8.ttf" id="5_52yaq"]
+[ext_resource type="Theme" uid="uid://d2cj50r0jvmm1" path="res://NormalButton.tres" id="6_kgxm8"]
 
 [node name="Lobby" type="Control"]
 layout_mode = 3
@@ -20,6 +24,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_s2cyl")
+
+[node name="RrUiBackground" type="Sprite2D" parent="PanelContainer"]
+position = Vector2(577, 326)
+scale = Vector2(2, 2)
+texture = ExtResource("3_wukwe")
+
+[node name="RrUiStor" type="Sprite2D" parent="PanelContainer"]
+position = Vector2(577, 326)
+scale = Vector2(2, 2)
+texture = ExtResource("4_hp2pl")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
@@ -40,12 +54,16 @@ alignment = 1
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_52yaq")
+theme_override_font_sizes/font_size = 16
 text = "Players"
 horizontal_alignment = 1
 
 [node name="PlayerCount" type="Label" parent="PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_52yaq")
+theme_override_font_sizes/font_size = 16
 text = "0/0"
 horizontal_alignment = 1
 
@@ -69,6 +87,8 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_52yaq")
+theme_override_font_sizes/font_size = 16
 text = "Waiting for host to start."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -81,8 +101,9 @@ alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
-theme = ExtResource("2_s2cyl")
-text = "START"
+mouse_default_cursor_shape = 2
+theme = ExtResource("6_kgxm8")
+text = "Start"
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/Start"]
 visible = false
@@ -92,13 +113,16 @@ offset_top = 82.0
 offset_right = 209.0
 offset_bottom = 105.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_52yaq")
+theme_override_font_sizes/font_size = 16
 text = "Not enough players in lobby"
 
 [node name="Leave" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
-theme = ExtResource("2_s2cyl")
-text = "LEAVE"
+mouse_default_cursor_shape = 2
+theme = ExtResource("6_kgxm8")
+text = "Leave"
 
 [node name="ChatContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdbh0pdnfm0i1"]
+[gd_scene load_steps=6 format=3 uid="uid://cdbh0pdnfm0i1"]
 
 [ext_resource type="Script" uid="uid://bf3d2v32mavl6" path="res://Scenes/UI/main_menu.gd" id="1_e4nnw"]
 [ext_resource type="Theme" uid="uid://5whm1igkt23h" path="res://addons/GD-Sync/UI/ConfigMenu/GD-Theme.tres" id="2_wrm8m"]
-[ext_resource type="Texture2D" uid="uid://d2pl6xyfyub5k" path="res://addons/GD-Sync/UI/ConfigMenu/GDSLogo.png" id="3_852ct"]
+[ext_resource type="Texture2D" uid="uid://chs7bqnkftfqf" path="res://Assets/RRUiBackground.png" id="3_4pqbp"]
+[ext_resource type="Texture2D" uid="uid://c4veyp7rfrd3r" path="res://Assets/rrTitleLogo2.png" id="4_gih0s"]
+[ext_resource type="Theme" uid="uid://d2cj50r0jvmm1" path="res://NormalButton.tres" id="5_k33u3"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -22,29 +24,43 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_wrm8m")
 
+[node name="RrUiBackground" type="Sprite2D" parent="PanelContainer"]
+position = Vector2(569, 329)
+scale = Vector2(2, 2)
+texture = ExtResource("3_4pqbp")
+
+[node name="RrTitleLogo2" type="Sprite2D" parent="PanelContainer"]
+position = Vector2(598, 360)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_gih0s")
+
 [node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+size_flags_stretch_ratio = 0.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/CenterContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("3_852ct")
 
-[node name="Connect" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
-theme = ExtResource("2_wrm8m")
-text = "CONNECT"
+mouse_default_cursor_shape = 2
+theme = ExtResource("5_k33u3")
+text = "Quit"
 
-[node name="Quit" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer"]
+[node name="Connect" type="Button" parent="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
-theme = ExtResource("2_wrm8m")
-text = "QUIT"
+mouse_default_cursor_shape = 2
+theme = ExtResource("5_k33u3")
+text = "Connect"
 
 [node name="Message" type="Label" parent="PanelContainer/CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -53,5 +69,5 @@ layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/Connect" to="." method="_on_connect_pressed"]
-[connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="PanelContainer/CenterContainer/VBoxContainer/HBoxContainer/Connect" to="." method="_on_connect_pressed"]

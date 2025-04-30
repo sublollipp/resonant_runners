@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://8qy4jenu2w1m"]
+[gd_scene load_steps=5 format=3 uid="uid://8qy4jenu2w1m"]
 
-[ext_resource type="Script" path="res://GD-SyncTemplates/LobbyBrowser/lobby_browser.gd" id="1_gf4jf"]
+[ext_resource type="Script" uid="uid://c6cyl1ycno6wt" path="res://GD-SyncTemplates/LobbyBrowser/lobby_browser.gd" id="1_gf4jf"]
+[ext_resource type="Texture2D" uid="uid://chs7bqnkftfqf" path="res://Assets/RRUiBackground.png" id="2_f2rqt"]
+[ext_resource type="FontFile" uid="uid://3e2nchtdogv" path="res://Assets/Fonts/PixelOperator8.ttf" id="2_ve0be"]
+[ext_resource type="Texture2D" uid="uid://ceko0ce6qrhj3" path="res://Assets/RRUiLille.png" id="4_85nne"]
 
 [node name="LobbyBrowser" type="Control"]
 layout_mode = 3
@@ -16,8 +19,18 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 38.0
+offset_top = 12.0
+offset_right = 38.0
+offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.941476, 0.904134)
+
+[node name="RrUiBackground" type="Sprite2D" parent="PanelContainer"]
+position = Vector2(543, 298)
+scale = Vector2(2.72384, 2.7364)
+texture = ExtResource("2_f2rqt")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
@@ -32,6 +45,8 @@ size_flags_horizontal = 3
 [node name="LobbyName" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/NameBox"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_ve0be")
+theme_override_font_sizes/font_size = 16
 text = "Lobby Name"
 clip_text = true
 
@@ -42,6 +57,8 @@ size_flags_horizontal = 3
 [node name="PlayerCount" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/PlayerCountBox"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_ve0be")
+theme_override_font_sizes/font_size = 16
 text = "Player Count"
 clip_text = true
 
@@ -52,6 +69,8 @@ size_flags_horizontal = 3
 [node name="Gamemode" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/GamemodeBox"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_ve0be")
+theme_override_font_sizes/font_size = 16
 text = "Gamemode"
 clip_text = true
 
@@ -62,7 +81,9 @@ size_flags_horizontal = 3
 [node name="PasswordProtected" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/PasswordBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Password Protected"
+theme_override_fonts/font = ExtResource("2_ve0be")
+theme_override_font_sizes/font_size = 16
+text = "Password?"
 clip_text = true
 
 [node name="OpenBox" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
@@ -72,6 +93,8 @@ size_flags_horizontal = 3
 [node name="Open" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/OpenBox"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_ve0be")
+theme_override_font_sizes/font_size = 16
 text = "Open"
 clip_text = true
 
@@ -91,3 +114,8 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="RrUiLille" type="Sprite2D" parent="PanelContainer"]
+position = Vector2(569.319, 315.219)
+scale = Vector2(2.14336, 2.14336)
+texture = ExtResource("4_85nne")

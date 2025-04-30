@@ -32,6 +32,10 @@ func host_changed(is_host : bool, _new_host_id : int):
 func client_joined(client_id : int):
 #	If a player joins display their username and color
 	var label : Label = Label.new()
+	
+	var font = load("res://Assets/Fonts/PixelOperator8.ttf")
+	label.add_theme_font_override("font",font)
+	
 	label.name = str(client_id)
 	%PlayerList.add_child(label)
 	
