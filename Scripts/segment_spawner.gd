@@ -65,7 +65,7 @@ func segmentAdd(segmentsList, recentSegments, file_count, diff) -> void:
 	var i : int
 	print(file_count)
 	if (file_count > 1):
-		i = rng.randi_range(1,file_count-1)
+		i = rng.randi_range(1,segmentsList.size()-1)
 	else:
 		i = 0
 	add_segment(segmentsList.get(i), diff)
