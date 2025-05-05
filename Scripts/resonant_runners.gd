@@ -12,8 +12,9 @@ func _ready() -> void:
 	hnode.name = "Poster"
 	add_child(hnode)
 	posternode = get_node("Poster")
+	GDSync.expose_func(Callable(self, "addScore"))
 
-func addScore(lobbyName : String, player1 : String, player2 : String, score : int) -> void:
+func addScore(lobbyName : String, player1 : String, player2 : String, score) -> void:
 	
 	if lobbyName && player1 && player2 && score != 0:
 		posternode.request_completed.connect(Callable(self, "_on_post_completed"))
