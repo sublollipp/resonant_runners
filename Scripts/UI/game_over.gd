@@ -16,6 +16,7 @@ func addReadyPlayer() -> void:
 func _on_try_again_pressed() -> void:
 	addReadyPlayer()
 	GDSync.call_func(addReadyPlayer)
+	$Label.show()
 	$VBoxContainer/TryAgain.queue_free()
 
 func clientLeft(clientId : int):

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmd4xitdm5yln"]
+[gd_scene load_steps=6 format=3 uid="uid://dmd4xitdm5yln"]
 
 [ext_resource type="Script" uid="uid://c4eceknilbe0r" path="res://Scripts/UI/game_over.gd" id="1_jxkuk"]
 [ext_resource type="Texture2D" uid="uid://chs7bqnkftfqf" path="res://Assets/RRUiBackground.png" id="2_w88jv"]
 [ext_resource type="Theme" uid="uid://d2cj50r0jvmm1" path="res://NormalButton.tres" id="2_wpaxx"]
 [ext_resource type="Texture2D" uid="uid://cwi1e2ogb5yeo" path="res://Assets/RRUiStor.png" id="3_ckxb7"]
+[ext_resource type="FontFile" uid="uid://3e2nchtdogv" path="res://Assets/Fonts/PixelOperator8.ttf" id="5_ckxb7"]
 
 [node name="Game Over" type="CanvasLayer"]
 script = ExtResource("1_jxkuk")
@@ -35,15 +36,26 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("2_wpaxx")
-text = "Try again"
+text = "Play again"
 
-[node name="Leave" type="Button" parent="VBoxContainer"]
+[node name="quitButton" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(150, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("2_wpaxx")
-text = "Leave"
+text = "Leave
+"
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 274.0
+offset_top = 210.0
+offset_right = 922.0
+offset_bottom = 234.0
+theme_override_fonts/font = ExtResource("5_ckxb7")
+theme_override_font_sizes/font_size = 24
+text = "Waiting for teammate to play again"
 
 [connection signal="pressed" from="VBoxContainer/TryAgain" to="." method="_on_try_again_pressed"]
-[connection signal="pressed" from="VBoxContainer/Leave" to="." method="_on_leave_pressed"]
+[connection signal="pressed" from="VBoxContainer/quitButton" to="." method="_on_leave_pressed"]
