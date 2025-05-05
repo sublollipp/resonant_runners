@@ -87,6 +87,5 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 			if portal.pairedPortal == previousPortal:
 				portal.used = true
 				var portalCollider : StaticBody2D = portal.get_node("StaticBody2D")
-
 				inPortal = false
 				
