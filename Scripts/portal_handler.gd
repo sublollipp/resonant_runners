@@ -37,7 +37,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			#her burde det være den protal x der er størst mod den mindste x værdi af collision shapen
 			#dette kan trækkes fra men gøres ikke for at have en buffer
 			#-(rightLimitCollision.shape.size.x/2)
-			if portal.pairedPortal.global_position.x < rightLimitCollision.global_position.x:
+			if portal.pairedPortal.global_position.x + 50 < rightLimitCollision.global_position.x:
 				inPortal = true
 				previousPortal = portal
 				
@@ -82,7 +82,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	print("Ud af portalen")
+	#print("Ud af portalen")
 	
 	
 	

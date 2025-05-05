@@ -13,8 +13,8 @@ func _ready() -> void:
 
 	$CamController.add_child(player1)
 	GDSync.set_gdsync_owner($CamController.get_node("Player 1"), GDSync.lobby_get_all_clients()[0])
-	#if ResonantRunners.debugPC > 1:
-	if true:
+	if ResonantRunners.debugPC > 1:
+	#if true:
 		var player2 : Player = preload("res://Scenes/player.tscn").instantiate()
 		player2.position = Vector2(20, -48)
 		player2.set_as_player_two()
@@ -34,9 +34,9 @@ func switchToGameOver() -> void:
 	GDSync.change_scene("res://Scenes/UI/game_over.tscn")
 
 func _on_world_boundary_body_entered(body: Node2D) -> void:
-	print(str(body.name))
+	#print(str(body.name))
 	death()
-	print("JDPÅCBCBCVICHGKJFC")
+	#print("JDPÅCBCBCVICHGKJFC")
 
 func death():
 	Gamespeed.speed = 0

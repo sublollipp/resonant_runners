@@ -17,7 +17,7 @@ func _enter_tree() -> void:
 
 func makeBridge() -> void:
 	keepUpdating = true
-	print("JEG LAVER EN BROOOO")
+	# print("JEG LAVER EN BROOOO")
 	if lerpMaster2000 > 0: return
 	$AnimationPlayer.play("openBridge", -1, speed)
 

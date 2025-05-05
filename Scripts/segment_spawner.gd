@@ -8,6 +8,8 @@ var mediumRecentSegments = []
 var hardSegments = []
 var hardRecentSegments = []
 
+var runningSegemnts = 0
+
 var easyFile_count = 0
 var mediumFile_count = 0
 var hardFile_count = 0
@@ -53,17 +55,23 @@ func add_segment(seg : String, diff) -> void:
 	newSegment.position.x += totalWidth
 	newSegment.position.y = 50
 	totalWidth += newSegment.width
+	runningSegemnts += 1
+	print(runningSegemnts)
 
 func remove_segment():
 	for currentSegment in get_children():
 		if cam_controller.position.x > currentSegment.position.x + currentSegment.width + 300:
+			runningSegemnts -= 1
+			print(runningSegemnts)
 			currentSegment.queue_free()
+			
+		
 
 func segmentAdd(segmentsList, recentSegments, file_count, diff) -> void:
 	if !GDSync.is_host(): return
 	rng.randomize()
 	var i : int
-	print(file_count)
+	#print(file_count)
 	if (file_count > 1):
 		i = rng.randi_range(1,segmentsList.size()-1)
 	else:
