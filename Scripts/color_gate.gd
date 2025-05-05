@@ -25,7 +25,8 @@ func _ready() -> void:
 	if color == "Cyan":
 		$StaticBody2D.set_collision_layer_value(7, true)
 	if color == "White":
-		$StaticBody2D.set_collision_layer_value(8, true)
+		pass
+		#$StaticBody2D.set_collision_layer_value(8, true)
 	
 	$StaticBody2D.set_collision_layer_value(1, false)
 	$StaticBody2D.set_collision_mask_value(1, false)

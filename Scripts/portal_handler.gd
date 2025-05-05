@@ -94,6 +94,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 					"Orange":
 						portalCollider.set_collision_layer_value(7, true)
 					"White":
+						print("jeg er i hvid match")
 						portalCollider.set_collision_layer_value(8, true)
 				# Gør portalen one-time-use for den spiller der bruger den
 				#for i in range(6,8): # Kører for 6 og 7
