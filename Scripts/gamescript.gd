@@ -37,6 +37,13 @@ func _on_world_boundary_body_entered(body: Node2D) -> void:
 	print("JDPÅCBCBCVICHGKJFC")
 
 func death():
+	if GDSync.is_host():
+		var lobbyname : String = GDSync.lobby_get_name()
+		var players : Array = GDSync.lobby_get_all_clients()
+		if players.size() > 1:
+			var player1 = GDSync.player_get_data(players[0], "Username")
+			var player2 = GDSync.player_get_data(players[1], "Username")
+			ResonantRunners.addScore(lobbyname, player1, player2, int(%CamController.position / 100))
 	Gamespeed.speed = 0
 	$SynchronizedAnimationPlayer.play("fadeout")
 

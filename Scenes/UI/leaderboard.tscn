@@ -47,8 +47,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Date"
 
+[node name="HSeparator2" type="HSeparator" parent="."]
+layout_mode = 2
+
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="ScoreList" type="VBoxContainer" parent="ScrollContainer"]
 unique_name_in_owner = true
