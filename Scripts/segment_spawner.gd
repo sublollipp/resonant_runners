@@ -117,7 +117,9 @@ func _process(delta):
 				"hard":
 					segmentAdd(hardSegments,hardRecentSegments,hardFile_count,"hard")
 			
-		GDSync.call_func(remove_segment)
+
+
+
 
 func dificulty():
 	if currentTime < 230:
@@ -144,3 +146,8 @@ func speedRamping():
 		if Gamespeed.speed > 1: #døds check
 			Gamespeed.speed += 1
 			totalUsedTime = currentTime
+
+
+func _on_timer_timeout():
+	if GDSync.is_host():
+		GDSync.call_func(remove_segment)
