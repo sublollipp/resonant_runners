@@ -151,3 +151,4 @@ func speedRamping():
 func _on_timer_timeout():
 	if GDSync.is_host():
 		GDSync.call_func(remove_segment)
+		remove_segment()

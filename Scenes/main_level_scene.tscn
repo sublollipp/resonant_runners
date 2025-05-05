@@ -130,10 +130,6 @@ debug_color = Color(0.91, 0.743167, 0, 0.996078)
 [node name="SegmentSpawner" type="Node2D" parent="."]
 script = ExtResource("3_i6njh")
 
-[node name="Timer" type="Timer" parent="SegmentSpawner"]
-wait_time = 5.0
-autostart = true
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -183,6 +179,10 @@ script = ExtResource("9_wdesh")
 environment = SubResource("Environment_wdesh")
 compositor = SubResource("Compositor_wdesh")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [connection signal="body_entered" from="CamController/LeftLimit" to="." method="_on_left_limit_body_entered"]
 [connection signal="body_entered" from="CamController/WorldBoundary" to="." method="_on_world_boundary_body_entered"]
-[connection signal="timeout" from="SegmentSpawner/Timer" to="SegmentSpawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="SegmentSpawner" method="_on_timer_timeout"]
