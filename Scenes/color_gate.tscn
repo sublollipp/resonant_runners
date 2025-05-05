@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cnr48rwddailu"]
 
 [ext_resource type="Script" uid="uid://cfogapm46c0lr" path="res://Scripts/color_gate.gd" id="1_whkuv"]
-[ext_resource type="Script" uid="uid://bb5fkdkg3x2yn" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="2_sbm1r"]
+[ext_resource type="Script" uid="uid://bor6e34qw6oe1" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="2_sbm1r"]
 
 [node name="ColorGate" type="Line2D"]
 modulate = Color(2, 2, 2, 1)
@@ -9,7 +9,6 @@ points = PackedVector2Array(0, 0, 0.1, 32)
 width = 3.0
 texture_mode = 1
 script = ExtResource("1_whkuv")
-used = null
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["PortalCollider"]]
 collision_layer = 128
