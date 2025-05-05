@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://8qy4jenu2w1m"]
 
-[ext_resource type="Script" uid="uid://c6cyl1ycno6wt" path="res://GD-SyncTemplates/LobbyBrowser/lobby_browser.gd" id="1_gf4jf"]
+[ext_resource type="Script" uid="uid://b6wbwl85vvxr2" path="res://GD-SyncTemplates/LobbyBrowser/lobby_browser.gd" id="1_gf4jf"]
 [ext_resource type="Texture2D" uid="uid://chs7bqnkftfqf" path="res://Assets/RRUiBackground.png" id="2_f2rqt"]
 [ext_resource type="FontFile" uid="uid://3e2nchtdogv" path="res://Assets/Fonts/PixelOperator8.ttf" id="2_ve0be"]
 [ext_resource type="Texture2D" uid="uid://ceko0ce6qrhj3" path="res://Assets/RRUiLille.png" id="4_85nne"]

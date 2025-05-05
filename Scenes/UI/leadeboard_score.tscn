@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://c48p75ecp8kdu"]
+
+[ext_resource type="Script" uid="uid://dh03iuodr1m3q" path="res://Scripts/leadeboard_score.gd" id="1_lbfv2"]
+
+[node name="LeadeboardScore" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_lbfv2")
+
+[node name="LobbyLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Lobby"
+vertical_alignment = 1
+
+[node name="Player1Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Player 1"
+vertical_alignment = 1
+
+[node name="Player2Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Player 2"
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Score"
+vertical_alignment = 1
+
+[node name="DateLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Date"
+vertical_alignment = 1

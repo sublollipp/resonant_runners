@@ -83,6 +83,3 @@ func show_browse_error(response_code : int) -> void:
 			error += "The leaderboard \""+leaderboard_name+"\" does not exist"
 	
 	push_error(error)
-
-
-
