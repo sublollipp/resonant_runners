@@ -8,6 +8,8 @@ var lineColor : Color = Color.WHITE
 var angle : float = 0 # Portalens vinkel med vandret
 var flipOutput : bool = false
 
+
+
 func _ready() -> void:
 	if (points[0].x == points[1].x):
 		points[1].x += 0.1

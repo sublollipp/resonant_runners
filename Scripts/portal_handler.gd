@@ -6,6 +6,7 @@ var inPortal : bool = false:
 		if newVal != inPortal:
 			inPortal = newVal
 var previousPortal : ColorGate = null
+var lastPortal
 
 @onready var player : Player = get_parent()
 @onready var camController = player.get_parent()
@@ -84,14 +85,22 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		if body.is_in_group("PortalCollider"):
 			var portal : ColorGate = body.get_parent()
 			if portal.pairedPortal == previousPortal:
+				
 				var portalCollider : StaticBody2D = portal.get_node("StaticBody2D")
-				#var pairedPortalCollider : StaticBody2D = portal.pairedPortal.get_node("StaticBody2D")
+				var pairedPortalCollider : StaticBody2D = portal.pairedPortal.get_node("StaticBody2D")
+				match portal.color:
+					"Cyan":
+						portalCollider.set_collision_layer_value(6, true)
+					"Orange":
+						portalCollider.set_collision_layer_value(7, true)
+					"White":
+						portalCollider.set_collision_layer_value(8, true)
 				# Gør portalen one-time-use for den spiller der bruger den
-				for i in range(6,8): # Kører for 6 og 7
-					if portalArea.get_collision_mask_value(i):
-						portalCollider.set_collision_layer_value(i, true)
+				#for i in range(6,8): # Kører for 6 og 7
+				#	if portalArea.get_collision_mask_value(i):
+				#		portalCollider.set_collision_layer_value(i, true)
 						#pairedPortalCollider.set_collision_layer_value(i, true)
-				portalCollider.set_collision_layer_value(8, false)
+				#portalCollider.set_collision_layer_value(8, false)
 				#pairedPortalCollider.set_collision_layer_value(8, false)
 				
 				
