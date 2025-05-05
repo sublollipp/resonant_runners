@@ -2,8 +2,26 @@ extends Node
 
 const GAMESCENE = preload("res://Scenes/main_level_scene.tscn")
 
+var posternode : HTTPRequest
+
 var debugPC : int = 1
 var offline : bool = true
+
+func _ready() -> void:
+	var hnode : HTTPRequest = HTTPRequest.new()
+	hnode.name = "Poster"
+	add_child(hnode)
+	posternode = get_node("Poster")
+
+func addScore(lobbyName : String, player1 : String, player2 : String, score : int) -> void:
+	
+	if lobbyName && player1 && player2 && score != 0:
+		posternode.request_completed.connect(Callable(self, "_on_post_completed"))
+		var url = "http://resonantrunnersapi.atwebpages.com/postscores.php?lobby=" + lobbyName + "&p1=" + player1 + "&p2=" + player2 + "&score=" + str(score)
+		var error = posternode.request(url)
+		
+		if error != OK:
+			print("Du kunne ikke tilføje scores af en eller anden årsag")
 
 func start_demo_game(playerCount : int) -> void:
 	debugPC = playerCount
