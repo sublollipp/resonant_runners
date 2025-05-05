@@ -21,4 +21,3 @@ node_path = NodePath("..")
 properties = PackedStringArray("used")
 interpolated = false
 interpolation_speed = 1.0
-metadata/_custom_type_script = "uid://bb5fkdkg3x2yn"

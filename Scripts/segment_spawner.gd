@@ -8,6 +8,8 @@ var mediumRecentSegments = []
 var hardSegments = []
 var hardRecentSegments = []
 
+var aliveSegments = 0
+
 var easyFile_count = 0
 var mediumFile_count = 0
 var hardFile_count = 0
@@ -39,6 +41,9 @@ func add_segment(seg : String, diff) -> void:
 	var jumpBetweenSegments = 0
 	add_child(newSegment)
 	
+	aliveSegments += 1
+	print("CURRENT SEGMETNS COUNT: ",aliveSegments)
+	
 	match diff:
 		"easy":
 			jumpBetweenSegments = 32
@@ -58,12 +63,14 @@ func remove_segment():
 	for currentSegment in get_children():
 		if cam_controller.position.x > currentSegment.position.x + currentSegment.width + 300:
 			currentSegment.queue_free()
+			aliveSegments -= 1
+			print("CURRENT SEGMETNS COUNT: ",aliveSegments)
 
 func segmentAdd(segmentsList, recentSegments, file_count, diff) -> void:
 	if !GDSync.is_host(): return
 	rng.randomize()
 	var i : int
-	print(file_count)
+	
 	if (file_count > 1):
 		i = rng.randi_range(1,segmentsList.size()-1)
 	else:
