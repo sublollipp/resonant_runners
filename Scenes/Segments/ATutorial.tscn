@@ -15,17 +15,20 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAABAAAAAAACAAAAAAABAAA
 [node name="ColorGate" parent="." index="1" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_t60aa")]
 position = Vector2(878, -36)
 points = PackedVector2Array(0, -28, 0.1, 36)
+used = null
 pairedPortal = NodePath("../ColorGate2")
 
 [node name="ColorGate2" parent="." index="2" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_t60aa")]
 position = Vector2(914, -35)
 points = PackedVector2Array(0, -29, 0.1, 35)
+used = null
 pairedPortal = NodePath("../ColorGate")
 
 [node name="ColorGate3" parent="." index="3" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_t60aa")]
 position = Vector2(1112, -34)
 points = PackedVector2Array(46, 32, 8, 32)
 default_color = Color(1, 0.647059, 0, 1)
+used = null
 color = "Orange"
 pairedPortal = NodePath("../ColorGate4")
 
@@ -33,6 +36,7 @@ pairedPortal = NodePath("../ColorGate4")
 position = Vector2(1194, -146)
 points = PackedVector2Array(40, 32, 40.1, 0)
 default_color = Color(1, 0.647059, 0, 1)
+used = null
 color = "Orange"
 pairedPortal = NodePath("../ColorGate3")
 
@@ -40,6 +44,7 @@ pairedPortal = NodePath("../ColorGate3")
 position = Vector2(1156, -34)
 points = PackedVector2Array(44, 32, 2, 32)
 default_color = Color(0, 1, 1, 1)
+used = null
 color = "Cyan"
 pairedPortal = NodePath("../ColorGate6")
 
@@ -47,6 +52,7 @@ pairedPortal = NodePath("../ColorGate6")
 position = Vector2(1314, -34)
 points = PackedVector2Array(0, -2, 0.1, 32)
 default_color = Color(0, 1, 1, 1)
+used = null
 color = "Cyan"
 pairedPortal = NodePath("../ColorGate5")
 
@@ -54,6 +60,7 @@ pairedPortal = NodePath("../ColorGate5")
 position = Vector2(2942, -34)
 points = PackedVector2Array(0, -2, 0.1, 32)
 default_color = Color(0, 1, 1, 1)
+used = null
 color = "Cyan"
 pairedPortal = NodePath("../ColorGate8")
 
@@ -61,6 +68,7 @@ pairedPortal = NodePath("../ColorGate8")
 position = Vector2(3026, -34)
 points = PackedVector2Array(0, -2, 0.1, 32)
 default_color = Color(0, 1, 1, 1)
+used = null
 color = "Cyan"
 pairedPortal = NodePath("../ColorGate7")
 
