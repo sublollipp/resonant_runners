@@ -3,6 +3,7 @@
 class_name ColorGate extends Line2D
 
 @export var flipExitPortal : bool = false
+@export var used : bool = false
 
 var lineColor : Color = Color.WHITE
 var angle : float = 0 # Portalens vinkel med vandret
@@ -20,13 +21,13 @@ func _ready() -> void:
 	colShape.shape = shape
 	get_child(0).add_child(colShape)
 	
-	if color == "Orange":
-		$StaticBody2D.set_collision_layer_value(6, true)
-	if color == "Cyan":
-		$StaticBody2D.set_collision_layer_value(7, true)
-	if color == "White":
-		pass
-		#$StaticBody2D.set_collision_layer_value(8, true)
+	match color:
+		"Cyan":
+			$StaticBody2D.set_collision_layer_value(7, true)
+		"Orange":
+			$StaticBody2D.set_collision_layer_value(6, true)
+		"White":
+			$StaticBody2D.set_collision_layer_value(8, true)
 	
 	$StaticBody2D.set_collision_layer_value(1, false)
 	$StaticBody2D.set_collision_mask_value(1, false)

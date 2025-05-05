@@ -8,6 +8,7 @@ points = PackedVector2Array(0, 0, 0.1, 32)
 width = 3.0
 texture_mode = 1
 script = ExtResource("1_whkuv")
+used = null
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["PortalCollider"]]
 collision_layer = 128
