@@ -3,6 +3,8 @@ extends Node2D
 
 const VERSION : String = "1.0.0" # For online-funktionalitet
 
+var gameover : bool = false
+
 func _init() -> void:
 	GDSync.client_left.connect(death)
 
@@ -38,13 +40,15 @@ func _on_world_boundary_body_entered(body: Node2D) -> void:
 	print("JDPÅCBCBCVICHGKJFC")
 
 func savescore() -> void:
-	if GDSync.is_host():
+	if GDSync.is_host() && !gameover:
 		var lobbyname : String = GDSync.lobby_get_name()
 		var players : Array = GDSync.lobby_get_all_clients()
 		if players.size() > 1:
 			var player1 = GDSync.player_get_data(players[0], "Username")
 			var player2 = GDSync.player_get_data(players[1], "Username")
-			ResonantRunners.addScore(lobbyname, player1, player2, int($CamController.position / 100))
+			print("CamController position: " + str($CamController.position))
+			ResonantRunners.addScore(lobbyname, player1, player2, int($CamController.position.x / 100))
+	gameover = true
 
 func death():
 	savescore()
