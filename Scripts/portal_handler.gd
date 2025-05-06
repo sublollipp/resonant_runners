@@ -29,9 +29,13 @@ func checkIfInPortal() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("PortalCollider") && !inPortal:
 		
-		var portal = body.get_parent() as ColorGate
+		var portal : ColorGate = body.get_parent() as ColorGate
 		
-		if portal.used: return
+		if portal.used:
+			print("Portalen her er blevet brugt")
+			return
+		else:
+			print("portal bliver brugt nu")
 		
 		if portal.pairedPortal.global_position.x + 50 < rightLimitCollision.global_position.x:
 			inPortal = true
