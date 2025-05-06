@@ -550,7 +550,7 @@ broadcast = 2
 refresh_rate = 15
 node_path = NodePath("..")
 properties = PackedStringArray("is_crouching", "velocity", "position")
-interpolated = true
+interpolated = false
 interpolation_speed = 1.0
 metadata/_custom_type_script = "uid://bb5fkdkg3x2yn"
 
@@ -560,7 +560,7 @@ broadcast = 2
 refresh_rate = 15
 node_path = NodePath("../AnimatedSprite2D")
 properties = PackedStringArray("animation", "frame", "flip_h", "speed_scale")
-interpolated = true
+interpolated = false
 interpolation_speed = 1.0
 metadata/_custom_type_script = "uid://bb5fkdkg3x2yn"
 
