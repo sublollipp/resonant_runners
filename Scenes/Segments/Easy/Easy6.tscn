@@ -21,7 +21,7 @@ pairedPortal = NodePath("../ColorGate2")
 [node name="ColorGate2" parent="." index="2" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_sxptj")]
 position = Vector2(147, -194)
 default_color = Color(0, 1, 1, 1)
-onetimeuse = false
+onetimeuse = true
 color = "Cyan"
 pairedPortal = NodePath("../ColorGate")
 
