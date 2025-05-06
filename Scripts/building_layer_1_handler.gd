@@ -33,15 +33,18 @@ func add_segment():
 	newInstance.position.y = 600
 	totalWidth+=newInstance.width + distBetween
 	newInstance.modulate = Color(0.8, 0.8, 0.8, 1)
-	if get_child_count() > 10:
-		get_child(0).queue_free()
-		
+	
+	
+	
 func on_timer():
-	if %LeftLimit.position.x - 132 < get_child(0).global_position.x:
+	if %LeftLimit.position.x - 150 > get_child(0).global_position.x * 0.8:
+		get_child(0).queue_free()
 		add_segment()
 	
 func _ready():
-	add_segment()
-	add_segment()
 	load_segments()
+	for x in range(10):
+		add_segment()
+	
+	
 	on_timer()
