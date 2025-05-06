@@ -3,3 +3,13 @@ res://NormalButton.tres
 res://addons/GD-Sync/UI/ConfigMenu/GD-Theme.tres
 res://Scripts/portal_handler.gd
 res://Scenes/color_gate.tscn
+res://Scenes/UI/main_menu.tscn
+res://Scenes/UI/leaderboard.tscn
+res://Scenes/main_level_scene.tscn
+res://Scenes/UI/lobby.tscn
+res://Scenes/UI/leadeboard_score.tscn
+res://Scenes/Segments/ATutorial.tscn
+res://Scenes/Segment.tscn
+res://Scenes/laserbridge.tscn
+res://Scripts/layer_2_handler.gd
+res://Scripts/building_layer_1_handler.gd

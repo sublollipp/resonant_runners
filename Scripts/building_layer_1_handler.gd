@@ -34,15 +34,13 @@ func add_segment():
 	totalWidth+=newInstance.width + distBetween
 	newInstance.modulate = Color(0.8, 0.8, 0.8, 1)
 		
-func remove_segment():
+func on_timer():
+	if cam_controller.position.x*8 > totalWidth - 10000:
+		add_segment()
 	for currentSegment in get_children():
 		if cam_controller.position.x > currentSegment.position.x + currentSegment.width + 300:
 			currentSegment.queue_free()
 	
 func _ready():
 	load_segments()
-	add_segment()
-	
-func _process(delta): # dette skal fikses baseret på totalwidth og sidste bygning 8scaleres ligesom noden?
-	if cam_controller.position.x*8 > totalWidth - 10000:
-		add_segment()
+	on_timer()
