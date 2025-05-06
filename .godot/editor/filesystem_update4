@@ -16,3 +16,4 @@ res://Scripts/portal_handler.gd
 res://Scripts/building_layer_1_handler.gd
 res://Scenes/Segments/Easy/Easy10.tscn
 res://Scripts/color_gate.gd
+res://Scripts/segment_spawner.gd

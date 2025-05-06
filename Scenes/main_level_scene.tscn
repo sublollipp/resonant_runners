@@ -115,7 +115,6 @@ shape = SubResource("RectangleShape2D_r4ohu")
 
 [node name="PropertySynchronizer" type="Node" parent="CamController"]
 script = ExtResource("3_r2c11")
-refresh_rate = 15
 node_path = NodePath("..")
 properties = PackedStringArray("positionOffset", "pos")
 interpolated = true

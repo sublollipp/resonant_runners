@@ -114,22 +114,22 @@ func _process(delta):
 
 func dificulty():
 	if currentTime < 230:
-			return "easy"
+		return "easy"
 	elif currentTime < 380:
-			rng.randomize()
-			if 1 == rng.randi_range(1,2):
-				return "medium"
-			else:
-				return "easy"
-	elif currentTime < 530:
+		rng.randomize()
+		if 1 == rng.randi_range(1,2):
 			return "medium"
+		else:
+			return "easy"
+	elif currentTime < 530:
+		return "medium"
 	elif currentTime < 680:
-			if 1 == rng.randi_range(1,2):
-				return "medium"
-			else:
-				return "hard"
-	else:
+		if 1 == rng.randi_range(1,2):
+			return "medium"
+		else:
 			return "hard"
+	else:
+		return "hard"
 
 
 func speedRamping():
