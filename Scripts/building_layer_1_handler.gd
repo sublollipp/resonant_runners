@@ -23,27 +23,25 @@ func load_segments():
 			segmentsList.append(load("res://Scenes/BackgroundBuildings/"+file))
 
 func add_segment():
-	for q in range(5):
-		rng.randomize()
-		var i = rng.randi_range(0,file_count-1)
-		var newInstance = segmentsList.get(i).instantiate()
-		add_child(newInstance)
-		
-		var distBetween = rng.randi_range(100,700)
-		newInstance.position.x = totalWidth + distBetween
-		newInstance.position.y = 600
-		totalWidth+=newInstance.width + distBetween
-		newInstance.modulate = Color(0.8, 0.8, 0.8, 1)
-		if get_child_count() > 10:
-			get_child(0).queue_free()
+	rng.randomize()
+	var i = rng.randi_range(0,file_count-1)
+	var newInstance = segmentsList.get(i).instantiate()
+	add_child(newInstance)
+	
+	var distBetween = rng.randi_range(100,700)
+	newInstance.position.x = totalWidth + distBetween
+	newInstance.position.y = 600
+	totalWidth+=newInstance.width + distBetween
+	newInstance.modulate = Color(0.8, 0.8, 0.8, 1)
+	if get_child_count() > 10:
+		get_child(0).queue_free()
 		
 func on_timer():
-	pass
-	#if %LeftLimit.position.x - 132 * 0.8 < get_child(0).global_position.x:
-		#add_segment()
+	if %LeftLimit.position.x - 132 < get_child(0).global_position.x:
+		add_segment()
 	
-#func _ready():
-	#add_segment()
-	#add_segment()
-	#load_segments()
-	#on_timer()
+func _ready():
+	add_segment()
+	add_segment()
+	load_segments()
+	on_timer()
