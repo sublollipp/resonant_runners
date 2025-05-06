@@ -52,7 +52,7 @@ pairedPortal = NodePath("../ColorGate5")
 
 [node name="ColorGate7" parent="." index="7" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_t60aa")]
 position = Vector2(2942, -34)
-points = PackedVector2Array(0, -2, 0, 32)
+points = PackedVector2Array(0, -2, 0.1, 32)
 default_color = Color(0, 1, 1, 1)
 color = "Cyan"
 pairedPortal = NodePath("../ColorGate8")

@@ -1,6 +1,5 @@
 extends Node
 
-
 var inPortal : bool = false:
 	set(newVal):
 		if newVal != inPortal:
@@ -77,6 +76,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			rotatingVector = rotatingVector.rotated(angleDiff)
 			rotatingVector.x -= Gamespeed.speed
 			player.velocity = rotatingVector
+			
+			# Sættes kun på computeren for den, der har brugt portalen
+			portal.pairedPortal.used = true
+			portal.used = true
 
 
 
@@ -87,7 +90,6 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		if body.is_in_group("PortalCollider"):
 			var portal : ColorGate = body.get_parent()
 			if portal.pairedPortal == previousPortal:
-				portal.used = true
 				var portalCollider : StaticBody2D = portal.get_node("StaticBody2D")
 				inPortal = false
 				
