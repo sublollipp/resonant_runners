@@ -58,8 +58,8 @@ func client_left(client_id : int):
 
 func _on_start_pressed():
 	#det ud kommenteret er den rigtige kode men gør så man ikke kan starte levelet alene
-	#if GDSync.lobby_get_player_count() == GDSync.lobby_get_player_limit():
-	if true:
+	if GDSync.lobby_get_player_count() == GDSync.lobby_get_player_limit():
+	#if true:
 		GDSync.lobby_close()
 		ResonantRunners.debugPC = int(GDSync.lobby_get_player_count())
 		GDSync.change_scene("res://Scenes/main_level_scene.tscn")
