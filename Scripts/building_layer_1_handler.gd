@@ -46,4 +46,3 @@ func _ready():
 func _process(delta): # dette skal fikses baseret på totalwidth og sidste bygning 8scaleres ligesom noden?
 	if cam_controller.position.x*8 > totalWidth - 10000:
 		add_segment()
-	remove_segment()

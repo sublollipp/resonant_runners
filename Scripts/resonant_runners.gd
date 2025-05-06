@@ -18,7 +18,7 @@ func addScore(lobbyName : String, player1 : String, player2 : String, score) -> 
 	
 	if lobbyName && player1 && player2:
 		posternode.request_completed.connect(Callable(self, "_on_post_completed"))
-		var url = "http://resonantrunnersapi.atwebpages.com/postscores.php?lobby=" + lobbyName + "&p1=" + player1 + "&p2=" + player2 + "&score=" + str(score)
+		var url = "http://resonantrunnersapi.atwebpages.com/postscores.php?lobby=" + lobbyName.uri_encode() + "&p1=" + player1.uri_encode() + "&p2=" + player2.uri_encode() + "&score=" + str(score)
 		print("URL: ", url)
 		var error = posternode.request(url)
 		

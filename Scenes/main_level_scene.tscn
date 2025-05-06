@@ -186,3 +186,4 @@ autostart = true
 [connection signal="body_entered" from="CamController/LeftLimit" to="." method="_on_left_limit_body_entered"]
 [connection signal="body_entered" from="CamController/WorldBoundary" to="." method="_on_world_boundary_body_entered"]
 [connection signal="timeout" from="Timer" to="SegmentSpawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="ParallaxBackground/BuildingLayer1/layer1Handler" method="remove_segment"]
