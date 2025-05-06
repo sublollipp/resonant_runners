@@ -22,70 +22,56 @@ position = Vector2(914, -35)
 points = PackedVector2Array(0, -29, 0.1, 35)
 pairedPortal = NodePath("../ColorGate")
 
-[node name="ColorGate3" parent="." index="3" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_t60aa")]
-position = Vector2(1112, -34)
-points = PackedVector2Array(8, 32, -40, 32)
-default_color = Color(1, 0.647059, 0, 1)
-color = "Orange"
-pairedPortal = NodePath("../ColorGate4")
-
-[node name="ColorGate4" parent="." index="4" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_t60aa")]
+[node name="ColorGate4" parent="." index="3" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_t60aa")]
 position = Vector2(1194, -146)
 points = PackedVector2Array(40, 32, 40.1, 0)
 default_color = Color(1, 0.647059, 0, 1)
 color = "Orange"
 pairedPortal = NodePath("../ColorGate3")
 
-[node name="ColorGate5" parent="." index="5" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_t60aa")]
-position = Vector2(1156, -34)
-points = PackedVector2Array(44, 32, -4, 32)
-default_color = Color(0, 1, 1, 1)
-color = "Cyan"
-pairedPortal = NodePath("../ColorGate6")
-
-[node name="ColorGate6" parent="." index="6" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_t60aa")]
+[node name="ColorGate6" parent="." index="4" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_t60aa")]
 position = Vector2(1314, -34)
 points = PackedVector2Array(0, -2, 0.1, 32)
 default_color = Color(0, 1, 1, 1)
 color = "Cyan"
 pairedPortal = NodePath("../ColorGate5")
 
-[node name="ColorGate7" parent="." index="7" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_t60aa")]
+[node name="ColorGate7" parent="." index="5" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_t60aa")]
 position = Vector2(2942, -34)
 points = PackedVector2Array(0, -2, 0.1, 32)
 default_color = Color(0, 1, 1, 1)
 color = "Cyan"
 pairedPortal = NodePath("../ColorGate8")
 
-[node name="ColorGate8" parent="." index="8" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_t60aa")]
+[node name="ColorGate8" parent="." index="6" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_t60aa")]
 position = Vector2(3026, -34)
 points = PackedVector2Array(0, -2, 0.1, 32)
 default_color = Color(0, 1, 1, 1)
 color = "Cyan"
 pairedPortal = NodePath("../ColorGate7")
 
-[node name="Button" parent="." index="9" instance=ExtResource("3_pvcve")]
+[node name="Button" parent="." index="7" instance=ExtResource("3_pvcve")]
 position = Vector2(1755, -104)
 
-[node name="Door" parent="." index="10" instance=ExtResource("4_d7blp")]
+[node name="Door" parent="." index="8" instance=ExtResource("4_d7blp")]
 position = Vector2(1723, -24)
 scale = Vector2(1, 2.44)
 
-[node name="Button2" parent="." index="11" instance=ExtResource("3_pvcve")]
+[node name="Button2" parent="." index="9" instance=ExtResource("3_pvcve")]
 position = Vector2(2121, -104)
 
-[node name="Door2" parent="." index="12" instance=ExtResource("4_d7blp")]
+[node name="Door2" parent="." index="10" instance=ExtResource("4_d7blp")]
 position = Vector2(2090, -24)
 scale = Vector2(1, 2.35991)
 
-[node name="Button3" parent="." index="13" instance=ExtResource("3_pvcve")]
+[node name="Button3" parent="." index="11" instance=ExtResource("3_pvcve")]
 position = Vector2(2318, -8)
 
-[node name="Laserbridge" parent="." index="14" instance=ExtResource("5_t60aa")]
+[node name="Laserbridge" parent="." index="12" instance=ExtResource("5_t60aa")]
 position = Vector2(2279, 15)
 points = PackedVector2Array(321, -7, 65, -7)
 
-[node name="Label" type="Label" parent="." index="15"]
+[node name="Label" type="Label" parent="." index="13"]
 offset_left = 672.0
 offset_top = -40.0
 offset_right = 934.0
@@ -97,7 +83,7 @@ theme_override_fonts/font = ExtResource("6_4dwp5")
 theme_override_font_sizes/font_size = 16
 text = "These are portals"
 
-[node name="Label2" type="Label" parent="." index="16"]
+[node name="Label2" type="Label" parent="." index="14"]
 offset_left = 926.0
 offset_top = -132.0
 offset_right = 1322.0
@@ -113,7 +99,7 @@ Only you can walk through a portal if it is your color.
 "
 autowrap_mode = 2
 
-[node name="Label3" type="Label" parent="." index="17"]
+[node name="Label3" type="Label" parent="." index="15"]
 offset_left = 1159.0
 offset_top = -203.0
 offset_right = 1913.0
@@ -126,7 +112,7 @@ theme_override_font_sizes/font_size = 16
 text = "Press “down” to crouch
 "
 
-[node name="Label4" type="Label" parent="." index="18"]
+[node name="Label4" type="Label" parent="." index="16"]
 offset_left = 1337.0
 offset_top = -62.0
 offset_right = 1812.0
@@ -140,7 +126,7 @@ text = "If your teammate jumps on you while crouched they superjump
 "
 autowrap_mode = 2
 
-[node name="Label5" type="Label" parent="." index="19"]
+[node name="Label5" type="Label" parent="." index="17"]
 offset_left = 1642.0
 offset_top = -190.0
 offset_right = 1942.0
@@ -153,7 +139,7 @@ theme_override_font_sizes/font_size = 16
 text = "Press the button to remove the door."
 autowrap_mode = 2
 
-[node name="Label6" type="Label" parent="." index="20"]
+[node name="Label6" type="Label" parent="." index="18"]
 offset_left = 1819.0
 offset_top = -88.0
 offset_right = 2119.0
@@ -166,7 +152,7 @@ theme_override_font_sizes/font_size = 16
 text = "Try switching roles."
 autowrap_mode = 2
 
-[node name="Label7" type="Label" parent="." index="21"]
+[node name="Label7" type="Label" parent="." index="19"]
 offset_left = 2221.0
 offset_top = -168.0
 offset_right = 2521.0
@@ -179,7 +165,7 @@ theme_override_font_sizes/font_size = 16
 text = "Press the button to make a bridge."
 autowrap_mode = 2
 
-[node name="Label8" type="Label" parent="." index="22"]
+[node name="Label8" type="Label" parent="." index="20"]
 offset_left = 2749.0
 offset_top = -144.0
 offset_right = 3049.0
@@ -192,6 +178,22 @@ theme_override_font_sizes/font_size = 16
 text = "Use superjump to get over the obstacle.
 "
 autowrap_mode = 2
+
+[node name="ColorGate3" parent="." index="21" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_t60aa")]
+position = Vector2(1120, -4)
+rotation = -4.71178
+scale = Vector2(0.94873, 1.50069)
+default_color = Color(1, 0.647059, 0, 1)
+color = "Orange"
+pairedPortal = NodePath("../ColorGate4")
+
+[node name="ColorGate5" parent="." index="22" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_t60aa")]
+position = Vector2(1201, -3)
+rotation = 1.56689
+scale = Vector2(-1.2133, 1.54935)
+default_color = Color(0, 1, 1, 1)
+color = "Cyan"
+pairedPortal = NodePath("../ColorGate6")
 
 [connection signal="buttonPressed" from="Button" to="Door" method="openDoor"]
 [connection signal="buttonPressed" from="Button2" to="Door2" method="openDoor"]
