@@ -547,19 +547,20 @@ shape = SubResource("RectangleShape2D_cvnsp")
 [node name="PropertySynchronizer" type="Node" parent="."]
 script = ExtResource("11_gymyn")
 broadcast = 2
-process = 1
+refresh_rate = 15
 node_path = NodePath("..")
 properties = PackedStringArray("is_crouching", "velocity", "position")
-interpolated = false
+interpolated = true
 interpolation_speed = 1.0
 metadata/_custom_type_script = "uid://bb5fkdkg3x2yn"
 
 [node name="PropertySynchronizer2" type="Node" parent="."]
 script = ExtResource("11_gymyn")
 broadcast = 2
+refresh_rate = 15
 node_path = NodePath("../AnimatedSprite2D")
 properties = PackedStringArray("animation", "frame", "flip_h", "speed_scale")
-interpolated = false
+interpolated = true
 interpolation_speed = 1.0
 metadata/_custom_type_script = "uid://bb5fkdkg3x2yn"
 

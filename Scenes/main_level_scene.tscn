@@ -114,9 +114,10 @@ shape = SubResource("RectangleShape2D_r4ohu")
 
 [node name="PropertySynchronizer" type="Node" parent="CamController"]
 script = ExtResource("3_r2c11")
+refresh_rate = 15
 node_path = NodePath("..")
 properties = PackedStringArray("positionOffset", "pos")
-interpolated = false
+interpolated = true
 interpolation_speed = 1.0
 metadata/_custom_type_script = "uid://bb5fkdkg3x2yn"
 
@@ -189,4 +190,4 @@ autostart = true
 [connection signal="body_entered" from="CamController/WorldBoundary" to="." method="_on_world_boundary_body_entered"]
 [connection signal="timeout" from="Timer" to="SegmentSpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="ParallaxBackground/BuildingLayer2/layer2Handler" method="on_timer"]
-[connection signal="timeout" from="Timer" to="ParallaxBackground/BuildingLayer1/layer1Handler" method="remove_segment"]
+[connection signal="timeout" from="Timer" to="ParallaxBackground/BuildingLayer1/layer1Handler" method="on_timer"]

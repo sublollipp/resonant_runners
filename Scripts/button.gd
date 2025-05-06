@@ -31,8 +31,10 @@ func _ready() -> void:
 		$Area2D.set_collision_layer_value(6, false)
 		material.set_shader_parameter("target_color", Color.ORANGE)
 
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	call_deferred("_deferred_press")
+
+func _deferred_press() -> void:
 	$AnimationPlayer.play("knapned")
 	playersOnButton += 1
 	pressed = true
@@ -41,5 +43,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	playersOnButton -= 1
 	if playersOnButton == 0:
-		pressed = false
-		$AnimationPlayer.play("knaptryk")
+		call_deferred("_deferred_release")
+
+func _deferred_release() -> void:
+	pressed = false
+	$AnimationPlayer.play("knaptryk")
