@@ -1,0 +1,5 @@
+res://Scenes/player.tscn
+res://NormalButton.tres
+res://addons/GD-Sync/UI/ConfigMenu/GD-Theme.tres
+res://Scripts/portal_handler.gd
+res://Scenes/color_gate.tscn
