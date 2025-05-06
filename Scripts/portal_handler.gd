@@ -26,6 +26,9 @@ func checkIfInPortal() -> void:
 		inPortal = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	
+	if !GDSync.is_gdsync_owner(player): return
+	
 	if body.is_in_group("PortalCollider") && !inPortal:
 		
 		var portal : ColorGate = body.get_parent() as ColorGate
@@ -78,13 +81,17 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			player.velocity = rotatingVector
 			
 			# Sættes kun på computeren for den, der har brugt portalen
-			portal.pairedPortal.used = true
-			portal.used = true
+			
+			print("Nu sættes portal used til true ALLE VEGNE")
+			if GDSync.is_gdsync_owner(player):
+				portal.pairedPortal.used = true
+				portal.used = true
 
 
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
+	if !GDSync.is_gdsync_owner(player): return
 	print("Ud af portalen")
 	if previousPortal:
 		if body.is_in_group("PortalCollider"):
