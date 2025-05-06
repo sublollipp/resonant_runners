@@ -5,10 +5,8 @@ const VERSION : String = "1.0.0" # For online-funktionalitet
 
 var gameover : bool = false
 
-func _init() -> void:
-	GDSync.client_left.connect(death)
-
 func _ready() -> void:
+	GDSync.client_left.connect(death)
 	var player1 : Player = preload("res://Scenes/player.tscn").instantiate()
 	GDSync.expose_func(Callable(self, "savescore"))
 	player1.position = Vector2(40, -48)

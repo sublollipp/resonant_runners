@@ -9,10 +9,6 @@ class_name Player extends CharacterBody2D
 
 @onready var start_collision_shape_height = collision_shape_2d.shape.size.y
 
-
-
-
-
 var color = "Cyan"
 
 const SPEED : float = 100

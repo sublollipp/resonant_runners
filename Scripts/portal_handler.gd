@@ -82,8 +82,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			
 			# Sættes kun på computeren for den, der har brugt portalen
 			
-			print("Nu sættes portal used til true ALLE VEGNE")
 			if GDSync.is_gdsync_owner(player):
+				print("Nu kan du ikke bruge portalen!!!!")
 				portal.pairedPortal.used = true
 				portal.used = true
 
