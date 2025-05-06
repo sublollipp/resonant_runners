@@ -33,6 +33,8 @@ func add_segment():
 		totalWidth+=newInstance.width + distBetween
 		newInstance.modulate = Color(0.5, 0.5, 0.5, 1)
 	print("Der er ", get_child_count(), " bygninger")
+	print("Den længst til venstre er ved ", get_child(0).position.x)
+	print("Den længst til højre er ved ", get_child(get_child_count() - 1))
 	
 		
 func on_timer(): #ineffektiv code burde lave et signal
