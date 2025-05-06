@@ -8,7 +8,7 @@ func _ready() -> void:
 	htnode.name = "Fetcher"
 	add_child(htnode)
 	httpnode = get_node("Fetcher")
-	getHighScores(10)
+	getHighScores(30)
 
 func getHighScores(amount : int) -> void:
 	httpnode.request_completed.connect(Callable(self, "_on_request_completed"))
