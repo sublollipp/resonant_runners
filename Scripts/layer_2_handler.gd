@@ -40,10 +40,11 @@ func add_segment():
 	
 		
 func on_timer(): #ineffektiv code burde lave et signal
-	if cam_controller.position.x*8 > totalWidth - 10000 && get_child_count() < 30:
-		add_segment()
+	pass
+#	if cam_controller.position.x*8 > totalWidth - 10000 && get_child_count() < 30:
+#		add_segment()
 	
 
-func _ready():
-	load_segments()
-	on_timer()
+#func _ready():
+#	load_segments()
+#	on_timer()

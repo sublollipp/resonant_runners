@@ -38,11 +38,12 @@ func add_segment():
 			get_child(0).queue_free()
 		
 func on_timer():
-	if %LeftLimit.position.x - 132 * 0.8 < get_child(0).global_position.x:
-		add_segment()
+	pass
+	#if %LeftLimit.position.x - 132 * 0.8 < get_child(0).global_position.x:
+		#add_segment()
 	
-func _ready():
-	add_segment()
-	add_segment()
-	load_segments()
-	on_timer()
+#func _ready():
+	#add_segment()
+	#add_segment()
+	#load_segments()
+	#on_timer()
