@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c48p75ecp8kdu"]
+[gd_scene load_steps=3 format=3 uid="uid://c48p75ecp8kdu"]
 
 [ext_resource type="Script" uid="uid://dh03iuodr1m3q" path="res://Scripts/leadeboard_score.gd" id="1_lbfv2"]
+[ext_resource type="FontFile" uid="uid://3e2nchtdogv" path="res://Assets/Fonts/PixelOperator8.ttf" id="2_uwwps"]
 
 [node name="LeadeboardScore" type="HBoxContainer"]
 anchors_preset = 15
@@ -15,6 +16,7 @@ script = ExtResource("1_lbfv2")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_uwwps")
 text = "Lobby"
 vertical_alignment = 1
 
@@ -22,6 +24,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_uwwps")
 text = "Player 1"
 vertical_alignment = 1
 
@@ -29,6 +32,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_uwwps")
 text = "Player 2"
 vertical_alignment = 1
 
@@ -36,6 +40,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_uwwps")
 text = "Score"
 vertical_alignment = 1
 
@@ -43,5 +48,6 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_uwwps")
 text = "Date"
 vertical_alignment = 1

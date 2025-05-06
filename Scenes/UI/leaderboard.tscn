@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpl5svlvesvgk"]
+[gd_scene load_steps=8 format=3 uid="uid://dpl5svlvesvgk"]
 
 [ext_resource type="Script" uid="uid://dlfwoxxsctu6d" path="res://Scripts/leaderboard.gd" id="1_7f0wt"]
+[ext_resource type="Texture2D" uid="uid://chs7bqnkftfqf" path="res://Assets/RRUiBackground.png" id="2_trr20"]
+[ext_resource type="Theme" uid="uid://d2cj50r0jvmm1" path="res://NormalButton.tres" id="2_ujo2p"]
+[ext_resource type="Texture2D" uid="uid://cwi1e2ogb5yeo" path="res://Assets/RRUiStor.png" id="3_bl5mr"]
+[ext_resource type="FontFile" uid="uid://3e2nchtdogv" path="res://Assets/Fonts/PixelOperator8.ttf" id="4_bl5mr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bl5mr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ajj7"]
 
 [node name="Leaderboard" type="VBoxContainer"]
 anchors_preset = 15
@@ -10,52 +18,113 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7f0wt")
 
+[node name="RrUiBackground" type="Sprite2D" parent="."]
+position = Vector2(574, 322)
+scale = Vector2(2, 2)
+texture = ExtResource("2_trr20")
+
+[node name="RrUiStor" type="Sprite2D" parent="RrUiBackground"]
+position = Vector2(2, 4)
+texture = ExtResource("3_bl5mr")
+
+[node name="HSeparator4" type="HSeparator" parent="."]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_bl5mr")
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_bl5mr")
 text = "Leaderboard - High Scores"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="."]
 layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_7ajj7")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 
 [node name="LobbyLabel" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_bl5mr")
 text = "Lobby Name"
 clip_text = true
 
 [node name="Player1Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_bl5mr")
 text = "Player 1"
 
 [node name="Player2Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_bl5mr")
 text = "Player 2"
 
 [node name="ScoreLabel" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_bl5mr")
 text = "Score"
 
 [node name="DateLabel" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_bl5mr")
 text = "Date"
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
 
 [node name="HSeparator2" type="HSeparator" parent="."]
 layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_7ajj7")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ScoreList" type="VBoxContainer" parent="ScrollContainer"]
+[node name="Control2" type="Control" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScoreList" type="VBoxContainer" parent="HBoxContainer2/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Button" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+theme = ExtResource("2_ujo2p")
+text = "Return"
+
+[node name="HSeparator3" type="HSeparator" parent="."]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_7ajj7")
+
+[connection signal="button_up" from="ButtonContainer/Button" to="." method="_on_button_button_up"]

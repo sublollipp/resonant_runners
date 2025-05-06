@@ -60,6 +60,12 @@ mouse_default_cursor_shape = 2
 theme = ExtResource("5_6kmvo")
 text = "Create lobby"
 
+[node name="Leaderboard" type="Button" parent="LobbyBrowser/VBoxContainer/CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+theme = ExtResource("5_6kmvo")
+text = "Leaderboard"
+
 [node name="Back" type="Button" parent="LobbyBrowser/VBoxContainer/CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 75)
 layout_mode = 2
@@ -283,6 +289,7 @@ text = "BACK"
 [connection signal="join_pressed" from="LobbyBrowser/VBoxContainer/LobbyBrowser" to="." method="_on_lobby_browser_join_pressed"]
 [connection signal="pressed" from="LobbyBrowser/VBoxContainer/CenterContainer/HBoxContainer/Join Manual" to="." method="_on_join_manual_pressed"]
 [connection signal="pressed" from="LobbyBrowser/VBoxContainer/CenterContainer/HBoxContainer/CreateLobby" to="." method="_on_create_lobby_pressed"]
+[connection signal="button_up" from="LobbyBrowser/VBoxContainer/CenterContainer/HBoxContainer/Leaderboard" to="LobbyBrowser/VBoxContainer/LobbyBrowser" method="_on_leaderboard_button_up"]
 [connection signal="pressed" from="LobbyBrowser/VBoxContainer/CenterContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="LobbyCreator/VBoxContainer/HBoxContainer/Create" to="LobbyCreator" method="_on_create_pressed"]
 [connection signal="pressed" from="LobbyCreator/VBoxContainer/HBoxContainer/Back" to="LobbyCreator" method="_on_back_pressed"]

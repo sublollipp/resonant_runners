@@ -46,3 +46,7 @@ func lobbies_received(lobbies : Array):
 
 func lobby_join_pressed(lobby_name : String, has_password : bool):
 	join_pressed.emit(lobby_name, has_password)
+
+
+func _on_leaderboard_button_up():
+	get_tree().change_scene_to_file("res://Scenes/UI/leaderboard.tscn")

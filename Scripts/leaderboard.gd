@@ -39,3 +39,7 @@ func _on_request_completed(result, response_code, headers, body : PackedByteArra
 			%ScoreList.add_child(tempscene)
 			
 	print(json)
+
+
+func _on_button_button_up():
+	get_tree().change_scene_to_file("res://Scenes/UI/lobby_browsing_menu.tscn")
