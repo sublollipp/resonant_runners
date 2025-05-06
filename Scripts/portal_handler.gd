@@ -13,7 +13,6 @@ var previousPortal : ColorGate = null
 
 @onready var portalArea : Area2D = $"../PortalArea"
 
-
 func _ready():
 	if player.color == "Cyan":
 		portalArea.set_collision_mask_value(7, true)

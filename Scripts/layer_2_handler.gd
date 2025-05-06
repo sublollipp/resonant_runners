@@ -36,10 +36,10 @@ func add_segment():
 	
 		
 func on_timer(): #ineffektiv code burde lave et signal
-	if cam_controller.position.x*8 > totalWidth - 10000:
+	if cam_controller.position.x*8 > totalWidth - 10000 && get_child_count() < 40:
 		add_segment()
-	for currentSegment in get_children():
-		if cam_controller.position.x > currentSegment.position.x + currentSegment.width + 300:
+	for currentSegment : Node2D in get_children():
+		if cam_controller.global_position.x * get_parent().motion_scale.x > currentSegment.global_position.x + currentSegment.width + 100:
 			currentSegment.queue_free()
 	
 

@@ -23,22 +23,23 @@ func load_segments():
 			segmentsList.append(load("res://Scenes/BackgroundBuildings/"+file))
 
 func add_segment():
-	rng.randomize()
-	var i = rng.randi_range(0,file_count-1)
-	var newInstance = segmentsList.get(i).instantiate()
-	add_child(newInstance)
-	
-	var distBetween = rng.randi_range(100,700)
-	newInstance.position.x = totalWidth + distBetween
-	newInstance.position.y = 600
-	totalWidth+=newInstance.width + distBetween
-	newInstance.modulate = Color(0.8, 0.8, 0.8, 1)
+	for q in range(5):
+		rng.randomize()
+		var i = rng.randi_range(0,file_count-1)
+		var newInstance = segmentsList.get(i).instantiate()
+		add_child(newInstance)
+		
+		var distBetween = rng.randi_range(100,700)
+		newInstance.position.x = totalWidth + distBetween
+		newInstance.position.y = 600
+		totalWidth+=newInstance.width + distBetween
+		newInstance.modulate = Color(0.8, 0.8, 0.8, 1)
 		
 func on_timer():
 	if cam_controller.position.x*8 > totalWidth - 10000:
 		add_segment()
 	for currentSegment in get_children():
-		if cam_controller.position.x > currentSegment.position.x + currentSegment.width + 300:
+		if cam_controller.global_position.x * get_parent().motion_scale.x > currentSegment.global_position.x + currentSegment.width + 100:
 			currentSegment.queue_free()
 	
 func _ready():
