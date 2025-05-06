@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://jbojt6tq7rjv"]
 
-[ext_resource type="PackedScene" uid="uid://dvwd0fq5m3tuv" path="res://Scenes/Segment.tscn" id="1_rcbh0"]
+[ext_resource type="PackedScene" uid="uid://cjevx4rla3his" path="res://Scenes/Segment.tscn" id="1_rcbh0"]
 [ext_resource type="PackedScene" uid="uid://cnr48rwddailu" path="res://Scenes/color_gate.tscn" id="2_sk0o3"]
 [ext_resource type="PackedScene" uid="uid://hm2d03yof7a7" path="res://Scenes/Button.tscn" id="3_0525y"]
 [ext_resource type="PackedScene" uid="uid://dal1ialdl2806" path="res://Scenes/door.tscn" id="4_bco66"]
@@ -12,17 +12,16 @@ tile_map_data = PackedByteArray("AAAAAAIAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAA
 
 [node name="ColorGate" parent="." index="1" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_sk0o3")]
 position = Vector2(114, -36)
-points = PackedVector2Array(0, -10, 0, 36)
+points = PackedVector2Array(0, -10, 0.1, 36)
 default_color = Color(0, 1, 1, 1)
-flipExitPortal = false
 color = "Cyan"
 pairedPortal = NodePath("../ColorGate2")
 
 [node name="ColorGate2" parent="." index="2" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_sk0o3")]
 position = Vector2(318, -37)
-points = PackedVector2Array(0, -10, 0, 36)
+points = PackedVector2Array(0, -10, 0.1, 36)
 default_color = Color(0, 1, 1, 1)
-flipExitPortal = false
+flipExitPortal = true
 color = "Cyan"
 pairedPortal = NodePath("../ColorGate")
 
