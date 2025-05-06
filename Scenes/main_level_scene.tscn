@@ -90,6 +90,7 @@ position = Vector2(124, -64)
 zoom = Vector2(2, 2)
 
 [node name="LeftLimit" type="Area2D" parent="CamController"]
+unique_name_in_owner = true
 position = Vector2(-62, 0)
 collision_layer = 16
 

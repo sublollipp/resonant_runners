@@ -32,6 +32,8 @@ func add_segment():
 		newInstance.position.y += 800
 		totalWidth+=newInstance.width + distBetween
 		newInstance.modulate = Color(0.5, 0.5, 0.5, 1)
+		if get_child_count() > 10:
+			get_child(0).queue_free()
 	print("Der er ", get_child_count(), " bygninger")
 	print("Den længst til venstre er ved ", get_child(0).global_position.x)
 	print("Den længst til højre er ved ", get_child(get_child_count() - 1).global_position.x)
@@ -40,9 +42,6 @@ func add_segment():
 func on_timer(): #ineffektiv code burde lave et signal
 	if cam_controller.position.x*8 > totalWidth - 10000 && get_child_count() < 30:
 		add_segment()
-	for currentSegment : Node2D in get_children():
-		if cam_controller.global_position.x * get_parent().motion_scale.x > currentSegment.global_position.x + currentSegment.width + 300:
-			currentSegment.queue_free()
 	
 
 func _ready():
