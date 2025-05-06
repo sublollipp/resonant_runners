@@ -109,22 +109,6 @@ func _ready():
 
 func _process(delta):
 	currentTime = Time.get_ticks_msec()/1000 - startTime
-	if Gamespeed.speed <= 100:
-		speedRamping()
-	
-	var diff = dificulty()
-	
-	if GDSync.is_host():
-		if cam_controller.position.x > totalWidth - 1000:
-			match diff:
-				"easy":
-					segmentAdd(easySegments,easyRecentSegments,easyFile_count,"easy")
-				"medium":
-					segmentAdd(mediumSegments,mediumRecentSegments,mediumFile_count,"medium")
-				"hard":
-					segmentAdd(hardSegments,hardRecentSegments,hardFile_count,"hard")
-			
-
 
 
 
@@ -146,16 +130,30 @@ func dificulty():
 				return "hard"
 	else:
 			return "hard"
-	
-	
+
+
 func speedRamping():
-	if totalUsedTime+4 < currentTime:
-		if Gamespeed.speed > 1: #døds check
-			Gamespeed.speed += 1
-			totalUsedTime = currentTime
+	if Gamespeed.speed > 1: #døds check
+		Gamespeed.speed += 1
+
 
 
 func _on_timer_timeout():
+	if Gamespeed.speed <= 100:
+		speedRamping()
+	
 	if GDSync.is_host():
 		GDSync.call_func(remove_segment)
 		remove_segment()
+		
+		var diff = dificulty()
+		if cam_controller.position.x > totalWidth - 1000:
+			match diff:
+				"easy":
+					segmentAdd(easySegments,easyRecentSegments,easyFile_count,"easy")
+				"medium":
+					segmentAdd(mediumSegments,mediumRecentSegments,mediumFile_count,"medium")
+				"hard":
+					segmentAdd(hardSegments,hardRecentSegments,hardFile_count,"hard")
+
+		
