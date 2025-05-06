@@ -21,6 +21,8 @@ func _ready() -> void:
 	colShape.shape = shape
 	get_child(0).add_child(colShape)
 	
+	$StaticBody2D.set_collision_layer_value(8, false)
+	
 	if color == "Orange":
 		$StaticBody2D.set_collision_layer_value(6, true)
 	if color == "Cyan":
