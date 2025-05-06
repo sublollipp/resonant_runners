@@ -22,7 +22,7 @@ pairedPortal = NodePath("../ColorGate2")
 position = Vector2(162, -288)
 points = PackedVector2Array(36, 32, 0, 32.1)
 default_color = Color(0, 1, 1, 1)
-onetimeuse = false
+onetimeuse = true
 color = "Cyan"
 pairedPortal = NodePath("../ColorGate")
 

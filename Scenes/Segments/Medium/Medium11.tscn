@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=4 uid="uid://fpeabjnidyjr"]
 
-[ext_resource type="PackedScene" uid="uid://dvwd0fq5m3tuv" path="res://Scenes/Segment.tscn" id="1_5xy1i"]
+[ext_resource type="PackedScene" uid="uid://cjevx4rla3his" path="res://Scenes/Segment.tscn" id="1_5xy1i"]
 [ext_resource type="PackedScene" uid="uid://hm2d03yof7a7" path="res://Scenes/Button.tscn" id="2_tvee2"]
 [ext_resource type="PackedScene" uid="uid://vynh2nd3tsi2" path="res://Scenes/laserbridge.tscn" id="3_lmq56"]
 
@@ -66,10 +66,10 @@ position = Vector2(824, -136)
 points = PackedVector2Array(0, 0, 128, 0)
 
 [connection signal="buttonPressed" from="Button" to="Laserbridge" method="makeBridge"]
-[connection signal="buttonPressed" from="Button2" to="Laserbridge" method="makeBridge"]
-[connection signal="buttonPressed" from="Button3" to="Laserbridge" method="makeBridge"]
-[connection signal="buttonPressed" from="Button4" to="Laserbridge" method="makeBridge"]
-[connection signal="buttonPressed" from="Button5" to="Laserbridge" method="makeBridge"]
-[connection signal="buttonPressed" from="Button6" to="Laserbridge" method="makeBridge"]
-[connection signal="buttonPressed" from="Button7" to="Laserbridge" method="makeBridge"]
-[connection signal="buttonPressed" from="Button8" to="Laserbridge" method="makeBridge"]
+[connection signal="buttonPressed" from="Button2" to="Laserbridge2" method="makeBridge"]
+[connection signal="buttonPressed" from="Button3" to="Laserbridge3" method="makeBridge"]
+[connection signal="buttonPressed" from="Button4" to="Laserbridge4" method="makeBridge"]
+[connection signal="buttonPressed" from="Button5" to="Laserbridge5" method="makeBridge"]
+[connection signal="buttonPressed" from="Button6" to="Laserbridge6" method="makeBridge"]
+[connection signal="buttonPressed" from="Button7" to="Laserbridge7" method="makeBridge"]
+[connection signal="buttonPressed" from="Button8" to="Laserbridge8" method="makeBridge"]

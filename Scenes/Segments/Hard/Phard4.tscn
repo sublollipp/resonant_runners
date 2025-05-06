@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://cyr71dtqnj1ka"]
 
-[ext_resource type="PackedScene" uid="uid://dvwd0fq5m3tuv" path="res://Scenes/Segment.tscn" id="1_a85ot"]
+[ext_resource type="PackedScene" uid="uid://cjevx4rla3his" path="res://Scenes/Segment.tscn" id="1_a85ot"]
 [ext_resource type="PackedScene" uid="uid://cnr48rwddailu" path="res://Scenes/color_gate.tscn" id="2_frrxy"]
 [ext_resource type="PackedScene" uid="uid://hm2d03yof7a7" path="res://Scenes/Button.tscn" id="3_w5opt"]
 [ext_resource type="PackedScene" uid="uid://dal1ialdl2806" path="res://Scenes/door.tscn" id="4_xlol0"]
@@ -14,42 +14,48 @@ tile_map_data = PackedByteArray("AAAAAAEAAAAAAAQAAAAAAAIAAAAAAAQAAAAAAAAAAAAAAAM
 [node name="ColorGate" parent="." index="1" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_frrxy")]
 position = Vector2(118, 1)
 rotation = 1.57242
-points = PackedVector2Array(0, -9, 0, 37)
+points = PackedVector2Array(0, -9, 0.1, 37)
 default_color = Color(0, 1, 1, 1)
+onetimeuse = true
 color = "Cyan"
 pairedPortal = NodePath("../ColorGate2")
 
 [node name="ColorGate2" parent="." index="2" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_frrxy")]
 position = Vector2(214, -126)
 rotation = 1.57548
-points = PackedVector2Array(0, -9, 0, 37)
+points = PackedVector2Array(0, -9, 0.1, 37)
 default_color = Color(0, 1, 1, 1)
+onetimeuse = false
 color = "Cyan"
 pairedPortal = NodePath("../ColorGate")
 
 [node name="ColorGate3" parent="." index="3" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_frrxy")]
 position = Vector2(129, -38)
-points = PackedVector2Array(0, -9, 0, 37)
+points = PackedVector2Array(0, -9, 0.1, 37)
 default_color = Color(1, 0.647059, 0, 1)
+onetimeuse = false
 color = "Orange"
 pairedPortal = NodePath("../ColorGate4")
 
 [node name="ColorGate4" parent="." index="4" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_frrxy")]
 position = Vector2(223, -166)
-points = PackedVector2Array(0, -9, 0, 37)
+points = PackedVector2Array(0, -9, 0.1, 37)
 default_color = Color(1, 0.647059, 0, 1)
+onetimeuse = false
 color = "Orange"
 pairedPortal = NodePath("../ColorGate3")
 
-[node name="Button" parent="." index="5" instance=ExtResource("3_w5opt")]
+[node name="Button" parent="." index="5" node_paths=PackedStringArray("connectedNodes") instance=ExtResource("3_w5opt")]
 position = Vector2(240, -8)
+connectedNodes = [NodePath("../Door")]
 
 [node name="Door" parent="." index="6" instance=ExtResource("4_xlol0")]
 position = Vector2(272, -161)
 scale = Vector2(0.357095, 3.2865)
 
-[node name="Button2" parent="." index="7" instance=ExtResource("3_w5opt")]
+[node name="Button2" parent="." index="7" node_paths=PackedStringArray("connectedNodes") instance=ExtResource("3_w5opt")]
 position = Vector2(432, -8)
+connectedNodes = [NodePath("../Laserbridge")]
 
 [node name="Laserbridge" parent="." index="8" instance=ExtResource("5_qdutq")]
 position = Vector2(264, 8)
