@@ -37,7 +37,9 @@ func add_segment():
 	
 	
 func on_timer():
-	if %LeftLimit.position.x - 150 > get_child(0).global_position.x * 0.8:
+	if %LeftLimit.position.x - 150 > get_child(0).global_position.x:
+		print("global: ", get_child(0).global_position.x, " : Pos: ", get_child(0).position.x)
+	
 		get_child(0).queue_free()
 		add_segment()
 	

@@ -113,17 +113,20 @@ func _process(delta):
 
 
 func dificulty():
-	if currentTime < 230:
+	print("tid: ", currentTime)
+	if currentTime < 120:
+		print("easy")
 		return "easy"
-	elif currentTime < 380:
+	elif currentTime < 220:
+		print("medium/medium")
 		rng.randomize()
 		if 1 == rng.randi_range(1,2):
 			return "medium"
 		else:
 			return "easy"
-	elif currentTime < 530:
+	elif currentTime < 320:
 		return "medium"
-	elif currentTime < 680:
+	elif currentTime < 420:
 		if 1 == rng.randi_range(1,2):
 			return "medium"
 		else:
