@@ -36,10 +36,10 @@ func add_segment():
 		newInstance.modulate = Color(0.8, 0.8, 0.8, 1)
 		
 func on_timer():
-	if cam_controller.position.x*8 > totalWidth - 10000:
+	if cam_controller.position.x*8 > totalWidth - 10000 && get_child_count() < 20:
 		add_segment()
 	for currentSegment in get_children():
-		if cam_controller.global_position.x * get_parent().motion_scale.x > currentSegment.global_position.x + currentSegment.width + 100:
+		if cam_controller.global_position.x * get_parent().motion_scale.x > currentSegment.global_position.x + currentSegment.width + 500:
 			currentSegment.queue_free()
 	
 func _ready():
