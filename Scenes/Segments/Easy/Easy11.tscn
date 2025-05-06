@@ -10,11 +10,13 @@ tile_map_data = PackedByteArray("AAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAAAAAAAAAA
 
 [node name="ColorGate" parent="." index="1" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_c83oi")]
 position = Vector2(540, 17)
-points = PackedVector2Array(-137, 18, 2, 18)
+points = PackedVector2Array(-137, 18, 2, 18.1)
+onetimeuse = false
 pairedPortal = NodePath("../ColorGate2")
 
 [node name="ColorGate2" parent="." index="2" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_c83oi")]
 position = Vector2(613, -282)
-points = PackedVector2Array(82, 18, 2, 18)
+points = PackedVector2Array(82, 18, 2, 18.1)
 flipExitPortal = true
+onetimeuse = false
 pairedPortal = NodePath("../ColorGate")

@@ -4,12 +4,14 @@
 [ext_resource type="FontFile" uid="uid://3e2nchtdogv" path="res://Assets/Fonts/PixelOperator8.ttf" id="2_uwwps"]
 
 [node name="LeadeboardScore" type="HBoxContainer"]
+clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 15
 script = ExtResource("1_lbfv2")
 
 [node name="LobbyLabel" type="Label" parent="."]
@@ -19,6 +21,7 @@ size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("2_uwwps")
 text = "Lobby"
 vertical_alignment = 1
+clip_text = true
 
 [node name="Player1Label" type="Label" parent="."]
 layout_mode = 2
@@ -27,6 +30,7 @@ size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("2_uwwps")
 text = "Player 1"
 vertical_alignment = 1
+clip_text = true
 
 [node name="Player2Label" type="Label" parent="."]
 layout_mode = 2
@@ -35,6 +39,7 @@ size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("2_uwwps")
 text = "Player 2"
 vertical_alignment = 1
+clip_text = true
 
 [node name="ScoreLabel" type="Label" parent="."]
 layout_mode = 2
@@ -51,3 +56,4 @@ size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("2_uwwps")
 text = "Date"
 vertical_alignment = 1
+clip_text = true

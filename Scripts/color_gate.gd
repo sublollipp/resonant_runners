@@ -3,13 +3,22 @@
 class_name ColorGate extends Line2D
 
 @export var flipExitPortal : bool = false
-var used : bool = false
+@export var onetimeuse : bool = false
+
+var used : bool = false:
+	set(nv):
+		if (onetimeuse):
+			used = nv
+		else:
+			used = false
 
 var lineColor : Color = Color.WHITE
 var angle : float = 0 # Portalens vinkel med vandret
 var flipOutput : bool = false
 
 func _ready() -> void:
+	if pairedPortal.onetimeuse:
+		onetimeuse = true
 	if (points[0].x == points[1].x):
 		points[1].x += 0.1
 	if (points[0].y == points[1].y):

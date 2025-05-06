@@ -12,15 +12,17 @@ tile_map_data = PackedByteArray("AAAAAAIAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAA
 
 [node name="ColorGate" parent="." index="1" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_qdw5x")]
 position = Vector2(163, -36)
-points = PackedVector2Array(45, 32, -3, 32)
+points = PackedVector2Array(45, 32, -3, 32.1)
 default_color = Color(0, 1, 1, 1)
+onetimeuse = true
 color = "Cyan"
 pairedPortal = NodePath("../ColorGate2")
 
 [node name="ColorGate2" parent="." index="2" node_paths=PackedStringArray("pairedPortal") instance=ExtResource("2_qdw5x")]
 position = Vector2(162, -288)
-points = PackedVector2Array(36, 32, 0, 32)
+points = PackedVector2Array(36, 32, 0, 32.1)
 default_color = Color(0, 1, 1, 1)
+onetimeuse = false
 color = "Cyan"
 pairedPortal = NodePath("../ColorGate")
 

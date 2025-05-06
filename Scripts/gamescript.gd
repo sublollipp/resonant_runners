@@ -48,7 +48,7 @@ func savescore() -> void:
 			ResonantRunners.addScore(lobbyname, player1, player2, int($CamController.position.x / 100))
 	gameover = true
 
-func death():
+func death() -> void:
 	savescore()
 	GDSync.call_func(Callable(self, "savescore"))
 		
