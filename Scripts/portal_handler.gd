@@ -8,7 +8,7 @@ var previousPortal : ColorGate = null
 
 @onready var player : Player = get_parent()
 @onready var camController = player.get_parent()
-@onready var rightLimit = camController.get_child(2)
+@onready var rightLimit = camController.get_node("RightLimit")
 @onready var rightLimitCollision = rightLimit.get_child(0)
 
 @onready var portalArea : Area2D = $"../PortalArea"
@@ -19,7 +19,6 @@ func _ready():
 		portalArea.set_collision_mask_value(7, true)
 	if player.color == "Orange":
 		portalArea.set_collision_mask_value(6, true)
-
 
 func checkIfInPortal() -> void:
 	if not get_parent().get_node("PortalArea").has_overlapping_bodies():
@@ -86,9 +85,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 				print("Nu kan du ikke bruge portalen!!!!")
 				portal.pairedPortal.used = true
 				portal.used = true
-
-
-
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if !GDSync.is_gdsync_owner(player): return

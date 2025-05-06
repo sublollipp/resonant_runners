@@ -15,3 +15,4 @@ res://Scripts/layer_2_handler.gd
 res://Scripts/building_layer_1_handler.gd
 res://Scenes/Button.tscn
 res://Scripts/button.gd
+res://Scripts/color_gate.gd

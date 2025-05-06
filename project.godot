@@ -27,10 +27,6 @@ Gamespeed="*res://Scripts/gamespeed.gd"
 ResonantRunners="*res://Scripts/resonant_runners.gd"
 GDSync="*res://addons/GD-Sync/MultiplayerClient.gd"
 
-[display]
-
-window/stretch/mode="viewport"
-
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/GD-Sync/plugin.cfg")

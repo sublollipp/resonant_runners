@@ -21,16 +21,18 @@ func load_segments():
 			segmentsList.append(load("res://Scenes/BackgroundBuildings/"+file))
 
 func add_segment():
-	rng.randomize()
-	var i = rng.randi_range(0,file_count-1)
-	var newInstance = segmentsList.get(i).instantiate()
-	add_child(newInstance)
+	for q in range(5):
+		rng.randomize()
+		var i = rng.randi_range(0,file_count-1)
+		var newInstance = segmentsList.get(i).instantiate()
+		add_child(newInstance)
 	
-	var distBetween = rng.randi_range(100,700)
-	newInstance.position.x = totalWidth + distBetween
-	newInstance.position.y += 800
-	totalWidth+=newInstance.width + distBetween
-	newInstance.modulate = Color(0.5, 0.5, 0.5, 1)
+		var distBetween = rng.randi_range(100,700)
+		newInstance.position.x = totalWidth + distBetween
+		newInstance.position.y += 800
+		totalWidth+=newInstance.width + distBetween
+		newInstance.modulate = Color(0.5, 0.5, 0.5, 1)
+	print("Der er ", get_child_count(), " bygninger")
 	
 		
 func on_timer(): #ineffektiv code burde lave et signal
