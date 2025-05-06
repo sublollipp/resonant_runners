@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=4 uid="uid://dnhqnymxca7kx"]
 
-[ext_resource type="PackedScene" uid="uid://dvwd0fq5m3tuv" path="res://Scenes/Segment.tscn" id="1_70xrb"]
+[ext_resource type="PackedScene" uid="uid://cjevx4rla3his" path="res://Scenes/Segment.tscn" id="1_70xrb"]
 
 [node name="Segment" instance=ExtResource("1_70xrb")]
 
